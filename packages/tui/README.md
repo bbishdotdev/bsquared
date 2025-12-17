@@ -54,4 +54,3 @@ The TUI consists of:
 - **Input Widget**: A single-line input field at the bottom for user commands
 
 The layout is managed using OpenTUI's flexbox-based layout system.
-

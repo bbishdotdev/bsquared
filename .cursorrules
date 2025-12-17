@@ -1,0 +1,309 @@
+# Cursor Rules
+
+## Convex Deployment
+
+After making changes to Convex schema or functions that require a new deploy, always run:
+`cd apps/app/frontend && bun run convex:dev --once`
+
+This ensures the dev environment has the latest schema changes and function updates.
+
+---
+
+## React/Next.js Code Quality Patterns
+
+### 1. Shared Types (DRY)
+
+Create `types/[domain].ts` files for interfaces used across multiple components. Never duplicate interface definitions.
+
+```
+types/game.ts → Game, Spread, GameStatus
+```
+
+### 2. Constants Extraction
+
+Create `constants/` folder for magic numbers, timing values, and configuration.
+
+```
+constants/timing.ts → REFETCH_INTERVAL_MS, STALE_TIME_MS
+constants/[domain].ts → Domain-specific constants
+```
+
+### 3. Custom Hooks for Derived State
+
+Extract complex derived calculations into reusable hooks with `useMemo` internally.
+
+```
+hooks/useGameStatus.ts → { isLive, isFinal, hasStarted, covering }
+```
+
+### 4. Component Splitting Rule
+
+If a component exceeds ~200 lines or contains multiple sub-components, split into a directory:
+
+```
+components/feature/
+├── FeatureMain.tsx (~100 lines, orchestrates)
+├── SubComponentA.tsx
+├── SubComponentB.tsx
+└── index.ts (re-exports)
+```
+
+### 5. Memoization Strategy
+
+- `useMemo`: Expensive calculations, derived data, data structure transformations
+- `useCallback`: Event handlers passed to child components
+- `React.memo`: Leaf components that receive primitive/stable props
+
+### 5b. useEffect Anti-Patterns (You Might Not Need an Effect)
+
+Effects are for syncing with **external systems** (network, DOM, non-React widgets). Most other uses are wrong.
+
+**❌ DON'T use useEffect for:**
+
+1. **Derived state** - Calculate during render, not in Effect:
+
+```tsx
+// ❌ BAD
+const [fullName, setFullName] = useState("");
+useEffect(() => {
+  setFullName(firstName + " " + lastName);
+}, [firstName, lastName]);
+
+// ✅ GOOD
+const fullName = firstName + " " + lastName;
+```
+
+2. **Expensive calculations** - Use `useMemo`, not Effect + state:
+
+```tsx
+// ❌ BAD
+const [filtered, setFiltered] = useState([]);
+useEffect(() => {
+  setFiltered(items.filter(expensiveFn));
+}, [items]);
+
+// ✅ GOOD
+const filtered = useMemo(() => items.filter(expensiveFn), [items]);
+```
+
+3. **Resetting state on prop change** - Use `key` prop:
+
+```tsx
+// ❌ BAD
+useEffect(() => {
+  setComment("");
+}, [userId]);
+
+// ✅ GOOD - Parent passes key
+<Profile userId={userId} key={userId} />;
+```
+
+4. **User event responses** - Put in event handler:
+
+```tsx
+// ❌ BAD - runs on every render where condition is true
+useEffect(() => {
+  if (product.isInCart) showNotification("Added!");
+}, [product]);
+
+// ✅ GOOD - runs only when user clicks
+function handleBuy() {
+  addToCart(product);
+  showNotification("Added!");
+}
+```
+
+5. **Notifying parent of state changes** - Call in same event:
+
+```tsx
+// ❌ BAD - causes extra render pass
+useEffect(() => {
+  onChange(isOn);
+}, [isOn, onChange]);
+
+// ✅ GOOD - batched in single render
+function handleClick() {
+  setIsOn(!isOn);
+  onChange(!isOn);
+}
+```
+
+6. **Effect chains** - Calculate all state in one event handler:
+
+```tsx
+// ❌ BAD - cascade of Effects triggering each other
+useEffect(() => {
+  if (card?.gold) setGoldCount((c) => c + 1);
+}, [card]);
+useEffect(() => {
+  if (goldCount > 3) setRound((r) => r + 1);
+}, [goldCount]);
+
+// ✅ GOOD - all logic in event handler
+function handlePlaceCard(nextCard) {
+  setCard(nextCard);
+  if (nextCard.gold && goldCount >= 3) {
+    setRound(round + 1);
+    setGoldCount(0);
+  }
+}
+```
+
+**✅ DO use useEffect for:**
+
+- Fetching data (with cleanup for race conditions)
+- Subscribing to external stores (prefer `useSyncExternalStore`)
+- Analytics on component mount
+- Syncing with non-React widgets
+
+### 6. O(1) Lookups with Map
+
+When matching items between two arrays repeatedly, create a Map first:
+
+```tsx
+const itemsByKey = useMemo(() => {
+  const map = new Map();
+  items.forEach((item) => map.set(createKey(item), item));
+  return map;
+}, [items]);
+```
+
+### 7. Modal/Sheet Pattern (Critical)
+
+**Never conditionally render modals.** Always render, control with `open` prop:
+
+```tsx
+// ❌ BAD - Unmounts before exit animation
+{
+  selected && <Modal open={!!selected} onClose={() => setSelected(null)} />;
+}
+
+// ✅ GOOD - Separate isOpen from data
+const [state, setState] = useState({ isOpen: false, data: null });
+<Modal
+  open={state.isOpen}
+  data={state.data}
+  onClose={() => setState((prev) => ({ ...prev, isOpen: false }))}
+/>;
+```
+
+### 8. API Utilities
+
+- Remove all `console.log` in production code
+- Use proper TypeScript interfaces instead of `any`
+- Extract parsing logic into small, pure helper functions
+- Use constants for API configuration
+
+### 9. Error Boundaries
+
+Wrap data-fetching components with ErrorBoundary + domain-specific fallback UI.
+
+### 10. TanStack Query for Client Data
+
+Use for external API calls with proper caching config:
+
+```tsx
+useQuery({
+  queryKey: ["resource", id],
+  queryFn: fetchFn,
+  staleTime: STALE_TIME_MS,
+  gcTime: CACHE_TIME_MS,
+  refetchInterval: REFETCH_INTERVAL_MS,
+});
+```
+
+---
+
+## Established Good Patterns (Continue Doing)
+
+### 11. Data Utility Files with Fallbacks
+
+Create utility files for domain data (like team info) with safe fallbacks for unknown values:
+
+```tsx
+// utils/teamDisplay.ts
+export const NFL_TEAMS: Record<string, TeamInfo> = {
+  /* all teams */
+};
+
+export function getTeamInfo(abbreviation: string): TeamInfo {
+  const team = NFL_TEAMS[abbreviation.toLowerCase()];
+  if (!team) {
+    // Safe fallback for unknown teams
+    return {
+      abbreviation: abbreviation.toUpperCase(),
+      displayName: abbreviation.toUpperCase(),
+      colors: { primary: "#666666", secondary: "#999999" },
+    };
+  }
+  return team;
+}
+```
+
+### 12. Next.js Image Optimization
+
+Always use `next/image` for images with proper sizing:
+
+```tsx
+import Image from "next/image";
+
+<div className="relative w-12 h-12">
+  <Image
+    src={imageUrl}
+    alt={descriptiveAltText}
+    fill
+    className="object-contain"
+  />
+</div>;
+```
+
+### 13. Convex + TanStack Query Separation
+
+- Use **Convex `useQuery`** for data stored in your database (spreads, picks, standings)
+- Use **TanStack Query** for external API data (ESPN live scores)
+- This keeps ephemeral/live data separate from persistent data
+
+### 14. Accessibility Patterns
+
+Always include proper accessibility attributes:
+
+```tsx
+<button
+  type="button"
+  aria-label={`View ${awayTeam} vs ${homeTeam} game details`}
+  onClick={onClick}
+>
+  {/* content */}
+</button>
+```
+
+### 15. Tailwind Consistency
+
+- Use consistent spacing scale (`gap-2`, `gap-3`, `gap-4`)
+- Use semantic color names (`text-muted-foreground`, `bg-background`)
+- Prefer Tailwind classes over inline styles
+- Use `tabular-nums` for numeric displays (scores, stats)
+
+### 16. Loading & Empty States
+
+Always handle loading and empty states explicitly:
+
+```tsx
+if (data === undefined) {
+  return <Skeleton />; // Loading
+}
+
+if (data.length === 0) {
+  return <EmptyState message="No data available" />;
+}
+
+return <ActualContent data={data} />;
+```
+
+### 17. Component Composition Pattern
+
+Structure components in layers:
+
+- **Page** (`page.tsx`) - Data fetching, layout orchestration
+- **Container** (`SpreadsDisplay`) - Business logic, state management
+- **Presentational** (`MatchupCard`, `TeamDisplay`) - Pure UI, receives props

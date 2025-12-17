@@ -76,10 +76,10 @@ export async function createTUI(
       inputWidget.on(InputRenderableEvents.ENTER, () => {
         if (inputWidget) {
           const input = (inputWidget as any)._value || "";
-          
+
           // Clear the input
           (inputWidget as any)._value = "";
-          
+
           // Call all registered callbacks
           inputCallbacks.forEach((callback) => callback(input));
         }
@@ -91,7 +91,7 @@ export async function createTUI(
 
       // Add root box to renderer's root
       renderer.root.add(rootBox);
-      
+
       // Focus the input widget
       if (inputWidget) {
         inputWidget.focus();
@@ -108,4 +108,3 @@ export async function createTUI(
 
   return instance;
 }
-

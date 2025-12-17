@@ -61,9 +61,9 @@ Build a **shared terminal experience** where the same TUI code runs on both SSH 
 
 ### Session Log
 
-| Date       | Duration | Tasks Completed | Notes                                             |
-| ---------- | -------- | --------------- | ------------------------------------------------- |
-| 2025-10-11 | 1.5h     | Tasks 001-002   | Completed monorepo init and shared TUI package    |
+| Date       | Duration | Tasks Completed | Notes                                          |
+| ---------- | -------- | --------------- | ---------------------------------------------- |
+| 2025-10-11 | 1.5h     | Tasks 001-002   | Completed monorepo init and shared TUI package |
 
 ## Success Criteria
 

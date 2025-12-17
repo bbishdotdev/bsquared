@@ -1,0 +1,31 @@
+{
+  "social": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/bburg",
+      "icon": "github"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/brendenburg",
+      "icon": "linkedin"
+    },
+    {
+      "name": "X",
+      "url": "https://x.com/brendenburg",
+      "icon": "x"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:hello@bsquared.dev",
+      "icon": "mail"
+    }
+  ],
+  "navbar": [
+    { "name": "About", "href": "#about" },
+    { "name": "Work", "href": "#work" },
+    { "name": "Projects", "href": "#projects" },
+    { "name": "Skills", "href": "#skills" },
+    { "name": "Contact", "href": "#contact" }
+  ]
+}

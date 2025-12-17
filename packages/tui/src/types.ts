@@ -29,4 +29,3 @@ export interface TUIInstance {
 export interface TUIOptions {
   prompt?: string;
 }
-

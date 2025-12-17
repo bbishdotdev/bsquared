@@ -1,0 +1,41 @@
+{
+  "work": [
+    {
+      "company": "Morgan Stanley",
+      "title": "Engineering Lead",
+      "logoUrl": "/logos/morgan-stanley.svg",
+      "start": "2020",
+      "end": "Present",
+      "description": "Lead 5 greenfield client-facing planning apps across E*TRADE and MS platforms, managing 12 engineers across 3 global squads. Earned the Tesla Award for Innovation. Launched internal AI bootcamp teaching LLMs, Copilot, and AI-assisted workflows.",
+      "href": "https://www.morganstanley.com"
+    },
+    {
+      "company": "Forwheel",
+      "title": "Founder",
+      "logoUrl": "/logos/forwheel.svg",
+      "start": "2021",
+      "end": "Present",
+      "description": "Built a platform serving 150+ food trucks, powered by AI vendor advisor Garnish using OpenAI + RAG for intelligent recommendations and insights.",
+      "href": "https://forwheel.com"
+    },
+    {
+      "company": "Rbitrage Capital",
+      "title": "Co-Founder",
+      "logoUrl": "/logos/rbitrage.svg",
+      "start": "2017",
+      "end": "2020",
+      "description": "Built and scaled crypto trading algorithms, growing AUM to $750K. Developed quantitative strategies and automated trading systems.",
+      "href": "#"
+    }
+  ],
+  "education": [
+    {
+      "school": "University",
+      "degree": "Bachelor of Science in Computer Science",
+      "logoUrl": "/logos/university.svg",
+      "start": "2010",
+      "end": "2014",
+      "href": "#"
+    }
+  ]
+}

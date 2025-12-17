@@ -1,0 +1,40 @@
+{
+  "categories": [
+    {
+      "name": "Languages",
+      "skills": ["TypeScript", "JavaScript", "Python", "Go", "Rust", "SQL"]
+    },
+    {
+      "name": "Frontend",
+      "skills": ["React", "Next.js", "Vue", "Tailwind CSS", "Framer Motion"]
+    },
+    {
+      "name": "Backend",
+      "skills": ["Node.js", "Express", "FastAPI", "GraphQL", "REST APIs"]
+    },
+    {
+      "name": "AI/ML",
+      "skills": ["OpenAI", "LangChain", "RAG", "Vector DBs", "Embeddings"]
+    },
+    {
+      "name": "Infrastructure",
+      "skills": ["AWS", "Vercel", "Docker", "Kubernetes", "PostgreSQL", "Redis"]
+    },
+    {
+      "name": "Tools",
+      "skills": ["Git", "GitHub Actions", "Terraform", "Datadog", "Supabase"]
+    }
+  ],
+  "featured": [
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Python",
+    "OpenAI",
+    "PostgreSQL",
+    "AWS",
+    "Docker",
+    "Tailwind CSS"
+  ]
+}

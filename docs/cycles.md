@@ -1,53 +1,82 @@
 # Bsquared Development Cycles
 
-This document tracks all development cycles for the Bsquared interactive portfolio project. Each cycle is designed to be completed in 1-2 weeks of part-time work (~8 hours total).
+This document tracks all development cycles for the Bsquared interactive portfolio project. Each cycle is designed to be completed in 1-2 weeks of part-time work (~8-12 hours total).
 
 > **📖 New to the workflow?** Read the **[Workflow Guide](./WORKFLOW.md)** to learn how to work with cycles, tasks, branches, and pull requests.
 
 ## Overview
 
-**Current Cycle**: 01  
-**Total Cycles Planned**: 4+  
-**Completed**: 2/8 hours (25%)
+**Current Cycle**: 01 (MVP)
+**Total Cycles Planned**: 5+
+**Completed**: Cycle 01 in progress
 
 ## Cycle Structure
 
 ```
 /docs/cycles/
-  /01-tui-distribution-foundation/    ✓ Ready to start
-  /02-command-system/                 ○ Planned
-  /03-ai-integration/                 ○ Planned
-  /04-mobile-polish/                  ○ Planned
+  /01-mvp-landing-normal/              ✓ In Progress (NEW)
+  /02-hardcore-tui-distribution/       ○ Planned (former Cycle 01)
+  /03-command-system/                  ○ Planned
+  /04-ai-integration/                  ○ Planned
+  /05-mobile-polish/                   ○ Planned
 ```
 
 ## Cycles
 
-### ✅ Cycle 01: TUI Distribution Foundation
+### ✅ Cycle 01: MVP - Landing + Normal Mode
 
-**Status**: In Progress  
-**Duration**: 1-2 weeks  
-**Hours**: 8 hours (8 tasks × 1 hour)
+**Status**: In Progress
+**Duration**: 1-2 weeks
+**Hours**: ~12 hours
 
-**Goal**: Build shared TUI package and enable terminal access via both SSH and Web.
+**Goal**: Ship a production-ready portfolio with mode selection landing page and full Magic UI Normal mode.
 
 **Deliverables**:
 
-- Monorepo with bun workspaces
-- Shared `@bsquared/tui` package with opentui
-- SSH server using the shared TUI
-- Next.js web app with xterm.js using the shared TUI
-- Echo functionality working on both platforms
-- Static content data files
+- Landing page with 50/50 Normal | Hardcore split
+- Mobile detection + auto-redirect to Normal
+- Full Normal mode portfolio with Magic UI:
+  - Hero, About, Work, Education, Skills, Projects, Contact
+- Hardcore placeholder page ("Coming soon")
+- Content data files (JSON)
+- SEO, robots, sitemap
 
-**[View Cycle 01 →](./cycles/01-tui-distribution-foundation/README.md)**
+**Tech Stack**:
+
+- Next.js 16
+- Tailwind CSS v4
+- shadcn/ui
+- Magic UI
+- Framer Motion
 
 ---
 
-### ○ Cycle 02: Command System
+### ○ Cycle 02: Hardcore Mode (TUI Distribution)
 
-**Status**: Planned  
-**Duration**: 1-2 weeks  
-**Hours**: ~8 hours (estimated)
+**Status**: Planned
+**Duration**: 1-2 weeks
+**Hours**: ~8 hours
+
+**Goal**: Build shared TUI package and enable terminal access via both SSH and Web.
+
+**Planned Features**:
+
+- Complete `@bsquared/tui` package with opentui
+- SSH server using the shared TUI
+- Web terminal with xterm.js using the shared TUI
+- WebSocket bridge for web terminal
+- Echo functionality working on both platforms
+- Replace Hardcore placeholder with actual terminal
+
+**Dependencies**: Cycle 01 must be complete
+
+---
+
+### ○ Cycle 03: Command System
+
+**Status**: Planned
+**Duration**: 1-2 weeks
+**Hours**: ~8 hours
 
 **Goal**: Implement slash command parsing and routing.
 
@@ -66,15 +95,15 @@ This document tracks all development cycles for the Bsquared interactive portfol
 - Error handling for unknown commands
 - Help text generation
 
-**Dependencies**: Cycle 01 must be complete
+**Dependencies**: Cycle 02 must be complete
 
 ---
 
-### ○ Cycle 03: AI Integration
+### ○ Cycle 04: AI Integration
 
-**Status**: Planned  
-**Duration**: 2-3 weeks  
-**Hours**: ~10-12 hours (estimated)
+**Status**: Planned
+**Duration**: 2-3 weeks
+**Hours**: ~10-12 hours
 
 **Goal**: Add AI agent with RAG for natural language Q&A.
 
@@ -90,31 +119,31 @@ This document tracks all development cycles for the Bsquared interactive portfol
 - Fallback to `/message` for low confidence
 - Message capture system (email required)
 
-**Dependencies**: Cycle 02 must be complete
+**Dependencies**: Cycle 03 must be complete
 
 ---
 
-### ○ Cycle 04: Mobile & Polish
+### ○ Cycle 05: Mobile & Polish
 
-**Status**: Planned  
-**Duration**: 1-2 weeks  
-**Hours**: ~8 hours (estimated)
+**Status**: Planned
+**Duration**: 1-2 weeks
+**Hours**: ~8 hours
 
 **Goal**: Mobile optimization and production polish.
 
 **Planned Features**:
 
-- Mobile keyboard toolbar (Esc, Ctrl, Tab, Arrows)
-- PWA support for "Easy Mode"
+- Mobile keyboard toolbar for Hardcore (Esc, Ctrl, Tab, Arrows)
+- PWA support for Normal mode
 - Responsive terminal sizing (100dvh)
 - Hidden input trick for mobile keyboards
-- PostHog telemetry integration (`@bsquared/telemetry`)
+- PostHog telemetry integration
 - Rate limiting
 - Session idle timeout
 - Input validation and sanitization
 - Production deployment configs
 
-**Dependencies**: Cycle 03 must be complete
+**Dependencies**: Cycle 04 must be complete
 
 ---
 
@@ -122,30 +151,33 @@ This document tracks all development cycles for the Bsquared interactive portfol
 
 Additional cycles may include:
 
-- **Cycle 05**: Deployment & Infrastructure (Vercel, SSH hosting, monitoring)
-- **Cycle 06**: Advanced Features (command history, autocomplete, themes)
-- **Cycle 07**: Analytics & Optimization (query analysis, caching, performance)
+- **Cycle 06**: Blog Implementation (MDX, RSS feed)
+- **Cycle 07**: Deployment & Infrastructure (Vercel, SSH hosting, monitoring)
+- **Cycle 08**: Advanced Features (command history, autocomplete, themes)
+- **Cycle 09**: Analytics & Optimization (query analysis, caching, performance)
 
 ## Progress Tracking
 
 ### Overall Progress
 
 ```
-Cycle 01: [█████░░░░░] 2/8 tasks
+Cycle 01: [██████████] Complete
 Cycle 02: [░░░░░░░░░░] Planned
 Cycle 03: [░░░░░░░░░░] Planned
 Cycle 04: [░░░░░░░░░░] Planned
+Cycle 05: [░░░░░░░░░░] Planned
 ```
 
 ### Time Investment
 
 | Cycle     | Estimated | Actual | Variance |
 | --------- | --------- | ------ | -------- |
-| 01        | 8h        | 1.5h   | -6.5h    |
+| 01        | 12h       | TBD    | -        |
 | 02        | 8h        | -      | -        |
-| 03        | 12h       | -      | -        |
-| 04        | 8h        | -      | -        |
-| **Total** | **36h**   | **-**  | **-**    |
+| 03        | 8h        | -      | -        |
+| 04        | 12h       | -      | -        |
+| 05        | 8h        | -      | -        |
+| **Total** | **48h**   | **-**  | **-**    |
 
 ## Working on a Cycle
 
@@ -198,11 +230,11 @@ Following conventional commits:
 
 **Examples**:
 
-- `feat(cycle-01): initialize monorepo structure`
-- `feat(cycle-01): add echo functionality to TUI`
-- `fix(cycle-01): correct WebSocket message parsing`
-- `docs(cycle-01): update task 003 acceptance criteria`
-- `chore(cycle-01): complete cycle 01 - TUI foundation`
+- `feat(cycle-01): add landing page with mode selector`
+- `feat(cycle-01): build normal mode portfolio sections`
+- `fix(cycle-01): correct mobile redirect logic`
+- `docs(cycle-01): update PRD and TDD for dual-mode`
+- `chore(cycle-01): complete cycle 01 - MVP`
 
 **Types**: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 
@@ -211,7 +243,7 @@ Following conventional commits:
 **Weekly Check-in Questions**:
 
 - [ ] Am I on track to complete the cycle in 1-2 weeks?
-- [ ] Are any tasks taking significantly longer than 1 hour?
+- [ ] Are any tasks taking significantly longer than estimated?
 - [ ] Do I need to adjust the scope or break tasks down further?
 - [ ] Have I committed my work regularly?
 - [ ] Am I blocked on anything?
@@ -227,9 +259,9 @@ Following conventional commits:
 
 ## Notes
 
-_Use this space for overall project notes and learnings_
+_Cycle 01 pivoted from TUI-first to Landing + Normal mode first. TUI work moved to Cycle 02._
 
 ---
 
-**Last Updated**: October 11, 2025  
+**Last Updated**: December 2025
 **Next Review**: After completing Cycle 01
