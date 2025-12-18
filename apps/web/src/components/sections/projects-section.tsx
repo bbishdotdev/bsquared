@@ -91,7 +91,8 @@ export function ProjectsSection({
                     Things I&apos;m tinkering on
                   </h2>
                   <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-                    Early-stage ideas I&apos;m passionate about exploring.
+                    Early-stage ideas and technologies I&apos;m passionate about
+                    exploring.
                   </p>
                 </div>
               </div>
