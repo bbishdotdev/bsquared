@@ -34,7 +34,7 @@ Build a **shared terminal experience** where the same TUI code runs on both SSH 
 
 ### Shared TUI Core
 
-- [ ] **[002](./002-create-shared-tui-package.md)** - Create Shared TUI Package (1h)
+- [x] **[002](./002-create-shared-tui-package.md)** - Create Shared TUI Package (1h)
 - [ ] **[003](./003-add-echo-functionality.md)** - Add Echo Functionality (1h)
 
 ### SSH Distribution
@@ -53,17 +53,17 @@ Build a **shared terminal experience** where the same TUI code runs on both SSH 
 
 ## Progress Tracker
 
-**Completed**: 1/8 tasks (12.5%)
+**Completed**: 2/8 tasks (25%)
 
 ```
-[██░░░░░░░░░░░░░░░░░░] 12.5%
+[█████░░░░░░░░░░░░░░░] 25%
 ```
 
 ### Session Log
 
-| Date       | Duration | Tasks Completed | Notes                             |
-| ---------- | -------- | --------------- | --------------------------------- |
-| 2025-10-11 | 0.5h     | Task 001        | Completed monorepo initialization |
+| Date       | Duration | Tasks Completed | Notes                                          |
+| ---------- | -------- | --------------- | ---------------------------------------------- |
+| 2025-10-11 | 1.5h     | Tasks 001-002   | Completed monorepo init and shared TUI package |
 
 ## Success Criteria
 

@@ -1,0 +1,40 @@
+{
+  "projects": [
+    {
+      "title": "Nevernote",
+      "href": "#",
+      "dates": "2024",
+      "description": "AI tool that turns meetings into structured docs using summarization pipelines. **OpenAI Hackathon finalist**.",
+      "technologies": ["OpenAI", "TypeScript", "Next.js", "PostgreSQL"],
+      "image": "/projects/nevernote.png",
+      "links": []
+    },
+    {
+      "title": "Forwheel",
+      "href": "https://forwheel.com",
+      "dates": "2021 - Present",
+      "description": "Platform serving **150+ food trucks** with AI vendor advisor Garnish powered by OpenAI + RAG.",
+      "technologies": ["React", "Node.js", "OpenAI", "RAG", "PostgreSQL"],
+      "image": "/projects/forwheel.png",
+      "links": [{ "type": "Website", "href": "https://forwheel.com" }]
+    },
+    {
+      "title": "Garnish AI",
+      "href": "#",
+      "dates": "2023 - Present",
+      "description": "Intelligent vendor advisor for food trucks using retrieval-augmented generation for contextual recommendations.",
+      "technologies": ["LangChain", "OpenAI", "Pinecone", "Python"],
+      "image": "/projects/garnish.png",
+      "links": []
+    },
+    {
+      "title": "Rbitrage Trading",
+      "href": "#",
+      "dates": "2017 - 2020",
+      "description": "Crypto trading algorithms that grew to **$750K AUM** through quantitative strategies and automated systems.",
+      "technologies": ["Python", "TensorFlow", "PostgreSQL", "AWS"],
+      "image": "/projects/rbitrage.png",
+      "links": []
+    }
+  ]
+}
