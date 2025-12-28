@@ -1,4 +1,16 @@
 {
+  "featured": [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "Flutter",
+    "Python",
+    "AI SDK",
+    "Convex",
+    "Vercel"
+  ],
   "categories": [
     {
       "name": "Languages",

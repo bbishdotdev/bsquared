@@ -18,3 +18,4 @@ export function dismissMobileBanner(): void {
   if (typeof window === "undefined") return;
   localStorage.setItem("dismissed-mobile-banner", "true");
 }
+

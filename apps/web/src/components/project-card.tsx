@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { getGradientForString } from "@/lib/gradients";
 import { cn } from "@/lib/utils";
 
 type ProjectStatus = "live" | "development" | "concept";
@@ -65,31 +66,44 @@ export function ProjectCard({
   className,
 }: ProjectCardProps) {
   const statusConfig = status ? STATUS_CONFIG[status] : null;
+  const gradient = getGradientForString(title);
 
   return (
-    <Card className="flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full">
+    <Card className="flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full !py-0">
       <Link
         href={href || "#"}
         className={cn("block cursor-pointer", className)}
       >
-        {video && (
+        {video ? (
           <video
             src={video}
             autoPlay
             loop
             muted
             playsInline
-            className="pointer-events-none mx-auto h-40 w-full object-cover object-top"
+            className="pointer-events-none h-40 w-full object-cover object-top"
           />
-        )}
-        {image && (
-          <Image
-            src={image}
-            alt={title}
-            width={500}
-            height={300}
-            className="h-40 w-full overflow-hidden object-cover object-top"
-          />
+        ) : (
+          <div
+            className="relative h-40 w-full flex items-center justify-center"
+            style={{ background: gradient }}
+          >
+            {/* Gradient is the background, image overlays on top */}
+            {image && (
+              <Image
+                src={image}
+                alt={title}
+                fill
+                className="object-cover object-top"
+              />
+            )}
+            {/* "coming soon" only shows when no image (gradient visible) */}
+            {!image && (
+              <span className="text-sm font-medium text-white/80 tracking-wide">
+                coming soon...
+              </span>
+            )}
+          </div>
         )}
       </Link>
       <CardHeader className="px-2">

@@ -40,3 +40,4 @@ export function WorkSection({ work, blurFadeDelay }: WorkSectionProps) {
     </section>
   );
 }
+

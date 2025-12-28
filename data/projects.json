@@ -16,7 +16,6 @@
         "OpenRouter",
         "Vercel"
       ],
-      "image": "/projects/riffolio.png",
       "links": [
         {
           "type": "Website",
@@ -31,14 +30,14 @@
       "status": "live",
       "description": "Safari plugin for iOS/Mac that makes Brave Search the default browser. **18,500+ daily active users**.",
       "technologies": ["Swift", "JavaScript", "Safari Extensions"],
-      "image": "/projects/braver.png",
+      "video": "/braver-search.mp4",
       "links": [
         {
           "type": "App Store",
           "href": "https://apps.apple.com/us/app/braver-search/id6740840706"
         },
         {
-          "type": "GitHub",
+          "type": "Source",
           "href": "https://github.com/btbishop93/braver-search"
         }
       ]
@@ -50,10 +49,9 @@
       "status": "live",
       "description": "AI project management tool that turns product requirements into right-sized dev tasks based on your schedule, then handles git automation.",
       "technologies": ["TypeScript", "MCP", "Bun"],
-      "image": "/projects/cycles-mcp.png",
       "links": [
         {
-          "type": "NPM",
+          "type": "Registry",
           "href": "https://www.npmjs.com/package/cycles-mcp?activeTab=readme"
         }
       ]
@@ -65,14 +63,13 @@
       "status": "live",
       "description": "Encrypted note-taking app built with Flutter and Dart, deployed to iOS and Android.",
       "technologies": ["Dart", "Flutter", "Firebase"],
-      "image": "/projects/jumblebook.png",
       "links": [
         {
           "type": "App Store",
           "href": "https://apps.apple.com/us/app/jumblebook-notes/id6741652060"
         },
         {
-          "type": "GitHub",
+          "type": "Source",
           "href": "https://github.com/btbishop93/jumblebook"
         }
       ]
@@ -90,14 +87,13 @@
         "ffmpeg",
         "Vercel"
       ],
-      "image": "/projects/app-preview.png",
       "links": [
         {
           "type": "Website",
           "href": "https://app-preview-converter.vercel.app"
         },
         {
-          "type": "GitHub",
+          "type": "Source",
           "href": "https://github.com/btbishop93/app-preview-converter"
         }
       ]
@@ -115,10 +111,10 @@
         "Convex",
         "Vercel"
       ],
-      "image": "/projects/poolside.png",
+      "video": "/poolside.mp4",
       "links": [
         {
-          "type": "GitHub",
+          "type": "Source",
           "href": "https://github.com/btbishop93/poolside"
         }
       ]
@@ -130,7 +126,6 @@
       "status": "concept",
       "description": "Thinking about a fun way to gamify git for developers.",
       "technologies": [],
-      "image": "/projects/gitgood.png",
       "links": []
     },
     {
@@ -140,7 +135,6 @@
       "status": "concept",
       "description": "Toying with a new concept for a accountability app. **Proof is in the puddin'.**",
       "technologies": [],
-      "image": "/projects/puddin.png",
       "links": []
     }
   ]

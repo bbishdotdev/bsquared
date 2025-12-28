@@ -11,13 +11,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import {
-  HomeIcon,
-  NotebookIcon,
-  Github,
-  Linkedin,
-  Twitter,
-} from "lucide-react";
+import { HomeIcon, NotebookIcon } from "lucide-react";
+import { GithubIcon, LinkedinIcon, XTwitterIcon } from "@/components/icons";
 
 const navItems = [
   { href: "/home", icon: HomeIcon, label: "Home" },
@@ -25,13 +20,13 @@ const navItems = [
 ];
 
 const socialItems = [
-  { href: "https://github.com/btbishop93", icon: Github, label: "GitHub" },
+  { href: "https://github.com/btbishop93", icon: GithubIcon, label: "GitHub" },
   {
     href: "https://www.linkedin.com/in/brenden-bishop/",
-    icon: Linkedin,
+    icon: LinkedinIcon,
     label: "LinkedIn",
   },
-  { href: "https://x.com/bbish937", icon: Twitter, label: "X" },
+  { href: "https://x.com/bbish937", icon: XTwitterIcon, label: "X" },
 ];
 
 export function Navbar() {

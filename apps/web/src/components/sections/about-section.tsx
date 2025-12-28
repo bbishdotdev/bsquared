@@ -20,3 +20,4 @@ export function AboutSection({ bio, blurFadeDelay }: AboutSectionProps) {
     </section>
   );
 }
+

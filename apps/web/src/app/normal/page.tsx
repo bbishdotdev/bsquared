@@ -147,8 +147,10 @@ export default function NormalPage() {
                   title={project.title}
                   description={project.description}
                   dates={project.dates}
+                  status={project.status}
                   tags={project.technologies}
                   image={project.image}
+                  video={project.video}
                   links={project.links?.map((link) => ({
                     icon: <Globe className="size-3" />,
                     type: link.type,
@@ -189,3 +191,5 @@ export default function NormalPage() {
     </main>
   );
 }
+
+
