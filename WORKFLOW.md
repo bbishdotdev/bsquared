@@ -1,6 +1,6 @@
 # Development Workflow
 
-This document outlines the complete development workflow for the Bsquared project, including how to work with cycles, tasks, branches, and pull requests.
+This document outlines the complete development workflow for this project, including how to work with cycles, tasks, branches, and pull requests.
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ This document outlines the complete development workflow for the Bsquared projec
 
 ## Overview
 
-Bsquared uses a **cycle-based development approach** where work is organized into 1-2 week cycles (~8 hours). Each cycle contains multiple 1-hour tasks, and each task follows a structured git workflow with feature branches and pull requests.
+This project uses a **cycle-based development approach** where work is organized into cycles. Each cycle contains multiple tasks, and each task follows a structured git workflow with feature branches and pull requests.
 
 ## Cycle-Based Development
 
@@ -22,8 +22,8 @@ Bsquared uses a **cycle-based development approach** where work is organized int
 
 A **cycle** is a collection of related tasks that deliver a complete feature or milestone. Each cycle:
 
-- Takes 1-2 weeks part-time (~8 hours total)
-- Contains 6-10 tasks, each taking ~1 hour
+- Has a defined duration (1-3 weeks, 1-2 months, or 1 quarter)
+- Contains multiple tasks that fit within the allocated hours
 - Has clear deliverables and success criteria
 - Can be completed independently
 
@@ -37,9 +37,9 @@ See [cycles.md](./cycles.md) for the complete roadmap.
 
 ```
 main
-  ├── feat/cycle-01-task-001-monorepo-setup
-  ├── feat/cycle-01-task-002-tui-package
-  ├── feat/cycle-01-task-003-echo-functionality
+  ├── feat/cycle-01-task-001-description
+  ├── feat/cycle-01-task-002-description
+  ├── feat/cycle-01-task-003-description
   └── ...
 ```
 
@@ -51,9 +51,9 @@ feat/cycle-XX-task-YYY-short-description
 
 **Examples**:
 
-- `feat/cycle-01-task-001-monorepo-setup`
-- `feat/cycle-01-task-002-tui-package`
-- `feat/cycle-02-task-001-command-parser`
+- `feat/cycle-01-task-001-setup-database`
+- `feat/cycle-01-task-002-create-api`
+- `feat/cycle-02-task-001-add-auth`
 
 **Format**:
 
@@ -82,13 +82,13 @@ git checkout main
 git pull origin main
 
 # Create a feature branch for the task
-git checkout -b feat/cycle-01-task-001-monorepo-setup
+git checkout -b feat/cycle-01-task-001-description
 
 # Navigate to the cycle directory
-cd docs/cycles/01-tui-distribution-foundation
+cd docs/cycles/01-cycle-name
 
 # Read the task file
-cat 001-initialize-monorepo-structure.md
+cat 001-task-name.md
 ```
 
 #### 2. Work on the Task
@@ -106,13 +106,13 @@ Follow the task instructions step by step:
 
 # Commit incrementally
 git add .
-git commit -m "feat(cycle-01): create monorepo directory structure"
+git commit -m "feat(cycle-01): describe what you did"
 
 # Continue working
 # ... more changes ...
 
 git add .
-git commit -m "feat(cycle-01): add workspace package.json files"
+git commit -m "feat(cycle-01): describe next change"
 
 # And so on...
 ```
@@ -124,17 +124,17 @@ Before considering the task complete:
 - ✅ Check all acceptance criteria in the task file
 - ✅ Run all tests in the "Testing Your Work" section
 - ✅ Verify the code follows clean code principles
-- ✅ Ensure TypeScript compiles without errors (if applicable)
+- ✅ Ensure linter passes without errors
 - ✅ Test edge cases and error conditions
 
 #### 4. Create Pull Request
 
 ```bash
 # Push your branch
-git push origin feat/cycle-01-task-001-monorepo-setup
+git push origin feat/cycle-01-task-001-description
 
 # Open a PR on GitHub/GitLab
-# - Title: "feat(cycle-01): Initialize monorepo structure"
+# - Title: "feat(cycle-01): Task description"
 # - Description: Reference the task, list what was done, note any deviations
 ```
 
@@ -143,34 +143,31 @@ git push origin feat/cycle-01-task-001-monorepo-setup
 ```markdown
 ## Task
 
-Completes Task 001 from Cycle 01: Initialize Monorepo Structure
+Completes Task 001 from Cycle 01: Task Name
 
 Closes #XXX (if applicable)
 
 ## Changes
 
-- Created `/apps` and `/packages` directory structure
-- Set up root `package.json` with bun workspaces
-- Added workspace `package.json` files for ssh, web, and tui
-- Created `.gitignore` and root README
+- Bullet list of what was implemented
+- Key decisions made
+- Any deviations from the task
 
 ## Testing
 
-- [x] Ran `bun install` successfully
-- [x] Verified workspace linking with `ls -la apps/ssh/node_modules/@bsquared/`
-- [x] All JSON files validated with `jq`
+- [x] Ran all tests from "Testing Your Work" section
+- [x] Verified acceptance criteria
+- [x] Tested edge cases
 
 ## Acceptance Criteria
 
-- [x] Directory structure exists
-- [x] Root package.json with workspace config
-- [x] All workspace package.json files present
-- [x] .gitignore created
-- [x] Dependencies install without errors
+- [x] Criterion 1
+- [x] Criterion 2
+- [x] Criterion 3
 
 ## Notes
 
-None / [Any deviations or challenges encountered]
+None / [Any challenges encountered or future improvements]
 ```
 
 #### 5. Review and Merge
@@ -184,38 +181,12 @@ None / [Any deviations or challenges encountered]
 # After PR is merged
 git checkout main
 git pull origin main
-git branch -d feat/cycle-01-task-001-monorepo-setup
+git branch -d feat/cycle-01-task-001-description
 ```
 
 #### 6. Mark Task Complete
 
-Update the cycle README:
-
-```bash
-# Edit docs/cycles/01-tui-distribution-foundation/README.md
-# Change: - [ ] **[001]...
-# To:     - [x] **[001]...
-
-# Update progress bar
-# From: [░░░░░░░░░░] 0/8 tasks
-# To:   [█░░░░░░░░░] 1/8 tasks (12%)
-
-# Log your session
-```
-
-**Session Log Example**:
-
-| Date       | Duration | Tasks Completed | Notes                        |
-| ---------- | -------- | --------------- | ---------------------------- |
-| 2025-10-11 | 1h       | 001             | Monorepo setup went smoothly |
-
-Commit the progress update:
-
-```bash
-git add docs/cycles/01-tui-distribution-foundation/README.md
-git commit -m "docs(cycle-01): mark task 001 complete"
-git push origin main
-```
+The task will be automatically marked complete when the PR is merged.
 
 #### 7. Move to Next Task
 
@@ -229,9 +200,9 @@ Repeat the process for the next task!
 
 **Examples**:
 
-- `feat(cycle-01): initialize monorepo structure`
-- `feat(cycle-01): add echo functionality to TUI`
-- `fix(cycle-01): correct WebSocket message parsing`
+- `feat(cycle-01): setup database schema`
+- `feat(cycle-01): implement user authentication`
+- `fix(cycle-01): correct validation logic`
 
 ### PR Description
 
@@ -289,19 +260,19 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) specific
 
 ```bash
 # Good commits
-git commit -m "feat(cycle-01): create monorepo directory structure"
-git commit -m "feat(cycle-01): add opentui dependency to TUI package"
-git commit -m "fix(cycle-01): correct TypeScript path aliases in tsconfig"
+git commit -m "feat(cycle-01): create database schema"
+git commit -m "feat(cycle-01): add user model with validation"
+git commit -m "fix(cycle-01): correct TypeScript type errors"
 git commit -m "docs(cycle-01): update task 003 acceptance criteria"
-git commit -m "refactor(cycle-01): extract WebSocket handler to separate file"
+git commit -m "refactor(cycle-01): extract helper functions"
 
 # With body
-git commit -m "feat(cycle-01): implement SSH server with TUI integration
+git commit -m "feat(cycle-01): implement authentication system
 
-- Set up ssh2 server listening on port 2222
-- Wire SSH streams to TUI input/output
-- Add graceful shutdown handlers
-- Generate host key for development"
+- Set up JWT token generation
+- Add login/logout endpoints
+- Include refresh token logic
+- Add password hashing with bcrypt"
 ```
 
 ### Scope
@@ -313,9 +284,8 @@ Always include `cycle-XX` in the scope to make it clear which cycle the work bel
 ### After Each Work Session
 
 1. **Update cycle README**:
-
-   - Check off completed tasks
-   - Update progress bar
+   - Task completion is automatic via PR merge
+   - Progress bar updates automatically
    - Log session in session log table
 
 2. **Update cycles.md** (when cycle completes):
@@ -334,7 +304,7 @@ Always include `cycle-XX` in the scope to make it clear which cycle the work bel
 5/8:   [█████░░░░░] 62%
 6/8:   [██████░░░░] 75%
 7/8:   [███████░░░] 87%
-8/8:   [████████████] 100%
+8/8:   [██████████] 100%
 ```
 
 ### Session Log
@@ -343,9 +313,9 @@ Track each work session in the cycle README:
 
 | Date       | Duration | Tasks Completed | Notes                |
 | ---------- | -------- | --------------- | -------------------- |
-| 2025-10-11 | 1h       | 001             | Monorepo setup       |
-| 2025-10-12 | 1.5h     | 002, 003        | TUI package and echo |
-| 2025-10-13 | 1h       | 004             | SSH server working!  |
+| 2025-10-11 | 1h       | 001             | Setup went smoothly  |
+| 2025-10-12 | 2h       | 002, 003        | API implementation   |
+| 2025-10-13 | 1h       | 004             | Testing complete!    |
 
 ## Tips for Success
 
@@ -374,19 +344,15 @@ git commit -m "feat(cycle-01): progress on task XXX"
 git push origin feat/cycle-01-task-XXX-description
 # Open PR on GitHub
 
-# 7. After merge, update progress
+# 7. After merge, progress updates automatically
 git checkout main
 git pull origin main
-# Update cycle README with progress
-git add docs/cycles/01-.../README.md
-git commit -m "docs(cycle-01): mark task XXX complete"
-git push origin main
 ```
 
 ### Time Boxing
 
-- Set a timer for 1 hour per task
-- If a task takes >1.5 hours, consider breaking it down
+- Set a timer for your task duration
+- If a task takes significantly longer, consider breaking it down
 - It's okay to take breaks between tasks
 - Log actual time spent for future estimation
 
@@ -395,7 +361,7 @@ git push origin main
 - ✅ Always work on a feature branch
 - ✅ Commit frequently with clear messages
 - ✅ Open PR when task is complete
-- ✅ Update progress immediately after merge
+- ✅ Progress tracked automatically
 - ✅ Don't start next task until previous is merged
 
 ### Communication

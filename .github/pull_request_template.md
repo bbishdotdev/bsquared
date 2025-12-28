@@ -1,39 +1,26 @@
 ## Task
 
-Completes Task XXX from Cycle XX: [Task Name]
+Completes Task {{TASK_NUMBER}} from Cycle {{CYCLE_NUMBER}}: {{TASK_TITLE}}
 
 Closes #XXX (if applicable)
 
 ## Changes
 
-- [List what was implemented]
-- [Key changes made]
-- [Any notable decisions]
+- 
+- 
+- 
 
 ## Testing
 
-- [ ] All acceptance criteria checked
-- [ ] Ran tests from "Testing Your Work" section
-- [ ] TypeScript compiles without errors (if applicable)
-- [ ] Manually tested functionality
-- [ ] No linter errors
+- [ ] Ran all tests from "Testing Your Work" section
+- [ ] Verified all acceptance criteria
+- [ ] Tested edge cases and error conditions
+- [ ] Linter passes without errors
 
 ## Acceptance Criteria
 
-Copy from task file:
-
-- [ ] Criterion 1
-- [ ] Criterion 2
-- [ ] Criterion 3
-
-## Screenshots/Demo (if applicable)
-
-[Add screenshots or demo GIFs if relevant]
+{{ACCEPTANCE_CRITERIA_CHECKLIST}}
 
 ## Notes
 
-[Any deviations from the task, challenges encountered, or future improvements to consider]
-
----
-
-**Workflow**: See [WORKFLOW.md](../WORKFLOW.md) for details on the development process.
+_Any deviations, challenges encountered, or future improvements_

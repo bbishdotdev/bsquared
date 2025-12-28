@@ -1,0 +1,9 @@
+{
+  "sizing_mode": "simple",
+  "simple_tier": "junior",
+  "cycle_duration": {
+    "unit": "weeks",
+    "value": 1
+  },
+  "hours_per_cycle": 8
+}
