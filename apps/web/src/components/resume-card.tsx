@@ -47,11 +47,7 @@ export function ResumeCard({
       <div className="flex items-start">
         <div className="flex-none mr-4">
           <Avatar className="border size-12 bg-muted dark:bg-foreground">
-            <AvatarImage
-              src={logoUrl}
-              alt={altText}
-              className="object-contain"
-            />
+            <AvatarImage src={logoUrl} alt={altText} className="object-cover" />
             <AvatarFallback>{altText[0]}</AvatarFallback>
           </Avatar>
         </div>
@@ -109,4 +105,3 @@ export function ResumeCard({
     </Link>
   );
 }
-
