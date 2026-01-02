@@ -78,11 +78,11 @@
       ]
     },
     {
-      "title": "App Preview Converter",
+      "title": "Ciderpress",
       "href": "https://app-preview-converter.vercel.app",
       "dates": "2024 - Now",
       "status": "live",
-      "description": "Web app using ffmpeg to convert .mp4 videos for Apple App Store compliance.",
+      "description": "Web app using ffmpeg to convert .mp4 videos for Apple App Store app previews compliance.",
       "technologies": [
         "TypeScript",
         "TailwindCSS",
@@ -93,7 +93,7 @@
       "links": [
         {
           "type": "Website",
-          "href": "https://app-preview-converter.vercel.app"
+          "href": "https://ciderpress.vercel.app"
         },
         {
           "type": "Source",
