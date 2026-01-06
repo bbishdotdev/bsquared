@@ -31,7 +31,7 @@ export function HeroSection({
             </BlurFade>
           </div>
           <BlurFade delay={blurFadeDelay}>
-            <Avatar className="size-28 border">
+            <Avatar className="size-20 sm:size-28 border">
               <AvatarImage alt={name} src={avatarUrl} />
               <AvatarFallback>{initials}</AvatarFallback>
             </Avatar>
