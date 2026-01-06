@@ -3,8 +3,10 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { cache, Suspense } from "react";
 import { Tweet } from "react-tweet";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { getAllArticles, getArticleBySlug } from "@/lib/articles";
+import { XTwitterIcon } from "@/components/icons";
 
 // Force static generation to avoid hydration issues
 export const dynamic = "force-static";
@@ -79,12 +81,37 @@ export default async function WritingArticlePage({
         <ArrowLeft className="h-4 w-4" />
         Back to writing
       </Link>
+      {article.meta.headerImage && (
+        <div className="relative w-full aspect-video mb-8 rounded-lg overflow-hidden not-prose">
+          <Image
+            src={article.meta.headerImage}
+            alt={article.meta.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      )}
       <header className="mb-8">
         <h1 className="text-3xl font-bold">{article.meta.title}</h1>
-        <p className="text-muted-foreground">
+        <p className="text-muted-foreground flex items-center gap-2">
           <time>{article.meta.dateFormatted}</time>
-          <span className="mx-2">•</span>
+          <span>•</span>
           <span>{article.meta.readTime}</span>
+          {article.meta.xUrl && (
+            <>
+              <span>•</span>
+              <a
+                href={article.meta.xUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
+              >
+                <XTwitterIcon className="h-4 w-4" />
+                <span>View on X</span>
+              </a>
+            </>
+          )}
         </p>
       </header>
       {article.content}

@@ -3,6 +3,8 @@ title: "Clearing the road for building with AI"
 description: "Why your org's bottlenecks, not AI, determine how fast you ship."
 date: "Aug 2025"
 published: true
+xUrl: "https://x.com/BBish937/status/2008599648030634107"
+headerImage: "/writing/ai/header.png"
 ---
 
 Giving developers AI is like giving someone an F1 supercar and sticking them in a traffic jam. Tell them to floor it; you don't get there faster. You crash.
@@ -11,16 +13,22 @@ Giving developers AI is like giving someone an F1 supercar and sticking them in 
 
 A strong developer with AI can already ship what a team of a dozen used to. Velocity is compounding, not incremental.
 
-So the real question is:
+So the real question is...Are your roads ready for that kind of traffic?
 
-Are your roads ready for that kind of traffic?
+You don't need a faster car. You need a better road system: fewer red lights, fewer toll booths, fewer roundabouts, and more autonomy to move. Because AI doesn't fix broken systems. It exposes them.
 
-You don't need a faster car. You need a better road system: fewer red lights, fewer toll booths, fewer roundabouts, and more autonomy to move.
+Code was never the bottleneck. AI will prove it.
 
-Because AI doesn't fix broken systems.
-It exposes them.
+TL;DR — What I'm betting on:
 
-Code was never the bottleneck. AI is about to prove it.
+1. Speed > everything — AI collapses timelines, so execution velocity becomes the competitive moat.
+2. You can’t mandate curiosity — Real adoption spreads from builders experimenting, not from leadership sending emails about Copilot.
+3. Builders beat bureaucracy — Fewer handoffs and more ownership means less waiting and more shipping.
+4. Dependencies kill velocity — AI writes code instantly, but meetings, comms, approvals, and shared services still move at human speed.
+5. Value metrics are emergent, output metrics are controllable — You can push PRs and commits up, but impact only shows up in cycle time, quality, and customer satisfaction.
+6. Strong ICs become single-person teams — One great dev with AI can now ship what small teams used to, if the org gets out of their way.
+7. AI-native systems — If your tooling and processes aren’t built for agentic development, you’re capped.
+8. This is 1996 for AI — The companies building AI-native systems now will own the next decade.
 
 ---
 
@@ -40,7 +48,9 @@ That's how momentum starts.
 
 ### What NOT to do
 
-Don't retrofit AI into broken systems and processes. You'll only amplify the dysfunction. Re-architect for an AI-first ecosystem. Slow approvals? Fragile CI/CD? Org full of handoffs? You'll hit those walls harder with AI.
+Don't retrofit AI into broken systems and processes. You'll only amplify the dysfunction. Instead, re-architect for an AI-first ecosystem, **question** your current tools & processes.
+
+Does Jira make sense? Is requirements gather still efficient or does rapid prototyping and POCs with AI drive requirements? Is a separate QA team necessary? Slow approval processes? Fragile CI/CD? Org full of handoffs? Building with AI will inevitablely expose every weak link in your chain.
 
 Start with small teams and trust, re-architect for flow. Demand more from your systems.
 
@@ -48,13 +58,13 @@ Start with small teams and trust, re-architect for flow. Demand more from your s
 
 ## Dev excellence is the real accelerator
 
-Code is becoming a commodity. AI can write it faster than any dev can.
+Code is becoming a commodity. AI can write it faster and cheaper than any dev can.
 
-The new premium is:
+### The new premium is:
 
 - **Product sense** - Knowing what to build and why
 - **Taste & judgement** - Making good decisions FAST, across UX, architecture, and tradeoffs
-- **Generalist knowledge** - Seeing and building the whole car, not just the doors
+- **Generalist knowledge** - Seeing and building the whole car, not just the doors. Embrace the Builder archetype
 
 The dev who can go from idea → shipped product with good taste and AI is the one who wins.
 
@@ -62,10 +72,11 @@ You already see this in companies like Stripe, Cursor, or Linear. Small, autonom
 
 ### What's slowing them down?
 
-These are your traffic jams:
+**These are your traffic jams:**
 
 - Silos
 - Budgeting and planning
+- Requirements gathering and UX designs
 - Slow manual processes
 - Batched releases
 - Indefinite internal dependencies
@@ -79,59 +90,56 @@ These are your traffic jams:
 
 - Melvin Conway
 
-Siloed orgs produce siloed software. AI's efficiency, speed, and consistency airbags deploy when operating in silos (multi-app, separated code & teams).
-
-Can you still get some gains inside silos? Sure, but there is now a hard ceiling on how much speed you can unlock when teams, repos, and ownership are fragmented.
-
-Your comms structure and team politics becomes the bottleneck.
+Siloed orgs produce siloed software. AI's efficiency, speed, and consistency airbags deploy when operating in silos (multi-app, separated code & teams). Can you still get some gains inside silos? Sure, but there is now a hard ceiling on how much speed you can unlock when teams, repos, and ownership are fragmented. Your comms structure and team politics becomes the bottleneck.
 
 Organize teams around outcomes not departments/stacks.
 
 ### Micro-services & micro-frontends are toll booths
 
-I've always been skeptical of the "micro" trend. I get why large enterprises went there to maximize reuse, consistency, and scale. But the tradeoffs for developer experience and velocity weren't worth it. How much time did you save using that common service at the cost of more meetings, comms, priority discussions, dependency timelines, resources, etc.?
+I've always been skeptical of the "micro" trend. I get why large enterprises went there to maximize reuse, consistency, and scale. But the tradeoffs for developer experience and velocity were never worth it to me. How much time did you save using that common service at the cost of more meetings, comms, priority discussions, dependency timelines, resources, etc.?
 
 ![Microservice hell](/writing/ai/microservices.gif)
 
-In my head, more dependencies always meant less movement. That's true in life too. You need to move furniture, but you're waiting on that one friend...schedules don't align...now you're bribing them with pizza and beers and trying to sell it as FUN.
+In my head, more dependencies always meant less movement. That's true in life too. You need to move furniture? You're waiting on that one friend...schedules don't align... now you're bribing them with pizza and beers and trying to sell it as FUN.
 
-If you can move by yourself somehow, you can just move.
+If you can move it by yourself somehow, then you can just **go**.
 
 For a huge chunk of software, especially CRUD, AI can do the heavy lifting in its sleep. That makes shared services and cross-team dependencies feel even more expensive.
 
-If one team can code 10× faster but still ships at the same rate because they're waiting on other teams, how much did you really improve?
+If one team can code 10× faster but still ships at the same rate because they're waiting on other teams, how much did you really improve? People, timelines, communication and coordination are the **REAL** bottlenecks.
 
 ---
 
 ## Speaking of measurements...
 
-In my experience, metrics are incredibly hard to get right AND there is a fundamental misalignment in what different layers of management think they're for. To me, metrics exist for transparency and awareness, to find areas for improvement. But the improvement is different than the metric itself.
+In my experience, metrics are incredibly hard to get right AND there is a fundamental misalignment in what different layers of management think they're for. To me, metrics exist for transparency and awareness, to find areas for improvement. But the improvement _should be_ different than the metric itself.
 
 To others, metrics becomes the goal.
 
 "AI means we should ship 50% more PRs."
 If you were doing 10, now the target is 15.
 
-I've seen this play out over and over: Agile, DevOps, now AI. The moment a transformation starts, the metrics become the target. This is fundamentally flawed. Devs game PRs easily. Make them smaller. Stage more of them. Ship half-finished work. Congrats, your numbers look great while nothing actually gets better.
+I've seen this play out over and over: Agile, DevOps, now AI. The moment a transformation starts, the metrics become the target. This is fundamentally flawed. Devs game PRs easily. Make them smaller. Stage more of them. Ship half-finished work. Congrats, your numbers look great while nothing actually improves.
 
 > "When a measure becomes a target, it ceases to be a good measure."
 
 - Goodhart's Law
 
-PRs != value delivered
-Velocity != impact
+### PRs != value delivered && Velocity != impact
 
 Metrics like PRs should point you towards better questions. Low PRs? What's the impact? What's the Cycle time? High PRs? Same questions.
 
-Metrics shine light on _potential_ inefficiencies, but the metric on its own is neither good nor bad. Track metrics to ask better questions, not to declare fake victories.
+Metrics shine light on _potential_ inefficiencies, but the metric on its **own** is **neither** good nor bad. Track metrics to ask better questions, not to declare fake victories.
 
-If cycle time is fast, defects are low, and customers are happy...do you really care how many PRs someone shipped?
+If the prod cycle time is fast, defects are low, and customers are happy... do you really care how many PRs were shipped? Do not conflate output with value.
+
+I'm not saying metrics like # of PRs are not worth it or shouldn't be tracked. What I'm saying is that everything you can measure _should_ be measured, but have a clear separation between your output metrics and your value metrics. A simple rule of thumb: if a person or team can directly manipulate a metric, it’s probably output, not value. You can **work in ways that tend to move value metrics**, but you cannot just **decide** to make them go up. They’re a byproduct of good work, not something you push on.
 
 ---
 
 ## What the road ahead actually looks like
 
-Not that different. It's better to stop speculating and focus on what you can do right now. Even if AI writes 100% of the code, you still need devs directing it. And as it becomes a commodity more and more, demand will explode... Jevons Paradox.
+It's better to stop speculating and focus on what you can do right now. Even if AI writes 100% of the code, you still need devs directing it. And as code becomes a more and more a commodity, demand will explode... see [Jevons Paradox](https://en.wikipedia.org/wiki/Jevons_paradox).
 
 AI just turns the speed dial all the way up. And suddenly everything that was "fine" becomes painfully slow because it demands dev excellence, speed and proper guardrails.
 
@@ -139,12 +147,12 @@ That means the boring stuff still matters. It's still just good software enginee
 
 **Collapse the feedback loop**
 
-- Ship to prod daily, not monthly, not quarterly
-- Automate and enforce real testing (unit, functional, end-to-end). No excuses; it's too easy with AI now. If you want to trust AI with your code, testing is critical.
-- Fix your CI/CD (seriously, this is still shockingly bad at a lot of places)
-- Give teams autonomy and access to users
+- **Ship to prod daily!** Not monthly...not quarterly. If you don't want to ship daily, it needs to be by choice, not ability or design because I think daily is inevitable
+- **Automate and enforce real testing** (unit, functional, end-to-end). Yes ALL the tests, no excuses; it's too easy with AI now. If you want to trust AI with your code, testing is critical
+- **Fix your trash CI/CD** No, but seriously, this is still shockingly bad at a lot of places
+- **Give teams autonomy and access to users.**If your devs don't understand the user's wants/needs what are you even building?
 
-**Kill dependencies**
+**Delete dependencies**
 
 - Organize teams around end-to-end products, not functions
 - Each team owns their UI → backend → infra → data
@@ -152,15 +160,15 @@ That means the boring stuff still matters. It's still just good software enginee
 
 **Trust devs as owners**
 
-- One strong dev with Cursor or Claude Code can now orchestrate the work of 6–8 people, but only if they own it, soup to nuts.
+- One strong IC with Cursor or Claude Code can now orchestrate the work of an entire team, but only if they own it, soup to nuts.
 
-### Speed is the new baseline
+### Speed is a superpower
 
-Speed is underestimated. Wildly underestimated. The "iPad generation" expects touch, swipe, pinch-to-zoom, and distrusts things that do not operate that way.
+Speed is still underestimated. Wildly underestimated. I think about the "iPad generation" kids that just expects touch, swipe, pinch-to-zoom, and distrusts things that do not operate that way. If you've ever seen the video of the baby pinching and zooming on a magazine you'll know what I mean...
 
-My bet is the "AI generation" will come to expect bug fixes in hours, not sprints; feature requests accommodated same day; and ultimately real-time bespoke software on demand that adapts to their needs.
+My bet is the "AI generation" will grow to expect bug fixes in minutes, not sprints; feature requests accommodated same day; and ultimately real-time bespoke software on demand that adapts to their needs.
 
-This builds trust, this becomes the baseline, and if you're still stuck in traffic, the market won't wait for you to catch up.
+That becomes the baseline. And anything slower will start to feel broken.
 
 ### This lane is closing
 
