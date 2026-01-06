@@ -14,6 +14,8 @@ export interface ArticleMeta {
   published: boolean;
   slug: string;
   readTime: string;
+  xUrl?: string;
+  headerImage?: string;
 }
 
 function formatDate(dateStr: string): string {
@@ -60,6 +62,8 @@ export const getAllArticles = cache((): ArticleMeta[] => {
       const description = String(data.description ?? "");
       const date = String(data.date ?? "");
       const published = Boolean(data.published ?? true);
+      const xUrl = data.xUrl ? String(data.xUrl) : undefined;
+      const headerImage = data.headerImage ? String(data.headerImage) : undefined;
 
       return {
         title,
@@ -69,6 +73,8 @@ export const getAllArticles = cache((): ArticleMeta[] => {
         published,
         slug: toSlug(file),
         readTime: calculateReadTime(content),
+        xUrl,
+        headerImage,
       };
     })
     .filter((article) => article.published)
@@ -108,6 +114,8 @@ export const getArticleBySlug = cache(
         dateFormatted: formatDate(date),
         published: Boolean(data.published ?? true),
         readTime: calculateReadTime(content),
+        xUrl: data.xUrl ? String(data.xUrl) : undefined,
+        headerImage: data.headerImage ? String(data.headerImage) : undefined,
       },
       content,
     };
