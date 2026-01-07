@@ -91,6 +91,7 @@
       "dates": "2024 - Now",
       "status": "live",
       "description": "Web app using ffmpeg wasm to convert .mp4 videos for Apple App Store app previews video format compliance.",
+      "video": "/demos/ciderpress.mp4",
       "technologies": [
         "TypeScript",
         "TailwindCSS",
