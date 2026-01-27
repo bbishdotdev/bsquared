@@ -12,6 +12,7 @@ interface CommandRowProps {
 function CommandRow({ cmd, desc, onClick }: CommandRowProps) {
   return (
     <button
+      type="button"
       onClick={() => onClick?.(cmd)}
       className="flex items-center gap-6 py-1 px-2 rounded hover:bg-zinc-800/50 transition-colors group w-full"
     >

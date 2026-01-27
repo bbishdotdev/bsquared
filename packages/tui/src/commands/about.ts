@@ -1,4 +1,4 @@
-import { fmt, responseHeader } from "../format";
+import { fmt, responseHeader, formatContent } from "../format";
 import type { CommandDefinition } from "../dispatcher";
 
 export interface AboutConfig {
@@ -13,6 +13,12 @@ export function createAboutCommand(config: AboutConfig): CommandDefinition {
     description: "Learn about Brenden",
     usage: "/about",
     handler: () => {
+      // Format bio paragraphs with proper indentation
+      const bioLines = config.bio
+        .split("\n\n")
+        .map((p) => `  ${formatContent(p.trim())}`)
+        .join("\n\n");
+
       const lines = [
         "",
         responseHeader("About", config.name, "cyan"),
@@ -20,7 +26,7 @@ export function createAboutCommand(config: AboutConfig): CommandDefinition {
         `  ${fmt.header(config.name)}`,
         `  ${fmt.muted(config.title)}`,
         "",
-        `  ${config.bio}`,
+        bioLines,
         "",
       ];
 

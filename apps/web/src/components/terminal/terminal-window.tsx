@@ -163,9 +163,21 @@ export function TerminalWindow({ data }: TerminalWindowProps) {
           <motion.div
             key="terminal-max"
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={
+              isMinimizing
+                ? { opacity: 0, scale: 0.1, y: window.innerHeight / 2 }
+                : { opacity: 1, scale: 1, y: 0 }
+            }
             exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.15 }}
+            transition={{
+              duration: isMinimizing ? 0.35 : 0.15,
+              ease: isMinimizing ? [0.4, 0, 0.2, 1] : "easeOut",
+            }}
+            onAnimationComplete={() => {
+              if (isMinimizing) {
+                handleMinimizeComplete();
+              }
+            }}
             className="fixed inset-0 z-50"
           >
             <div className="w-full h-full flex flex-col">

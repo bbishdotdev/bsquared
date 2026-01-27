@@ -1,4 +1,21 @@
-import pc from "picocolors";
+/**
+ * ANSI escape code wrappers that always output codes
+ * picocolors disables colors in non-TTY environments (like web),
+ * so we use direct ANSI codes for consistent terminal rendering
+ */
+const ansi = {
+  reset: "\x1b[0m",
+  bold: (s: string) => `\x1b[1m${s}\x1b[22m`,
+  dim: (s: string) => `\x1b[2m${s}\x1b[22m`,
+  underline: (s: string) => `\x1b[4m${s}\x1b[24m`,
+  // Colors
+  red: (s: string) => `\x1b[31m${s}\x1b[39m`,
+  green: (s: string) => `\x1b[32m${s}\x1b[39m`,
+  yellow: (s: string) => `\x1b[33m${s}\x1b[39m`,
+  blue: (s: string) => `\x1b[34m${s}\x1b[39m`,
+  cyan: (s: string) => `\x1b[36m${s}\x1b[39m`,
+  white: (s: string) => `\x1b[37m${s}\x1b[39m`,
+};
 
 /**
  * Semantic text formatters using ANSI colors
@@ -6,43 +23,43 @@ import pc from "picocolors";
  */
 export const fmt = {
   // Headers and structure
-  header: (text: string) => pc.bold(pc.white(text)),
-  subheader: (text: string) => pc.bold(pc.cyan(text)),
-  sectionTitle: (text: string) => pc.bold(pc.blue(text)),
+  header: (text: string) => ansi.bold(ansi.white(text)),
+  subheader: (text: string) => ansi.bold(ansi.cyan(text)),
+  sectionTitle: (text: string) => ansi.bold(ansi.blue(text)),
 
   // Commands and actions
-  command: (text: string) => pc.yellow(text),
-  action: (text: string) => pc.cyan(text),
+  command: (text: string) => ansi.yellow(text),
+  action: (text: string) => ansi.cyan(text),
 
   // Status
-  success: (text: string) => pc.green(text),
-  error: (text: string) => pc.red(text),
-  warning: (text: string) => pc.yellow(text),
+  success: (text: string) => ansi.green(text),
+  error: (text: string) => ansi.red(text),
+  warning: (text: string) => ansi.yellow(text),
 
   // Content
-  muted: (text: string) => pc.dim(text),
-  highlight: (text: string) => pc.cyan(text),
-  link: (text: string) => pc.underline(pc.blue(text)),
-  value: (text: string) => pc.white(text),
+  muted: (text: string) => ansi.dim(text),
+  highlight: (text: string) => ansi.cyan(text),
+  link: (text: string) => ansi.underline(ansi.blue(text)),
+  value: (text: string) => ansi.white(text),
 
   // Special
-  brand: (text: string) => pc.bold(pc.red(text)),
+  brand: (text: string) => ansi.bold(ansi.red(text)),
   badge: (
     text: string,
     color: "green" | "yellow" | "blue" | "cyan" | "dim" | "red",
   ) => {
     const colorFn =
       color === "green"
-        ? pc.green
+        ? ansi.green
         : color === "yellow"
-          ? pc.yellow
+          ? ansi.yellow
           : color === "blue"
-            ? pc.blue
+            ? ansi.blue
             : color === "cyan"
-              ? pc.cyan
+              ? ansi.cyan
               : color === "red"
-                ? pc.red
-                : pc.dim;
+                ? ansi.red
+                : ansi.dim;
     return colorFn(`[${text}]`);
   },
 
@@ -52,22 +69,22 @@ export const fmt = {
   ) => {
     const colorFn =
       color === "cyan"
-        ? pc.cyan
+        ? ansi.cyan
         : color === "green"
-          ? pc.green
+          ? ansi.green
           : color === "yellow"
-            ? pc.yellow
+            ? ansi.yellow
             : color === "blue"
-              ? pc.blue
+              ? ansi.blue
               : color === "red"
-                ? pc.red
-                : pc.dim;
+                ? ansi.red
+                : ansi.dim;
     return colorFn("●");
   },
 
   // Key-value formatting
-  key: (text: string) => pc.dim(text),
-  label: (text: string) => pc.bold(pc.dim(text)),
+  key: (text: string) => ansi.dim(text),
+  label: (text: string) => ansi.bold(ansi.dim(text)),
 };
 
 /**
@@ -185,6 +202,27 @@ function stripAnsi(str: string): string {
     /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g,
     "",
   );
+}
+
+/**
+ * Parse markdown-lite syntax into ANSI-styled text
+ * Matches react-markdown patterns used in normal mode
+ * Supports:
+ * - **bold** → bold white (emphasis, company names)
+ * - `code` → green (tech terms, stats, numbers)
+ */
+export function formatContent(text: string): string {
+  let result = text;
+
+  // **bold** → bold white (non-greedy to handle asterisks inside like E*TRADE)
+  result = result.replace(/\*\*(.+?)\*\*/g, (_, content) =>
+    ansi.bold(ansi.white(content)),
+  );
+
+  // `code/tech` → green (stats and tech terms pop)
+  result = result.replace(/`([^`]+)`/g, (_, content) => ansi.green(content));
+
+  return result;
 }
 
 /**

@@ -1,5 +1,5 @@
 import type { CommandDefinition } from "../dispatcher";
-import { fmt, responseHeader, card, divider } from "../format";
+import { fmt, responseHeader, card, divider, formatContent } from "../format";
 
 interface WorkEntry {
   company: string;
@@ -25,7 +25,7 @@ function formatWorkEntry(w: WorkEntry): string {
   return card(
     w.company,
     w.title,
-    [w.description],
+    [formatContent(w.description)],
     fmt.badge(`${w.start} - ${w.end}`, "dim"),
   );
 }

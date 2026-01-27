@@ -1,6 +1,6 @@
 "use client";
 
-import { Terminal } from "lucide-react";
+import { Terminal, Maximize, Minimize, Minus, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface TitleBarProps {
@@ -40,37 +40,53 @@ export function TitleBar({
     <div
       className={`flex items-center gap-2 px-4 py-3 bg-zinc-900 border border-zinc-800 border-b-0 select-none h-11 ${isMaximized ? "" : "rounded-t-lg"}`}
     >
-      {/* Window controls - functional buttons */}
-      <div className="flex gap-2">
+      {/* Window controls - functional buttons, prevent drag on this area */}
+      <div
+        className="flex gap-2 group cursor-default"
+        onMouseDown={(e) => e.stopPropagation()}
+      >
         <button
+          type="button"
           onClick={handleClose}
-          className="w-3 h-3 rounded-full bg-red-500/80 hover:bg-red-500 transition-colors
-                     flex items-center justify-center group"
+          className="w-4 h-4 rounded-full bg-red-500/80 hover:bg-red-500 transition-colors
+                     flex items-center justify-center"
           title="Close"
         >
-          <span className="text-[8px] text-red-900 opacity-0 group-hover:opacity-100 font-bold">
-            ×
-          </span>
+          <X
+            className="h-2 w-2 text-red-900 opacity-0 group-hover:opacity-100"
+            strokeWidth={5}
+          />
         </button>
         <button
+          type="button"
           onClick={handleMinimize}
-          className="w-3 h-3 rounded-full bg-yellow-500/80 hover:bg-yellow-500 transition-colors
-                     flex items-center justify-center group"
+          className="w-4 h-4 rounded-full bg-yellow-500/80 hover:bg-yellow-500 transition-colors
+                     flex items-center justify-center"
           title="Minimize"
         >
-          <span className="text-[8px] text-yellow-900 opacity-0 group-hover:opacity-100 font-bold">
-            −
-          </span>
+          <Minus
+            className="h-2 w-2 text-yellow-900 opacity-0 group-hover:opacity-100"
+            strokeWidth={5}
+          />
         </button>
         <button
+          type="button"
           onClick={handleMaximize}
-          className="w-3 h-3 rounded-full bg-green-500/80 hover:bg-green-500 transition-colors
-                     flex items-center justify-center group"
+          className="w-4 h-4 rounded-full bg-green-500/80 hover:bg-green-500 transition-colors
+                     flex items-center justify-center"
           title={isMaximized ? "Exit Fullscreen" : "Fullscreen"}
         >
-          <span className="text-[8px] text-green-900 opacity-0 group-hover:opacity-100 font-bold">
-            {isMaximized ? "−" : "+"}
-          </span>
+          {isMaximized ? (
+            <Minimize
+              className="h-2 w-2 text-green-900 opacity-0 group-hover:opacity-100"
+              strokeWidth={5}
+            />
+          ) : (
+            <Maximize
+              className="h-2 w-2 text-green-900 opacity-0 group-hover:opacity-100"
+              strokeWidth={5}
+            />
+          )}
         </button>
       </div>
 
@@ -86,7 +102,7 @@ export function TitleBar({
                 boxShadow: "0 0 15px rgba(239, 68, 68, 0.25)",
               }}
             >
-              <Terminal className="h-4 w-4 text-red-400" strokeWidth={2} />
+              <Terminal className="h-3 w-3 text-red-400" strokeWidth={2} />
             </div>
             <span
               className="text-sm font-black tracking-widest uppercase text-red-500 font-mono"

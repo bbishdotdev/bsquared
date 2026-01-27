@@ -1,4 +1,4 @@
-import { fmt, responseHeader, card } from "../format";
+import { fmt, responseHeader, card, formatContent } from "../format";
 import type { CommandDefinition } from "../dispatcher";
 
 export interface ProjectLink {
@@ -32,9 +32,7 @@ function getStatusBadge(status: Project["status"]): string {
 }
 
 function formatProject(project: Project): string {
-  const content: string[] = [
-    project.description.replace(/\*\*/g, ""), // Strip markdown bold
-  ];
+  const content: string[] = [formatContent(project.description)];
 
   if (project.technologies.length > 0) {
     content.push("");
