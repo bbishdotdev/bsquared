@@ -36,128 +36,6 @@ interface NavbarProps {
   animateIn?: boolean;
 }
 
-interface DockContentProps {
-  isHardcore: boolean;
-  onRestore: () => void;
-}
-
-function DockContent({ isHardcore, onRestore }: DockContentProps) {
-  return (
-    <>
-      {isHardcore ? (
-        <DockIcon>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <button
-                type="button"
-                onClick={onRestore}
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: "icon" }),
-                  "size-12"
-                )}
-              >
-                <Terminal
-                  className="size-5 text-red-400"
-                  style={{
-                    filter: "drop-shadow(0 0 8px rgba(239, 68, 68, 0.6))",
-                  }}
-                />
-              </button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Reopen Terminal</p>
-            </TooltipContent>
-          </Tooltip>
-        </DockIcon>
-      ) : (
-        navItems.map((item) => (
-          <DockIcon key={item.href}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={item.href}
-                  scroll={true}
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "instant" })
-                  }
-                  className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12"
-                  )}
-                >
-                  <item.icon className="size-4" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{item.label}</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        ))
-      )}
-
-      <Separator orientation="vertical" className="h-full" />
-
-      {socialItems.map((item) => (
-        <DockIcon key={item.href}>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Link
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: "icon" }),
-                  "size-12"
-                )}
-              >
-                <item.icon className="size-4" />
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>{item.label}</p>
-            </TooltipContent>
-          </Tooltip>
-        </DockIcon>
-      ))}
-
-      <Separator orientation="vertical" className="h-full py-2" />
-
-      {isHardcore ? (
-        <DockIcon>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Link
-                href="/home"
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: "icon" }),
-                  "size-12"
-                )}
-              >
-                <Globe className="size-4 text-zinc-300" />
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Normal Mode</p>
-            </TooltipContent>
-          </Tooltip>
-        </DockIcon>
-      ) : (
-        <DockIcon>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <ModeToggle />
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Theme</p>
-            </TooltipContent>
-          </Tooltip>
-        </DockIcon>
-      )}
-    </>
-  );
-}
-
 export function Navbar({
   variant = "normal",
   onRestore,
@@ -185,7 +63,116 @@ export function Navbar({
         iconDistance={140}
         className={dockClassName}
       >
-        <DockContent isHardcore={isHardcore} onRestore={handleRestore} />
+        {isHardcore ? (
+          <DockIcon>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  type="button"
+                  onClick={handleRestore}
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "icon" }),
+                    "size-12"
+                  )}
+                >
+                  <Terminal
+                    className="size-5 text-red-400"
+                    style={{
+                      filter: "drop-shadow(0 0 8px rgba(239, 68, 68, 0.6))",
+                    }}
+                  />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Reopen Terminal</p>
+              </TooltipContent>
+            </Tooltip>
+          </DockIcon>
+        ) : (
+          navItems.map((item) => (
+            <DockIcon key={item.href}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={item.href}
+                    scroll={true}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "instant" })
+                    }
+                    className={cn(
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12"
+                    )}
+                  >
+                    <item.icon className="size-4" />
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{item.label}</p>
+                </TooltipContent>
+              </Tooltip>
+            </DockIcon>
+          ))
+        )}
+
+        <Separator orientation="vertical" className="h-full" />
+
+        {socialItems.map((item) => (
+          <DockIcon key={item.href}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "icon" }),
+                    "size-12"
+                  )}
+                >
+                  <item.icon className="size-4" />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{item.label}</p>
+              </TooltipContent>
+            </Tooltip>
+          </DockIcon>
+        ))}
+
+        <Separator orientation="vertical" className="h-full py-2" />
+
+        {isHardcore ? (
+          <DockIcon>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link
+                  href="/home"
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "icon" }),
+                    "size-12"
+                  )}
+                >
+                  <Globe className="size-4 text-zinc-300" />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Normal Mode</p>
+              </TooltipContent>
+            </Tooltip>
+          </DockIcon>
+        ) : (
+          <DockIcon>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <ModeToggle />
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Theme</p>
+              </TooltipContent>
+            </Tooltip>
+          </DockIcon>
+        )}
       </Dock>
     </>
   );

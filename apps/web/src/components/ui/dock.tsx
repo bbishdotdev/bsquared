@@ -69,37 +69,41 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     }
 
     return (
-      <GlassSurface
-        width="fit-content"
-        height="fit-content"
-        borderRadius={999}
-        displace={0.35}
-        distortionScale={-130}
-        redOffset={5}
-        greenOffset={9}
-        blueOffset={13}
-        brightness={35}
-        opacity={0.7}
-        backgroundOpacity={0.2}
-        blur={14}
-        saturation={1.35}
-        mixBlendMode="screen"
-        className="pointer-events-auto px-2"
+      <div
+        onMouseMove={(e) => mouseX.set(e.pageX)}
+        onMouseLeave={() => mouseX.set(Infinity)}
+        className="pointer-events-auto"
       >
-        <motion.div
-          ref={ref}
-          onMouseMove={(e) => mouseX.set(e.pageX)}
-          onMouseLeave={() => mouseX.set(Infinity)}
-          {...props}
-          className={cn(dockVariants({ className }), {
-            "items-start": direction === "top",
-            "items-center": direction === "middle",
-            "items-end": direction === "bottom",
-          })}
+        <GlassSurface
+          width="fit-content"
+          height="fit-content"
+          borderRadius={999}
+          displace={0.35}
+          distortionScale={-130}
+          redOffset={5}
+          greenOffset={9}
+          blueOffset={13}
+          brightness={35}
+          opacity={0.7}
+          backgroundOpacity={0.2}
+          blur={14}
+          saturation={1.35}
+          mixBlendMode="screen"
+          className="px-2"
         >
-          {renderChildren()}
-        </motion.div>
-      </GlassSurface>
+          <div
+            ref={ref}
+            {...props}
+            className={cn(dockVariants({ className }), {
+              "items-start": direction === "top",
+              "items-center": direction === "middle",
+              "items-end": direction === "bottom",
+            })}
+          >
+            {renderChildren()}
+          </div>
+        </GlassSurface>
+      </div>
     )
   }
 )
@@ -133,19 +137,17 @@ const DockIcon = ({
   const defaultMouseX = useMotionValue(Infinity)
 
   const distanceCalc = useTransform(mouseX ?? defaultMouseX, (val: number) => {
-    const bounds = ref.current?.getBoundingClientRect()
-    if (!bounds || !Number.isFinite(val)) return Infinity
+    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 }
     return val - bounds.x - bounds.width / 2
   })
 
   const targetSize = disableMagnification ? size : magnification
 
-  const sizeTransform = useTransform(distanceCalc, (distanceValue) => {
-    if (!Number.isFinite(distanceValue)) return size
-    const clamped = Math.min(Math.abs(distanceValue), distance)
-    const progress = 1 - clamped / distance
-    return size + (targetSize - size) * progress
-  })
+  const sizeTransform = useTransform(
+    distanceCalc,
+    [-distance, 0, distance],
+    [size, targetSize, size]
+  )
 
   const scaleSize = useSpring(sizeTransform, {
     mass: 0.1,
