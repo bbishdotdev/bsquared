@@ -22,8 +22,7 @@ export default async function WritingPage() {
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <p className="mt-4 text-muted-foreground">
             Thoughts on life, technology, AI, and building products. I do not
-            have a cadence I simply brain dump here when I have something to
-            say.
+            have a cadence, I just brain dump here when I have some ideas.
           </p>
         </BlurFade>
       </section>
