@@ -1,24 +1,31 @@
 # @bsquared/tui
 
-Shared TUI package for Bsquared portfolio, built with OpenTUI.
+Shared terminal-style command engine for the Bsquared portfolio.
+
+This package is headless: it parses input, dispatches commands, and emits
+ANSI-formatted strings. The platform (web, SSH, etc.) decides how to render
+that output.
 
 ## Usage
 
 ```typescript
 import { createTUI } from "@bsquared/tui";
 
-// Create a TUI instance
-const tui = await createTUI({
+const tui = createTUI({
   prompt: "> ",
+});
+
+// Send output to your renderer/transport
+tui.onOutput((text) => {
+  process.stdout.write(text);
 });
 
 // Handle user input
 tui.onInput((input) => {
-  tui.write(`You typed: ${input}`);
+  // Custom hooks or analytics can go here
 });
 
-// Start the TUI
-await tui.start();
+await tui.handleInput("/help");
 ```
 
 ## API
@@ -29,28 +36,27 @@ Creates a new TUI instance.
 
 **Options:**
 
-- `prompt` (string): The prompt to display (default: `'> '`)
+- `prompt` (string): Prompt to display (default: `'> '`)
+- `welcome` (string): Welcome banner text
+- `data` (TUIData): Data used by built-in commands
 
-**Returns:** `Promise<TUIInstance>`
+**Returns:** `TUIInstance`
 
 ### `TUIInstance`
 
 **Methods:**
 
-- `write(text: string)`: Writes text to the output pane
-- `onInput(callback: (input: string) => void)`: Registers a callback for user input
-- `start()`: Starts the TUI (returns a Promise)
-- `stop()`: Stops the TUI and cleans up
+- `handleInput(input: string): Promise<void>`: Process a line of input
+- `write(text: string)`: Write text to output
+- `writeLine(text: string)`: Write a line to output
+- `onOutput(callback: (text: string) => void)`: Receive output
+- `onInput(callback: (input: string) => void)`: Receive sanitized input
+- `getWelcome(): string`: Get the welcome banner
+- `getPrompt(): string`: Get the prompt string
+- `getDispatcher(): Dispatcher`: Get the command dispatcher
 
-## Development
+## Rendering Notes
 
-This package uses OpenTUI for terminal UI rendering. Both the SSH and Web apps depend on this package to ensure a consistent experience.
-
-## Architecture
-
-The TUI consists of:
-
-- **Output Pane**: A scrollable text area that displays content (takes up most of the screen)
-- **Input Widget**: A single-line input field at the bottom for user commands
-
-The layout is managed using OpenTUI's flexbox-based layout system.
+- Output includes ANSI escape codes for color and formatting.
+- Real terminals render ANSI natively; web UIs can parse ANSI to spans.
+- This package is not a terminal emulator; it produces formatted text only.
