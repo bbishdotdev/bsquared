@@ -146,7 +146,9 @@ export function TerminalInput({
         visible={showAutocomplete}
       />
 
-      <div
+      <form
+        autoComplete="off"
+        onSubmit={(e) => e.preventDefault()}
         className="flex items-center gap-2 bg-zinc-800/40 rounded-md px-3 py-2 
                    border border-zinc-700/50 focus-within:border-zinc-600 
                    transition-colors"
@@ -175,7 +177,7 @@ export function TerminalInput({
         {!input && (
           <span className="w-2 h-4 bg-zinc-400 animate-pulse rounded-sm" />
         )}
-      </div>
+      </form>
     </div>
   );
 }

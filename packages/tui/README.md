@@ -39,6 +39,7 @@ Creates a new TUI instance.
 - `prompt` (string): Prompt to display (default: `'> '`)
 - `welcome` (string): Welcome banner text
 - `data` (TUIData): Data used by built-in commands
+- `streaming` (object): Enable output streaming (line or chunk based)
 
 **Returns:** `TUIInstance`
 

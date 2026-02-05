@@ -106,4 +106,30 @@ export interface TUIOptions {
    * Data sources for commands
    */
   data?: TUIData;
+
+  /**
+   * Stream output in chunks (useful for web terminals)
+   */
+  streaming?: {
+    /**
+     * Enable streaming mode (default: false)
+     */
+    enabled?: boolean;
+
+    /**
+     * Delay per line in milliseconds (default: 0)
+     */
+    lineDelayMs?: number;
+
+    /**
+     * Only stream outputs with at least this many lines (default: 2)
+     */
+    minLines?: number;
+
+    /**
+     * Split lines into smaller chunks (number of characters per chunk).
+     * When set, each chunk is emitted with the configured delay.
+     */
+    chunkSize?: number;
+  };
 }

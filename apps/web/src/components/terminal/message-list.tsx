@@ -45,25 +45,29 @@ const MessageItem = memo(function MessageItem({ msg }: { msg: TerminalMessage })
 
 export function MessageList({ messages }: MessageListProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isAtBottomRef = useRef(true);
+  const SCROLL_BOTTOM_THRESHOLD = 24;
+
+  const updateIsAtBottom = useCallback(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const distanceFromBottom =
+      container.scrollHeight - (container.scrollTop + container.clientHeight);
+    isAtBottomRef.current = distanceFromBottom <= SCROLL_BOTTOM_THRESHOLD;
+  }, []);
 
   // Auto-scroll to bottom on new messages
   useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    const container = containerRef.current;
+    if (!container) return;
+    if (isAtBottomRef.current) {
+      container.scrollTop = container.scrollHeight;
     }
   }, [messages]);
 
-  // Handle wheel events even when input is focused
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    // Scroll the container
-    container.scrollTop += e.deltaY;
-
-    // Prevent the event from bubbling to avoid double-scroll
-    e.stopPropagation();
-  }, []);
+  const handleScroll = useCallback(() => {
+    updateIsAtBottom();
+  }, [updateIsAtBottom]);
 
   // Empty state - still takes flex space but shows nothing
   if (messages.length === 0) {
@@ -73,8 +77,8 @@ export function MessageList({ messages }: MessageListProps) {
   return (
     <div
       ref={containerRef}
-      onWheel={handleWheel}
-      className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 py-2 space-y-1 terminal-scrollbar"
+      onScroll={handleScroll}
+      className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 py-2 space-y-1 terminal-scrollbar overscroll-contain"
     >
       {messages.map((msg) => (
         <MessageItem key={msg.id} msg={msg} />
