@@ -6,11 +6,11 @@ Monorepo with bun workspaces:
 
 ```
 /apps
-  /web         # Next.js 16 + Magic UI (Normal) + xterm.js (Hardcore)
+  /web         # Next.js 16 + Magic UI (Normal) + terminal-style React UI (Hardcore)
   /ssh         # ssh2 server wrapper for Hardcore mode
 
 /packages
-  /tui         # opentui layouts, widgets, keymaps (shared by SSH + web)
+  /tui         # headless command engine + ANSI formatting (shared by SSH + web)
   /agent-core  # LLM loop + command dispatcher (future)
   /tools       # slash commands + RAG tools (future)
 
@@ -48,8 +48,8 @@ Sections:
 
 ### Hardcore Mode (Terminal)
 
-- **Web**: xterm.js connected to TUI backend via WebSocket
-- **SSH**: Direct connection to TUI via PTY
+- **Web**: React terminal-style UI that renders ANSI output (no terminal emulator)
+- **SSH**: Planned ssh2 server that streams ANSI to a real PTY
 
 ### Slash Commands (Future)
 
@@ -67,11 +67,12 @@ Sections:
 - RAG: Supabase pgvector
 - Flow: parse → dispatch command if `/`; else → LLM + RAG. If low confidence → fallback with /message
 
-### TUI (opentui)
+### TUI (Headless Command Engine)
 
-- Input bar + output pane
-- Keymaps: Ctrl-C exit, Ctrl-L clear, ↑/↓ history
-- Toolbar on mobile web for Esc/Ctrl/Tab/Arrows
+- Parses input and dispatches slash commands
+- Emits ANSI-formatted text for consistent styling
+- Web UX: command autocomplete, input history, prompt/welcome banner
+- Mobile toolbar and full keymaps are future additions
 
 ## 3. Data Sources
 
@@ -87,8 +88,8 @@ Sections:
 ## 4. Distribution
 
 - **Normal mode**: Vercel (Next.js)
-- **Hardcore web**: Vercel + WebSocket server (or separate backend)
-- **Hardcore SSH**: Dedicated server with ssh2
+- **Hardcore web**: Vercel (client-only ANSI console)
+- **Hardcore SSH**: Dedicated server with ssh2 (planned)
 
 ## 5. Security
 
@@ -111,7 +112,8 @@ Sections:
 
 ## 8. Risks
 
-- Native binding issues with opentui → prebuild with prebuildify
+- ANSI parsing differences between web and real terminals
+- Large output volume can stress React rendering if unbounded
 - LLM hallucinations → require citations, fallback
 - Abuse via /message → CAPTCHA + rate limits
 - Resume hosting issues → stable S3/Supabase bucket

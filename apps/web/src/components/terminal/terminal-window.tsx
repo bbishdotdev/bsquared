@@ -24,7 +24,66 @@ export function TerminalWindow({ data }: TerminalWindowProps) {
   const [isMaximized, setIsMaximized] = useState(false);
   const [messages, setMessages] = useState<TerminalMessage[]>([]);
   const tuiRef = useRef<ReturnType<typeof createTUI> | null>(null);
-  const outputBufferRef = useRef<string>("");
+  const streamingMessageIdRef = useRef<string | null>(null);
+
+  const appendOutput = useCallback((text: string) => {
+    if (!text) return;
+
+    setMessages((prev) => {
+      let streamId = streamingMessageIdRef.current;
+      if (!streamId) {
+        streamId = `system-${Date.now()}`;
+        streamingMessageIdRef.current = streamId;
+        return [
+          ...prev,
+          {
+            id: streamId,
+            type: "system",
+            content: text,
+            timestamp: Date.now(),
+          },
+        ];
+      }
+
+      let found = false;
+      const next = prev.map((msg) => {
+        if (msg.id === streamId) {
+          found = true;
+          return { ...msg, content: msg.content + text };
+        }
+        return msg;
+      });
+
+      if (!found) {
+        return [
+          ...next,
+          {
+            id: streamId,
+            type: "system",
+            content: text,
+            timestamp: Date.now(),
+          },
+        ];
+      }
+
+      return next;
+    });
+  }, []);
+
+  const finalizeStreamingOutput = useCallback(() => {
+    const streamId = streamingMessageIdRef.current;
+    if (!streamId) return;
+
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg.id === streamId
+          ? { ...msg, content: msg.content.trimEnd() }
+          : msg,
+      ),
+    );
+
+    streamingMessageIdRef.current = null;
+  }, []);
 
   const handleMinimize = useCallback(() => {
     setIsMinimizing(true);
@@ -45,18 +104,22 @@ export function TerminalWindow({ data }: TerminalWindowProps) {
 
   // Initialize TUI once
   useEffect(() => {
-    const tui = createTUI({ data, welcome: "", prompt: "" });
+    const tui = createTUI({
+      data,
+      welcome: "",
+      prompt: "",
+      streaming: { enabled: true, lineDelayMs: 60, minLines: 1, chunkSize: 16 },
+    });
     tuiRef.current = tui;
 
     tui.onOutput((text) => {
-      if (!text) return;
-      outputBufferRef.current += text;
+      appendOutput(text);
     });
 
     return () => {
       tuiRef.current = null;
     };
-  }, [data]);
+  }, [appendOutput, data]);
 
   // Get available commands for autocomplete
   const commands: CommandOption[] = useMemo(() => {
@@ -93,6 +156,7 @@ export function TerminalWindow({ data }: TerminalWindowProps) {
 
       if (input.trim().toLowerCase() === "/clear") {
         setMessages([]);
+        streamingMessageIdRef.current = null;
         return;
       }
 
@@ -105,22 +169,13 @@ export function TerminalWindow({ data }: TerminalWindowProps) {
       setMessages((prev) => [...prev, userMessage]);
 
       setIsProcessing(true);
-      outputBufferRef.current = "";
+      streamingMessageIdRef.current = null;
       await tuiRef.current.handleInput(input);
-
-      if (outputBufferRef.current) {
-        const systemMessage: TerminalMessage = {
-          id: `system-${Date.now()}`,
-          type: "system",
-          content: outputBufferRef.current.trim(),
-          timestamp: Date.now(),
-        };
-        setMessages((prev) => [...prev, systemMessage]);
-      }
+      finalizeStreamingOutput();
 
       setIsProcessing(false);
     },
-    [showWelcome],
+    [finalizeStreamingOutput, showWelcome],
   );
 
   // Terminal content component (shared between normal and maximized modes)

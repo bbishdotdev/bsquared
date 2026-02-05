@@ -56,6 +56,11 @@ export function createTUI(options: TUIOptions = {}): TUIInstance {
   const prompt = options.prompt ?? DEFAULT_PROMPT;
   const welcome = options.welcome ?? DEFAULT_WELCOME;
   const data = options.data;
+  const streaming = options.streaming ?? {};
+  const streamEnabled = streaming.enabled ?? false;
+  const streamLineDelayMs = streaming.lineDelayMs ?? 0;
+  const streamMinLines = streaming.minLines ?? 2;
+  const streamChunkSize = streaming.chunkSize ?? 0;
 
   const outputHandlers: OutputHandler[] = [];
   const inputHandlers: InputHandler[] = [];
@@ -111,6 +116,47 @@ export function createTUI(options: TUIOptions = {}): TUIInstance {
     }
   }
 
+  function nextTick(): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, streamLineDelayMs));
+  }
+
+  async function streamText(text: string): Promise<void> {
+    if (!text) return;
+
+    if (!streamEnabled) {
+      dispatchOutput(text);
+      return;
+    }
+
+    const lines = text.split("\n");
+    if (lines.length < streamMinLines) {
+      dispatchOutput(text);
+      return;
+    }
+
+    for (let i = 0; i < lines.length; i += 1) {
+      const line = lines[i];
+
+      if (streamChunkSize > 0 && line.length > streamChunkSize) {
+        for (let j = 0; j < line.length; j += streamChunkSize) {
+          const chunk = line.slice(j, j + streamChunkSize);
+          if (chunk) {
+            dispatchOutput(chunk);
+          }
+          await nextTick();
+        }
+      } else if (line) {
+        dispatchOutput(line);
+        await nextTick();
+      }
+
+      if (i < lines.length - 1) {
+        dispatchOutput("\n");
+        await nextTick();
+      }
+    }
+  }
+
   /**
    * Handle AI messages (non-command input)
    * For now, just show a placeholder. Will be replaced with actual AI agent.
@@ -143,8 +189,9 @@ export function createTUI(options: TUIOptions = {}): TUIInstance {
         output = handleMessage(sanitizedRaw);
       }
 
-      // Send output
-      dispatchOutput(output + "\n");
+      // Send output (optionally streaming)
+      await streamText(output);
+      dispatchOutput("\n");
 
       // Dispatch to input handlers for additional processing
       dispatchInput(sanitizedRaw);
