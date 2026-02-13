@@ -27,7 +27,7 @@ export function ContactSection({ blurFadeDelay }: ContactSectionProps) {
               </Link>{" "}
               or a quick{" "}
               <Link
-                href="https://x.com/bbish937"
+                href="https://x.com/bbishdotdev"
                 className="text-blue-500 hover:underline"
               >
                 DM on X

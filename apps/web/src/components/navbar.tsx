@@ -21,13 +21,13 @@ const navItems = [
 ];
 
 const socialItems = [
-  { href: "https://github.com/bbishdev", icon: GithubIcon, label: "GitHub" },
+  { href: "https://github.com/bbishdotdev", icon: GithubIcon, label: "GitHub" },
   {
     href: "https://www.linkedin.com/in/brenden-bishop/",
     icon: LinkedinIcon,
     label: "LinkedIn",
   },
-  { href: "https://x.com/bbish937", icon: XTwitterIcon, label: "X" },
+  { href: "https://x.com/bbishdotdev", icon: XTwitterIcon, label: "X" },
 ];
 
 interface NavbarProps {

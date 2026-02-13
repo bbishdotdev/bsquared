@@ -25,7 +25,7 @@ const testData: TUIData = {
   },
   links: {
     social: [
-      { name: "GitHub", url: "https://github.com/bbishdev" },
+      { name: "GitHub", url: "https://github.com/bbishdotdev" },
       { name: "LinkedIn", url: "https://linkedin.com/in/brenden-bishop/" },
     ],
   },
