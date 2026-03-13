@@ -23,6 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7,
     },
+    {
+      url: "https://bbish.dev/braver-search/privacy",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
     ...articles.map((article) => ({
       url: `https://bbish.dev/writing/${article.slug}`,
       lastModified: new Date(),
@@ -37,4 +43,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 }
-
