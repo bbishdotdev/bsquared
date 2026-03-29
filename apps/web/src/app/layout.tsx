@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Brenden Bishop",
   },
   description:
-    "Builder and technologist blending code, product, and vision. 10+ years SWE, 4 years eng leadership. Award winner & 3x founder shipping real things.",
+    "Engineering leader and builder focused on how software gets built. Shipping products, integrating AI into real dev workflows, and founding from 0→1.",
   keywords: [
     "Brenden Bishop",
     "Software Engineer",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Brenden Bishop",
     title: "Brenden Bishop | Builder & Technologist",
     description:
-      "Builder and technologist blending code, product, and vision. 10+ years SWE, 4 years eng leadership.",
+      "Engineering leader and builder focused on how software gets built. Shipping products, integrating AI into real dev workflows, and founding from 0→1.",
     images: [
       {
         url: "/og-image.png",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Brenden Bishop | Builder & Technologist",
     description:
-      "Builder and technologist blending code, product, and vision. 10+ years SWE, 4 years eng leadership.",
+      "Engineering leader and builder focused on how software gets built. Shipping products, integrating AI into real dev workflows, and founding from 0→1.",
     images: ["/og-image.png"],
-    creator: "@brendenburg",
+    creator: "@bbishdotdev",
   },
   robots: {
     index: true,
