@@ -6,6 +6,13 @@ export interface WorkLinkItem {
   href: string;
 }
 
+export interface WorkRoleItem {
+  title: string;
+  start: string;
+  end?: string | null;
+  description?: string;
+}
+
 export interface WorkItem {
   company: string;
   logoUrl?: string;
@@ -14,6 +21,7 @@ export interface WorkItem {
   start: string;
   end?: string | null;
   description?: string;
+  roles?: readonly WorkRoleItem[];
   links?: readonly WorkLinkItem[];
 }
 
@@ -25,12 +33,15 @@ export interface WorkSectionProps {
 export function WorkSection({ work, blurFadeDelay }: WorkSectionProps) {
   return (
     <section id="work">
-      <div className="flex min-h-0 flex-col gap-y-3">
+      <div className="flex min-h-0 flex-col gap-y-5">
         <BlurFade delay={blurFadeDelay * 5}>
           <h2 className="text-xl font-bold">Work Experience</h2>
         </BlurFade>
         {work.map((item, id) => (
-          <BlurFade key={item.company} delay={blurFadeDelay * 6 + id * 0.05}>
+          <BlurFade
+            key={`${item.company}-${item.title}-${item.start}`}
+            delay={blurFadeDelay * 6 + id * 0.05}
+          >
             <ResumeCard
               logoUrl={item.logoUrl}
               altText={item.company}
@@ -39,6 +50,7 @@ export function WorkSection({ work, blurFadeDelay }: WorkSectionProps) {
               href={item.href}
               period={`${item.start} - ${item.end ?? "Present"}`}
               description={item.description}
+              roles={item.roles}
               links={item.links}
             />
           </BlurFade>
@@ -47,4 +59,3 @@ export function WorkSection({ work, blurFadeDelay }: WorkSectionProps) {
     </section>
   );
 }
-

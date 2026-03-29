@@ -2,11 +2,30 @@
   "work": [
     {
       "company": "Morgan Stanley",
-      "title": "Software Engineering Manager",
+      "title": "Applied AI & DevEx Lead, Client Platforms",
       "logoUrl": "/logos/morgan-stanley.png",
       "start": "2015",
       "end": "Now",
-      "description": "Started as Technical Business Analyst, transitioned into Front-End Engineer, and now lead engineering for client-facing planning platforms used across `Morgan Stanley Online` and `E*TRADE`. Currently manage a team of `12 engineers` and own technical direction, architecture, and delivery for `5` apps.\n\n Led the development of a unified planning platform, consolidating fragmented systems and saving `$2M+ annually`. More recently, I’ve focused on integrating AI into our development workflow, building reusable AI-assisted engineering patterns and launching internal bootcamps and workshops to help teams adopt AI effectively.",
+      "roles": [
+        {
+          "title": "Applied AI & DevEx Lead, Client Platforms",
+          "start": "2026",
+          "end": "Now",
+          "description": "Leading adoption of AI-native development across Wealth Management Client Platforms, defining how `LLMs` are used across workflows, tooling, and the `SDLC`. Built internal tools and agentic workflows for code generation, testing, API development, and `CI/CD`, improving delivery speed by `4x`.\n\nCreated hands-on workshops and curriculum for practical `LLM` usage across engineering, and led `Nevernote` to OpenAI Hackathon finalist status using `Whisper`, `LangChain`, and `GPT`."
+        },
+        {
+          "title": "Engineering Manager, Client Platforms",
+          "start": "2021",
+          "end": "2026",
+          "description": "Led engineering strategy and delivery for `5` client-facing planning apps across `Morgan Stanley Online` and `E*TRADE`, managing `12 engineers` across `3 global squads`.\n\nInfluenced stakeholders to back a modern rebuild over a legacy-first approach, launching a unified platform that merged two experiences, reduced UX complexity, improved scalability, and saved `$2M+ annually`."
+        },
+        {
+          "title": "Business Analyst -> UI Developer -> UI Development Lead",
+          "start": "2015",
+          "end": "2021",
+          "description": "Progressed from Technical Business Analyst to Front-End Engineer to UI Development Lead. Led UI development for two zero-to-one financial planning applications in `Angular`, partnering closely with product and backend teams to ship and scale them.\n\nCreated technical and functional requirements, workflows, and dependency plans, while mentoring junior engineers and helping establish frontend best practices."
+        }
+      ],
       "links": [
         {
           "type": "Website",

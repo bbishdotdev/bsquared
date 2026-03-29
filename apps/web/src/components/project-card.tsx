@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { getGradientForString } from "@/lib/gradients";
+import { getSkillColor } from "@/lib/skill-colors";
 import { cn } from "@/lib/utils";
 import { inlineCodeRenderer } from "@/lib/markdown";
 import { ProjectStatus, STATUS_CONFIG } from "@/types/project";
@@ -48,6 +49,8 @@ export const ProjectCard = memo(function ProjectCard({
 }: ProjectCardProps) {
   const statusConfig = status ? STATUS_CONFIG[status] : null;
   const gradient = useMemo(() => getGradientForString(title), [title]);
+  const hasTags = tags.length > 0;
+  const hasLinks = Boolean(links?.length);
 
   return (
     <Card className="flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full !py-0">
@@ -114,13 +117,21 @@ export const ProjectCard = memo(function ProjectCard({
           </div>
         </div>
       </CardHeader>
-      <CardContent className="mt-auto flex flex-col px-2">
-        {tags && tags.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1">
-            {tags?.map((tag) => (
+      <CardContent
+        className={cn(
+          "mt-auto flex flex-col px-2",
+          hasTags ? "pt-2 pb-1" : "pt-2 pb-2",
+        )}
+      >
+        {hasTags && (
+          <div className="flex min-h-[2.75rem] flex-wrap content-start gap-1">
+            {tags.map((tag) => (
               <Badge
-                className="px-1 py-0 text-[10px]"
-                variant="secondary"
+                className={cn(
+                  "px-1.5 py-0 text-[10px]",
+                  getSkillColor(tag),
+                )}
+                variant="outline"
                 key={tag}
               >
                 {tag}
@@ -129,20 +140,23 @@ export const ProjectCard = memo(function ProjectCard({
           </div>
         )}
       </CardContent>
-      <CardFooter className="px-2 pb-2">
-        {links && links.length > 0 && (
-          <div className="flex flex-row flex-wrap items-start gap-1">
-            {links?.map((link, idx) => (
-              <Link href={link?.href} key={idx} target="_blank">
-                <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
+      {hasLinks && (
+        <CardFooter className="px-2 pb-2 pt-1">
+          <div className="flex flex-row flex-wrap items-start gap-2">
+            {links!.map((link, idx) => (
+              <Link href={link.href} key={idx} target="_blank">
+                <Badge
+                  variant="outline"
+                  className="flex gap-1.5 rounded-md border-border/70 px-2.5 py-1 text-[10px] text-muted-foreground hover:text-foreground"
+                >
                   {link.icon}
                   {link.type}
                 </Badge>
               </Link>
             ))}
           </div>
-        )}
-      </CardFooter>
+        </CardFooter>
+      )}
     </Card>
   );
 });

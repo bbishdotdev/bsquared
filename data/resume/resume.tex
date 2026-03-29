@@ -59,9 +59,12 @@
     urlcolor=linkblue,
     pdftitle={Brenden Bishop Resume},
     pdfauthor={Brenden Bishop},
-    pdfsubject={VP, Engineering - AI Platforms and Developer Enablement},
-    pdfkeywords={Brenden Bishop, VP Engineering, AI Platforms, Developer Enablement, Software Engineering Manager},
+    pdfsubject={VP, AI Platforms and Developer Experience},
+    pdfkeywords={Brenden Bishop, VP Engineering, AI Platforms, Developer Experience, Product Builder},
 }
+
+% External link helper with a subtle icon
+\newcommand{\extlink}[2]{\href{#1}{#2\,{\fontsize{7}{7}\selectfont\faGlobe}}}
 
 % Section formatting
 \titleformat{\section}{
@@ -119,6 +122,13 @@
   \vspace{1pt}
 }
 
+% Sub-role header with dates
+\newcommand{\subroledated}[2]{%
+  \vspace{1pt}
+  \noindent\hspace*{0.2in}{\small\color{textgray}{#1}}\hfill{\small\color{textgray} #2}\par
+  \vspace{1pt}
+}
+
 % Bullet list commands (indented from subtitles)
 \newcommand{\workliststart}{\begin{itemize}[leftmargin=0.60in, rightmargin=0.15in, itemsep=2pt, parsep=0pt, topsep=2pt]}
 \newcommand{\worklistend}{\end{itemize}\vspace{2pt}}
@@ -138,59 +148,60 @@
 \noindent
 \begin{tabularx}{\linewidth}{@{}X r@{}}
   {\Huge Hi, I'm Brenden} \raisebox{-0.1\height}{\includegraphics[height=20pt]{assets/wave.png}} &
-  {\small {\color{linkblue}\faEnvelope}\hspace{3pt}\href{mailto:btbishop93@gmail.com}{btbishop93@gmail.com} \hspace{6pt}|\hspace{6pt} {\color{linkblue}\faGlobe}\hspace{3pt}\href{https://bbish.dev}{bbish.dev}}
+  {\small {\color{linkblue}\faEnvelope}\hspace{3pt}\href{mailto:btbishop93@gmail.com}{btbishop93@gmail.com} \hspace{6pt}|\hspace{6pt} {\color{linkblue}\faGlobe}\hspace{3pt}\extlink{https://bbish.dev}{bbish.dev}}
 \end{tabularx}
 
 \vspace{6pt}
 
-%----------INTRO + ABOUT (2-column)----------
-\setlength{\columnsep}{12pt}
-\begin{paracol}{2}
+\noindent{\small\textbf{VP, Applied AI \& DevEx Lead}}
+\vspace{3pt}
 
-%--- LEFT: Title + Intro ---
-\noindent{\small\textbf{VP, Engineering Manager — Client Platforms \& AI}}
-\vspace{1pt}
-
-\noindent{\small\color{textgray} Engineering Leader • Product Builder • AI Systems Builder}
+\noindent{\small\color{textgray} Engineering Leader • Product Builder • Applied AI \& DevEx}
 \vspace{7pt}
 
-\noindent{\small Husband, father, and technologist. Engineering leader and chronic builder. I love designing systems, building products and AI-native workflows. Addicted to coffee and coding.}
+%----------INTRO + ABOUT (balanced 2-column flow)----------
+\setlength{\columnsep}{12pt}
+\begin{paracol}{2}
+\RaggedRight
+\small
+Husband, father, and technologist. I like building products, improving how teams work, and finding better ways to build software. Addicted to coffee and coding. Over the past 10 years I've worked across engineering, product, and systems, building client-facing platforms and products from 0->1.
 
 \switchcolumn
 
-%--- RIGHT: About (no header) ---
-{\RaggedRight\small I'm a product-minded engineering leader with 10+ years building and scaling software platforms. I've led engineering for five client-facing products and built internal AI-native development workflows now used across the firm. I stay hands-on in architecture and developer tooling, with a focus on improving how software gets built. I've also founded multiple products from 0->1.\par}
-
+Recently, I've been focused on how software gets built with AI, redefining workflows around LLMs in real production environments. That means placing LLMs into real workflows, building internal tools and agentic systems, and creating the conditions for fast, high-confidence iteration.
 \end{paracol}
 
 %----------WORK EXPERIENCE----------
 \section{Work Experience}
 
-\workheader{assets/morgan-stanley.png}{Morgan Stanley}{2015 – Now}
+\workheader{assets/morgan-stanley.png}{Morgan Stanley}{}
 
-\subrole{AI Platforms, Architecture, \& Enablement}
+\subroledated{Applied AI \& DevEx Lead, Client Platforms}{2026 – Now}
 \workliststart
-  \item\small Developed reusable AI-assisted workflows and agentic patterns for API integrations, accelerating delivery \textbf{speed by 4×} and establishing repeatable implementation patterns across teams
-  \item\small Built and led an internal \textbf{AI bootcamp} teaching engineers how to integrate LLMs into software development, including context engineering, tool calling, and agentic workflows, with hands-on workshops using our production stack
-  \item\small Worked directly with engineering teams and leadership to integrate AI into the SDLC, influencing code review patterns, development workflows, and delivery velocity
+  \item\small Leading adoption of AI-native development, defining how \textbf{LLMs} are used across workflows, tooling, and the \textbf{SDLC}
+  \item\small Built internal tools and agentic workflows for code generation, testing, API development, and \textbf{CI/CD}, improving delivery \textbf{speed by 4×}
+  \item\small Led \textbf{Nevernote} to OpenAI Hackathon finalist status using \textbf{Whisper}, \textbf{LangChain}, and \textbf{GPT}
 \worklistend
 
-\subrole{Software Engineering Manager}
+\subroledated{Engineering Manager, Client Platforms}{2021 – 2026}
 \workliststart
-  \item\small Led engineering strategy and architecture for \textbf{five} client-facing financial platforms, managing a team of \textbf{12} engineers and owning system reliability, scalability, and technical direction
-  \item\small Led platform rebuild to unify fragmented systems into a scalable architecture, improving reliability, developer velocity, and reducing operational costs by \textbf{\$2M+}
-  \item\small Led Nevernote, an AI-powered meeting intelligence Hackathon product with \textbf{Whisper}, \textbf{LangChain}, and \textbf{GPT}
-  \item\small Mentored and developed engineers across frontend, backend, and AI systems, raising engineering standards and growing team technical capability
+  \item\small Led engineering strategy and delivery for \textbf{5} planning apps across Morgan Stanley Online and E*TRADE, managing \textbf{12} engineers across \textbf{3} global squads
+  \item\small Influenced a modern rebuild over a legacy-first approach, launching a unified platform that merged two experiences and saved \textbf{\$2M+}
+\worklistend
+
+\subroledated{Business Analyst $\rightarrow$ UI Developer $\rightarrow$ UI Development Lead}{2015 – 2021}
+\workliststart
+  \item\small Led UI development for two zero-to-one financial planning applications in \textbf{Angular}, partnering with product and backend teams
+  \item\small Created technical and functional requirements, workflows, and dependency plans while mentoring junior engineers and raising frontend standards
 \worklistend
 
 \vspace{1pt}
-\workheader{assets/forwheel.jpg}{\href{https://forwheel.app}{Forwheel}}{2021 – Now}
+\workheader{assets/forwheel.jpg}{\extlink{https://forwheel.app}{Forwheel}}{2021 – Now}
 
 \subrole{Founder}
 \workliststart
-  \item\small Founded and built a production B2B platform from 0->1, owning product vision, architecture, and full-stack implementation across mobile and backend systems
-  \item\small Developed AI advisor `Garnish' using \textbf{OpenAI} and \textbf{RAG} for intelligent recommendations
-  \item\small Launched on \textbf{iOS} and \textbf{Android} using \textbf{Flutter}, \textbf{Firebase} and \textbf{GCP}
+  \item\small Founded and built a production B2B platform from 0->1, owning product vision, architecture, and full-stack implementation
+  \item\small Built AI advisor `Garnish' with \textbf{OpenAI} and \textbf{RAG}, and launched on \textbf{iOS} and \textbf{Android} using \textbf{Flutter}, \textbf{Firebase}, and \textbf{GCP}
   \item\small Secured contracts with \textbf{3} key industry vendors for discounted goods and services
 \worklistend
 
@@ -200,8 +211,7 @@
 \subrole{Co-Founder}
 \workliststart
   \item\small Led technical strategy for algorithmic crypto trading platform using \textbf{Java}, \textbf{React}, and \textbf{AWS}
-  \item\small Automated arbitrage trading, growing AUM to \textbf{\$750K} in 18 months
-  \item\small Optimized trading strategy based on geographic proximity to exchanges
+  \item\small Automated arbitrage trading and optimized exchange execution, growing AUM to \textbf{\$750K} in 18 months
 \worklistend
 
 %----------SKILLS (3-column single row)----------
@@ -236,10 +246,10 @@
 
 \vspace{2pt}
 \begin{itemize}[leftmargin=0.15in, itemsep=1pt, parsep=0pt, topsep=1pt]
-  \item\small Built and deployed production Next.js applications on Vercel, focusing on developer experience, performance, and AI integration
-  \item\small iOS/Mac App plugin for Safari that makes Brave Search the default browser (\href{https://apps.apple.com/us/app/braver-search/id6740840706}{Braver Search}) with over \textbf{20k DAUs}
-  \item\small Encrypted note-taking app, \href{https://apps.apple.com/us/app/jumblebook-notes/id6741652060}{Jumblebook Notes}, with \textbf{Flutter} and \textbf{Dart}, deploying to both \textbf{iOS} and \textbf{Android}
-  \item\small AI project management tool (\href{https://www.npmjs.com/package/cycles-mcp}{Cycles MCP}) that converts PRDs into right-sized dev tasks with git automation
+  \item\small \extlink{https://apps.apple.com/us/app/braver-search/id6740840706}{Braver Search}: Safari plugin for iOS/Mac that makes Brave Search the default browser with over \textbf{20k DAUs}
+  \item\small \extlink{https://www.npmjs.com/package/cycles-mcp}{Cycles MCP}: AI project management tool that turns product requirements into right-sized dev tasks and handles git automation
+  \item\small \extlink{https://ciderpress.vercel.app}{CiderPress}: Web app using \textbf{ffmpeg wasm} to convert .mp4 videos for Apple App Store app preview compliance
+  \item\small \extlink{https://apps.apple.com/us/app/jumblebook-notes/id6741652060}{Jumblebook Notes}: Encrypted note-taking app built with \textbf{Flutter} and \textbf{Dart}, deployed to iOS and Android
 \end{itemize}
 
 %----------EDUCATION----------
@@ -248,7 +258,7 @@
 \noindent
 \begin{tabularx}{\linewidth}{@{}l l X r@{}}
   \raisebox{-0.3\height}{\circlogoar{assets/marist.jpg}} &
-  \textbf{\href{https://www.marist.edu}{Marist College}}\hspace{4pt}|\hspace{4pt}{\small Bachelor's in Computer Science} &
+  \textbf{\extlink{https://www.marist.edu}{Marist College}}\hspace{4pt}|\hspace{4pt}{\small Bachelor's in Computer Science} &
   &
   {\small\color{textgray} 2011 – 2015}
 \end{tabularx}

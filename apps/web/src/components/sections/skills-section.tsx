@@ -1,5 +1,6 @@
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Badge } from "@/components/ui/badge";
+import { getCategoryColor } from "@/lib/skill-colors";
 
 interface SkillCategory {
   name: string;
@@ -10,20 +11,6 @@ export interface SkillsSectionProps {
   categories: readonly SkillCategory[];
   blurFadeDelay: number;
 }
-
-const CATEGORY_COLORS: Record<string, string> = {
-  Languages:
-    "border-blue-500/30 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20",
-  "Libraries & Frameworks":
-    "border-violet-500/30 bg-violet-500/10 text-violet-400 hover:bg-violet-500/20",
-  "AI & Agents":
-    "border-amber-500/30 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20",
-  "Platforms & Tooling":
-    "border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20",
-};
-
-const DEFAULT_COLOR =
-  "border-zinc-500/30 bg-zinc-500/10 text-zinc-400 hover:bg-zinc-500/20";
 
 export function SkillsSection({
   categories,
@@ -51,9 +38,7 @@ export function SkillsSection({
                     <Badge
                       key={skill}
                       variant="outline"
-                      className={`text-xs px-2 py-0.5 ${
-                        CATEGORY_COLORS[category.name] ?? DEFAULT_COLOR
-                      }`}
+                      className={`text-xs px-2 py-0.5 ${getCategoryColor(category.name)}`}
                     >
                       {skill}
                     </Badge>
@@ -67,4 +52,3 @@ export function SkillsSection({
     </section>
   );
 }
-

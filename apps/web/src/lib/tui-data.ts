@@ -12,6 +12,27 @@ import { getAllArticles } from "./articles";
  */
 export function loadTUIData(): TUIData {
   const articles = getAllArticles();
+  const work = resume.work.flatMap((w) => {
+    if (w.roles?.length) {
+      return w.roles.map((role) => ({
+        company: w.company,
+        title: role.title,
+        start: role.start,
+        end: role.end ?? "Present",
+        description: role.description ?? "",
+      }));
+    }
+
+    return [
+      {
+        company: w.company,
+        title: w.title,
+        start: w.start,
+        end: w.end,
+        description: w.description,
+      },
+    ];
+  });
 
   return {
     config: {
@@ -21,13 +42,7 @@ export function loadTUIData(): TUIData {
       bio: config.bio,
     },
     resume: {
-      work: resume.work.map((w) => ({
-        company: w.company,
-        title: w.title,
-        start: w.start,
-        end: w.end,
-        description: w.description,
-      })),
+      work,
       education: resume.education.map((e) => ({
         school: e.school,
         degree: e.degree,

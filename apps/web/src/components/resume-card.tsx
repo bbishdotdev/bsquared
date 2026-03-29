@@ -20,7 +20,29 @@ interface ResumeCardProps {
   badges?: readonly string[];
   period: string;
   description?: string;
+  roles?: readonly {
+    title: string;
+    start: string;
+    end?: string | null;
+    description?: string;
+  }[];
   links?: readonly { type: string; href: string }[];
+}
+
+function formatLinkLabel(
+  link: { type: string; href: string },
+  duplicateTypes: Set<string>,
+) {
+  if (!duplicateTypes.has(link.type.toLowerCase())) {
+    return link.type;
+  }
+
+  try {
+    const url = new URL(link.href);
+    return url.hostname.replace(/^www\./, "");
+  } catch {
+    return link.type;
+  }
 }
 
 export function ResumeCard({
@@ -32,12 +54,23 @@ export function ResumeCard({
   badges,
   period,
   description,
+  roles,
   links,
 }: ResumeCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const hasExpandableContent = Boolean(description || roles?.length);
+  const duplicateLinkTypes = new Set(
+    (links ?? [])
+      .map((link) => link.type.toLowerCase())
+      .filter(
+        (type, index, types) => types.indexOf(type) !== types.lastIndexOf(type),
+      ),
+  );
 
   const handleClick = () => {
-    setIsExpanded(!isExpanded);
+    if (hasExpandableContent) {
+      setIsExpanded(!isExpanded);
+    }
   };
 
   const cardContent = (
@@ -65,12 +98,14 @@ export function ResumeCard({
                 ))}
               </span>
             )}
-            <ChevronRightIcon
-              className={cn(
-                "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
-                isExpanded ? "rotate-90" : "rotate-0",
-              )}
-            />
+            {hasExpandableContent && (
+              <ChevronRightIcon
+                className={cn(
+                  "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
+                  isExpanded ? "rotate-90" : "rotate-0",
+                )}
+              />
+            )}
           </h3>
           <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right whitespace-nowrap">
             {period}
@@ -81,7 +116,7 @@ export function ResumeCard({
             {subtitle}
           </div>
         )}
-        {description && (
+        {hasExpandableContent && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{
@@ -92,13 +127,10 @@ export function ResumeCard({
               duration: 0.7,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="mt-2 text-xs sm:text-sm text-muted-foreground prose prose-sm dark:prose-invert max-w-none"
+            className="mt-4 overflow-hidden"
           >
-            <Markdown components={{ code: inlineCodeRenderer }}>
-              {description}
-            </Markdown>
             {links && links.length > 0 && (
-              <div className="flex flex-row flex-wrap items-start gap-1 py-4 not-prose">
+              <div className="mb-4 flex flex-row flex-wrap items-start gap-2 not-prose">
                 {links.map((link, idx) => (
                   <Link
                     href={link.href}
@@ -106,11 +138,49 @@ export function ResumeCard({
                     target="_blank"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <Badge className="flex gap-2 px-2 py-1 text-[10px]">
+                    <Badge
+                      variant="outline"
+                      className="flex gap-1.5 rounded-md border-border/70 px-2.5 py-1 text-[10px] text-muted-foreground hover:text-foreground"
+                    >
                       {getLinkIcon(link.type)}
-                      {link.type}
+                      {formatLinkLabel(link, duplicateLinkTypes)}
                     </Badge>
                   </Link>
+                ))}
+              </div>
+            )}
+            {description && (
+              <div className="prose prose-sm dark:prose-invert max-w-none text-xs sm:text-sm leading-7 text-muted-foreground [&>p]:mb-3 last:[&>p]:mb-0">
+                <Markdown components={{ code: inlineCodeRenderer }}>
+                  {description}
+                </Markdown>
+              </div>
+            )}
+            {roles && roles.length > 0 && (
+              <div className="not-prose">
+                {roles.map((role, index) => (
+                  <div
+                    key={`${role.title}-${role.start}`}
+                    className={cn(
+                      index === 0 ? "" : "mt-5 border-t border-border/50 pt-5",
+                    )}
+                  >
+                    <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                      <h4 className="font-medium text-foreground text-xs sm:text-sm leading-snug tracking-tight">
+                        {role.title}
+                      </h4>
+                      <div className="text-[10px] sm:text-xs tabular-nums text-muted-foreground whitespace-nowrap">
+                        {role.start} - {role.end ?? "Present"}
+                      </div>
+                    </div>
+                    {role.description && (
+                      <div className="mt-2 prose prose-sm dark:prose-invert max-w-none text-xs sm:text-sm leading-7 text-muted-foreground [&>p]:mb-3 last:[&>p]:mb-0">
+                        <Markdown components={{ code: inlineCodeRenderer }}>
+                          {role.description}
+                        </Markdown>
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             )}
@@ -122,7 +192,7 @@ export function ResumeCard({
 
   // Use div wrapper when expandable (has description) to avoid nested <a> tags
   // Use Link wrapper when not expandable but has href for navigation
-  if (description) {
+  if (hasExpandableContent) {
     return (
       <div
         onClick={handleClick}

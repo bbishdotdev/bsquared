@@ -5,7 +5,7 @@
       "href": "https://riffolio.com",
       "dates": "2025 - Now",
       "status": "development",
-      "description": "Collaborative idea scoring and prioritization using a structured 10-factor framework. Combines blind peer ratings with AI scoring to surface what's worth building. **Waitlist live!**",
+      "description": "Collaborative idea scoring and prioritization. Combines blind peer ratings with AI to surface what's worth building.",
       "image": "/logos/riffolio.png",
       "technologies": [
         "TypeScript",
@@ -29,7 +29,7 @@
       "href": "https://apps.apple.com/us/app/braver-search/id6740840706",
       "dates": "2025 - Now",
       "status": "live",
-      "description": "Safari plugin for iOS/Mac that makes Brave Search the default browser. **20k+ daily active users**.",
+      "description": "Safari plugin for iOS/Mac that makes Brave Search the default browser. Now has over **20k daily active users**.",
       "technologies": ["Swift", "JavaScript", "Safari Extensions"],
       "video": "/demos/braver-search.mp4",
       "links": [
@@ -67,7 +67,7 @@
       "href": "https://apps.apple.com/us/app/jumblebook-notes/id6741652060",
       "dates": "2020 - Now",
       "status": "live",
-      "description": "Encrypted note-taking app built with Flutter and Dart, deployed to iOS and Android.",
+      "description": "A fun puzzling twist on an encrypted note-taking app built with Flutter and Dart, deployed to iOS and Android.",
       "technologies": ["Dart", "Flutter", "Firebase"],
       "video": "/demos/jumblebook.mp4",
       "links": [
@@ -87,7 +87,7 @@
     },
     {
       "title": "Ciderpress",
-      "href": "https://app-preview-converter.vercel.app",
+      "href": "https://ciderpress.vercel.app",
       "dates": "2024 - Now",
       "status": "live",
       "description": "Web app using ffmpeg wasm to convert .mp4 videos for Apple App Store app previews video format compliance.",
@@ -115,7 +115,7 @@
       "href": "#",
       "dates": "2024 - Now",
       "status": "development",
-      "description": "A Real-time NFL pick'em pool tracker with live scoring, AI predictions, and multi-league support.",
+      "description": "A Real-time NFL pick'em pool tracker with live scoring, game data, league standings, AI predictions, and betting odds.",
       "technologies": [
         "TypeScript",
         "TailwindCSS",
@@ -132,29 +132,29 @@
       ]
     },
     {
-      "title": "BookmarX",
+      "title": "CodeMaverick",
       "href": "#",
       "dates": "Soon... maybe?",
       "status": "concept",
-      "description": "Thinking about wtf to do with all of my bookmarked posts on X. They often just sit there and collect dust.",
+      "description": "Technical interviews still feel nothing like how engineers actually build. That seems fixable.",
       "technologies": [],
       "links": []
     },
     {
-      "title": "GitGood",
+      "title": "BookmarX",
       "href": "#",
       "dates": "Need a cracked out hackathon weekend!",
       "status": "concept",
-      "description": "Thinking about a fun way to gamify git for developers.",
+      "description": "I don't know wtf to do with all of my bookmarked posts on X. They often just sit there and collect dust.",
       "technologies": [],
       "links": []
     },
     {
       "title": "Puddin'",
       "href": "#",
-      "dates": "When I want to learn React Native :)",
+      "dates": "When I decide I want to learn React Native :)",
       "status": "concept",
-      "description": "Toying with a new concept for a accountability app for achieving goals. **Proof is in the puddin'.**",
+      "description": "Toying with a new fun concept for a accountability app for achieving goals. **Proof is in the puddin'.**",
       "technologies": [],
       "links": []
     }
