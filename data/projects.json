@@ -41,7 +41,7 @@
     {
       "title": "Jumblebook Notes",
       "href": "https://apps.apple.com/us/app/jumblebook-notes/id6741652060",
-      "dates": "2020 - Now",
+      "dates": "2014 - Now",
       "status": "live",
       "description": "When I built this, Apple didn't support password-protected notes. Now I keep it running for the loyal users who've been using it for journaling, book writing, storing passwords, and script writing.",
       "technologies": ["Dart", "Flutter", "Firebase"],
