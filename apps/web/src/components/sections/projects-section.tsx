@@ -33,11 +33,11 @@ export function ProjectsSection({
                 My Projects
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Check out my latest work
+                A few things I&apos;ve built
               </h2>
               <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                I&apos;ve worked on a variety of projects, from LLM Agents to
-                mobile apps & extensions. Here are a few of my favorites.
+              Mostly focused on solving small, real problems quickly. I&apos;ve worked on a variety of stuff, from LLM Agents to
+                mobile apps & extensions.
               </p>
             </div>
           </div>

@@ -4,8 +4,42 @@
   "url": "https://bbish.dev",
   "location": "United States",
   "title": "Builder & Technologist",
-  "intro": "Husband, father, and technologist. Software Engineering leader and chronic entrepreneur. I love building, tinkering, and learning new things. Addicted to coffee and coding.",
-  "bio": "I build products and care a lot about how they get built.\n\nOver the past decade, I've worked across engineering, product, and systems — building client-facing platforms, scaling teams, and launching my own products from 0→1.\n\nMore recently, I've been focused on how AI changes that process. Not just using it, but defining how it fits into real development workflows. I've been building internal tools, designing agentic systems, and shaping how teams use LLMs across the SDLC.\n\nA lot of existing dev workflows are heavier than they need to be. Too much process, not enough iteration. I'm interested in stripping that down and making it easier to go from idea to working software.\n\nOutside of my role at Morgan Stanley, I've built products like Forwheel and Rbitrage Capital. I still spend most of my time building, experimenting, and trying to get faster.",
+  "intro": "The bottleneck in software isn't code anymore.\nIt's everything around it.",
+  "bio": "I build products and care a lot about how they get built.\n\nOver the past decade, I've built client-facing platforms, scaled teams, and launched my own products from 0→1.\n\nMore recently, I've been focused on how AI changes that process. Not just using it, but defining how it fits into real development workflows. I've been building internal tools, designing agentic systems, and shaping how teams use LLMs across the SDLC.\n\nOutside of my role at Morgan Stanley, I've built products like Forwheel and Rbitrage Capital. I still spend most of my time building, experimenting, and improving.",
   "avatarUrl": "/logos/profile.jpeg",
-  "resumeUrl": "/resume.pdf"
+  "resumeUrl": "/resume.pdf",
+  "beliefs": [
+    {
+      "title": "Sprints slow teams down.",
+      "description": "Work expands to fill the sprint. Teams end up optimizing for metrics instead of what actually ships."
+    },
+    {
+      "title": "Engineering managers should write code every day.",
+      "description": "If you're not in the work, you lose touch with how it's done, especially now."
+    },
+    {
+      "title": "Microservices are overengineered and work against agents.",
+      "description": "They fragment context and turn systems into something agents can't reason about effectively."
+    },
+    {
+      "title": "Every org needs garbage collection.",
+      "description": "Organizations naturally accumulate process. Without pressure to remove it, it just compounds."
+    },
+    {
+      "title": "Prototyping is the input to requirements, not the output.",
+      "description": "Rapid prototyping exposes bad assumptions early. Specs should follow what's proven."
+    },
+    {
+      "title": "Burnout comes from friction, not overwork.",
+      "description": "Most teams don't burn out from hard problems. They burn out from systems that slow them down."
+    },
+    {
+      "title": "The best AI strategy is 20-year-old engineering fundamentals.",
+      "description": "AI is just the trojan horse pushing teams to finally fix what's been broken for years."
+    },
+    {
+      "title": "The best teams will be optimized for one-person ownership.",
+      "description": "When one person can move end-to-end, execution speeds up — fewer handoffs, fewer blockers, clearer decisions."
+    }
+  ]
 }

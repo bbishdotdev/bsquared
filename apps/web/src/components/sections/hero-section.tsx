@@ -27,7 +27,14 @@ export function HeroSection({
               </h1>
             </BlurFade>
             <BlurFade delay={blurFadeDelay * 2}>
-              <p className="pt-4 md:text-xl">{intro}</p>
+              <p className="pt-4 md:text-xl">
+                {intro.split("\n").map((line, i, arr) => (
+                  <span key={i}>
+                    {line}
+                    {i < arr.length - 1 && <br />}
+                  </span>
+                ))}
+              </p>
             </BlurFade>
           </div>
           <BlurFade delay={blurFadeDelay}>
