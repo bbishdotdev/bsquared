@@ -1,5 +1,6 @@
 import { HeroSection } from "@/components/sections/hero-section";
 import { AboutSection } from "@/components/sections/about-section";
+import { BeliefsSection } from "@/components/sections/beliefs-section";
 import { WorkSection } from "@/components/sections/work-section";
 import { EducationSection } from "@/components/sections/education-section";
 import { SkillsSection } from "@/components/sections/skills-section";
@@ -25,6 +26,10 @@ export default function HomePage() {
         blurFadeDelay={BLUR_FADE_DELAY}
       />
       <AboutSection bio={config.bio} blurFadeDelay={BLUR_FADE_DELAY} />
+      <BeliefsSection
+        beliefs={config.beliefs}
+        blurFadeDelay={BLUR_FADE_DELAY}
+      />
       <WorkSection work={resumeData.work} blurFadeDelay={BLUR_FADE_DELAY} />
       <EducationSection
         education={resumeData.education}
