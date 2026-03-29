@@ -25,14 +25,14 @@ export function ContactSection({ blurFadeDelay }: ContactSectionProps) {
               >
                 email
               </Link>{" "}
-              or a quick{" "}
+              or a {" "}
               <Link
                 href="https://x.com/bbishdotdev"
                 className="text-blue-500 hover:underline"
               >
                 DM on X
               </Link>
-              . I&apos;ll reply when I can.
+              . I&apos;ll get back to you within a day.
             </p>
             <Link
               href="/resume.pdf"
