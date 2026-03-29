@@ -1,35 +1,11 @@
 {
   "projects": [
     {
-      "title": "Riffolio",
-      "href": "https://riffolio.com",
-      "dates": "2025 - Now",
-      "status": "development",
-      "description": "Collaborative idea scoring and prioritization. Combines blind peer ratings with AI to surface what's worth building.",
-      "image": "/logos/riffolio.png",
-      "technologies": [
-        "TypeScript",
-        "TailwindCSS",
-        "Next.js",
-        "Convex",
-        "BetterAuth",
-        "AI SDK",
-        "OpenRouter",
-        "Vercel"
-      ],
-      "links": [
-        {
-          "type": "Website",
-          "href": "https://riffolio.com"
-        }
-      ]
-    },
-    {
       "title": "Braver Search",
       "href": "https://apps.apple.com/us/app/braver-search/id6740840706",
       "dates": "2025 - Now",
       "status": "live",
-      "description": "Safari plugin for iOS/Mac that makes Brave Search the default browser. Now has over **20k daily active users**.",
+      "description": "Apple won't let you change Safari's default search engine outside its limited options. So I built a workaround that feels native and invisible. Now has over **20k daily active users**.",
       "technologies": ["Swift", "JavaScript", "Safari Extensions"],
       "video": "/demos/braver-search.mp4",
       "links": [
@@ -48,7 +24,7 @@
       "href": "https://www.npmjs.com/package/cycles-mcp?activeTab=readme",
       "dates": "2025 - Now",
       "status": "live",
-      "description": "AI project management tool that turns product requirements into right-sized dev tasks based on your schedule, then handles git automation.",
+      "description": "Tools like Speckit add too much overhead — it's easy to invest time speccing around incorrect assumptions with no room to course correct. Cycles is a lightweight alternative that turns product requirements into right-sized dev tasks and handles git automation.",
       "technologies": ["TypeScript", "MCP", "Bun"],
       "video": "/demos/cycles.mp4",
       "links": [
@@ -67,7 +43,7 @@
       "href": "https://apps.apple.com/us/app/jumblebook-notes/id6741652060",
       "dates": "2020 - Now",
       "status": "live",
-      "description": "A fun puzzling twist on an encrypted note-taking app built with Flutter and Dart, deployed to iOS and Android.",
+      "description": "When I built this, Apple didn't support password-protected notes. Now I keep it running for the loyal users who've been using it for journaling, book writing, storing passwords, and script writing.",
       "technologies": ["Dart", "Flutter", "Firebase"],
       "video": "/demos/jumblebook.mp4",
       "links": [
@@ -90,7 +66,7 @@
       "href": "https://ciderpress.vercel.app",
       "dates": "2024 - Now",
       "status": "live",
-      "description": "Web app using ffmpeg wasm to convert .mp4 videos for Apple App Store app previews video format compliance.",
+      "description": "Apple's App Store preview video requirements are a guess-and-check game — vague errors, no clear spec. I reverse-engineered the exact formatting requirements and built a tool that handles it using ffmpeg wasm.",
       "video": "/demos/ciderpress.mp4",
       "technologies": [
         "TypeScript",
@@ -111,11 +87,35 @@
       ]
     },
     {
+      "title": "Riffolio",
+      "href": "https://riffolio.com",
+      "dates": "2025 - Now",
+      "status": "development",
+      "description": "AI lowered the barrier to build, but just because you can doesn't mean you should. So I'm combining blind peer ratings with AI scoring to surface which ideas are actually worth building.",
+      "image": "/logos/riffolio.png",
+      "technologies": [
+        "TypeScript",
+        "TailwindCSS",
+        "Next.js",
+        "Convex",
+        "BetterAuth",
+        "AI SDK",
+        "OpenRouter",
+        "Vercel"
+      ],
+      "links": [
+        {
+          "type": "Website",
+          "href": "https://riffolio.com"
+        }
+      ]
+    },
+    {
       "title": "Poolside",
       "href": "#",
       "dates": "2024 - Now",
       "status": "development",
-      "description": "A Real-time NFL pick'em pool tracker with live scoring, game data, league standings, AI predictions, and betting odds.",
+      "description": "Many NFL picks leagues still run on Excel and email. No app handles the full loop — picking against the spread, tracking live scores, and knowing where you stand in the pool. So I built one.",
       "technologies": [
         "TypeScript",
         "TailwindCSS",
@@ -143,18 +143,9 @@
     {
       "title": "BookmarX",
       "href": "#",
-      "dates": "Need a cracked out hackathon weekend!",
+      "dates": "On deck...",
       "status": "concept",
-      "description": "I don't know wtf to do with all of my bookmarked posts on X. They often just sit there and collect dust.",
-      "technologies": [],
-      "links": []
-    },
-    {
-      "title": "Puddin'",
-      "href": "#",
-      "dates": "When I decide I want to learn React Native :)",
-      "status": "concept",
-      "description": "Toying with a new fun concept for a accountability app for achieving goals. **Proof is in the puddin'.**",
+      "description": "X bookmarks are a graveyard — great content saved and never revisited because of an awkward interface.",
       "technologies": [],
       "links": []
     }
