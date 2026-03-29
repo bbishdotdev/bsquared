@@ -28,8 +28,8 @@ export function loadTUIData(): TUIData {
         company: w.company,
         title: w.title,
         start: w.start,
-        end: w.end,
-        description: w.description,
+        end: w.end ?? "Present",
+        description: w.description ?? "",
       },
     ];
   });
