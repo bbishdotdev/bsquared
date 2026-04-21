@@ -11,7 +11,7 @@
           "title": "Applied AI & DevEx Lead, Client Platforms",
           "start": "2026",
           "end": "Now",
-          "description": "Leading adoption of AI-native development across Wealth Management Client Platforms, defining how `LLMs` are used across workflows, tooling, and the `SDLC`. Built internal tools and agentic workflows for code generation, testing, API development, and `CI/CD`, improving delivery speed by `4x`.\n\nCreated hands-on workshops and curriculum for practical `LLM` usage across engineering, and led `Nevernote` to OpenAI Hackathon finalist status using `Whisper`, `LangChain`, and `GPT`."
+          "description": "Defined and now lead the division strategy for AI-assisted development across two tracks: increasing developer adoption through measurement, training, and enablement, and redesigning the `SDLC` for the building-with-AI era through new squad models, tooling, and process standards. Authored the guiding principles and maturity model now used for division-wide adoption, and founded a cross-regional Center of Excellence spanning `5 regions`.\n\nBuilt internal tools and agentic systems for code generation, testing, API development, and `CI/CD`, including a multi-agent parallel orchestration system using git worktrees. Published reusable prompts, skills, and agents as shared assets, authored the AI bootcamp curriculum adopted across the broader business unit, and surfaced a `42%` telemetry gap before it distorted adoption reporting."
         },
         {
           "title": "Engineering Manager, Client Platforms",
