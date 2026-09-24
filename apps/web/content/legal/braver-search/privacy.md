@@ -1,122 +1,114 @@
 # Privacy Policy
 
-Last updated: March 13, 2026
+Last updated: September 24, 2026
 
-Braver Search is an iOS and macOS app with a Safari extension that redirects supported Safari searches to Brave Search. This Privacy Policy explains what information Braver Search processes, what information is sent off-device, and what is not collected.
+Braver Search is an iOS and macOS app with a Safari extension that redirects supported Safari searches to Brave Search. This policy explains what the app processes on your device and what limited information is sent to us or our service providers.
 
 ## Summary
 
-- Braver Search does not require an account.
-- Braver Search does not ask for your name, email address, phone number, mailing address, or payment card information.
-- Braver Search does not send your search queries, full URLs, or referrers to us.
-- Braver Search uses limited anonymous analytics for aggregate usage counts.
-- Optional support purchases are handled by Apple through StoreKit and the App Store, not by Braver Search directly.
+- No Braver Search account is required.
+- Your search text, browsing history, full URLs, and page contents are not sent to us or our analytics provider.
+- Limited product analytics help us understand app usage, fix setup problems, and improve the trial and purchase experience.
+- Analytics use a randomly generated installation identifier. We do not attach your name, email address, or Apple Account to it.
+- Apple handles free-trial activation, lifetime purchases, and optional tips through StoreKit and the App Store. We do not receive your payment card or bank details.
+- We do not monitor purchases you make on websites or in other apps.
 
-## Information Processed On Device
+## Search Processing On Your Device
 
-Braver Search processes some information locally on your device so the app and extension can work:
+The extension examines supported Safari search URLs and search terms locally to decide whether to redirect a search. It also stores your redirect setting and checks whether access is available.
 
-- Whether search redirection is enabled.
-- Whether a Safari navigation appears to be a supported search that should be redirected to Brave Search.
-- Search terms and URLs only as needed on-device to determine whether to redirect a supported search.
-- A locally generated random identifier used for anonymous analytics.
-- Local app and extension state, such as whether the app has been opened before.
-- Local support and monetization state, such as:
-  - whether you are eligible to see optional tip options,
-  - whether you have donated,
-  - how many donations have been recorded on the device,
-  - the last donation product identifier recorded on the device,
-  - a local redirect count,
-  - a first-use timestamp used for app behavior.
+When a redirect happens, Safari sends your search to Brave Search so it can return results. The search provider receives that request under its own privacy policy. Braver Search does not send a copy of your search text, URL, or results to us or PostHog.
 
-This local data is stored in Apple-provided local storage such as app group `UserDefaults`.
+## Local App And Purchase Data
 
-## Information Sent To Us Or Our Service Providers
+The app and extension store information needed to work together in local app storage, including shared App Group storage:
 
-Braver Search sends a small number of anonymous analytics events to PostHog. These events are:
+- Redirect settings, first-use information, and local usage counters.
+- Setup-test identifiers, progress, and results.
+- A randomly generated installation identifier and analytics events waiting to be sent.
+- Trial start and expiry information, verified lifetime access, and eligibility for continued free access as an existing user.
+- StoreKit product and transaction information needed to verify access, restore purchases, handle revocations, and avoid processing the same transaction twice.
+- Optional tip history recorded on the device, such as the number of tips and the last tip product selected.
 
-- `first_app_open`
-- `app_opened`
-- `redirect_setting_changed`
-- `search_redirected`
+Apple's verified app acquisition and purchase records help determine access. Braver Search does not need your Apple Account credentials to make these checks.
 
-The analytics payload is limited to:
+## Product Analytics And Setup Diagnostics
 
-- a random anonymous identifier (`distinct_id`),
-- the event name,
-- platform (`ios` or `macos`),
-- source (`host_app` or `safari_extension`),
-- app version,
-- whether redirect was enabled for the setting-change event,
-- a coarse surface value such as `ios_app`, `extension_storage`, or `background_redirect`.
+Braver Search sends limited events to PostHog to measure usage and identify problems. Depending on the feature used, these include:
 
-Braver Search is configured not to send search query text, full URLs, referrers, account identifiers, email addresses, names, contact lists, photos, files, advertising IDs, or custom person profiles in these analytics events.
+- App opens, extension activation, popup opens, redirect-setting changes, and successful redirect events.
+- Visits to setup instructions, setup-video progress, and setup-test progress and results.
+- Trial and lifetime-access screen views, access state, and occasions when a redirect is blocked because access is unavailable.
+- In-app tier selections, product-catalog availability, purchase attempts and outcomes, verified access purchases, revocations, and restoration events.
 
-## Information Not Collected By Braver Search
+These events can contain:
 
-Braver Search does not collect or transmit to us:
+- A random installation identifier, event identifier, event name, and timestamp.
+- Platform, app version, app or extension source, and environment/version information used for diagnostics.
+- The relevant setting, screen, guide step, or video-progress value.
+- A random setup-test identifier, test stage, result, or failure reason.
+- Access state, a Braver Search in-app product identifier, catalog counts or missing product identifiers, and purchase outcome.
+- Technical error codes and error domains.
 
-- the text of your searches,
-- the full pages or URLs you browse,
-- your Safari browsing history,
-- your contacts, photos, files, microphone, camera, or location,
-- your payment card or bank information,
-- account credentials,
-- advertising identifiers.
+The installation identifier lets us recognize events from the same installation over time. It is generated by Braver Search; it is not your name, email address, Apple Account identifier, advertising identifier, or device serial number. We do not maintain an account-to-identifier mapping or use these events to identify you personally. The app disables PostHog person-profile creation, and our PostHog project is configured to anonymize IP addresses.
 
-## Tips, Donations, And Paid Access
+Purchase analytics concern only Braver Search's own trial, lifetime unlock, and optional tip products. They do not include shopping activity elsewhere, payment details, or your Apple Account credentials. StoreKit transaction identifiers used for local verification and deduplication are not included in the app's analytics payloads.
 
-Braver Search may offer optional one-time support purchases through Apple's in-app purchase system. As of the latest app changes, optional tip products are intended for users who downloaded Braver Search before the paid-app cutoff.
+We use this information to improve Braver Search. We do not use it for advertising, sell it, or combine it with activity from other companies' apps or websites for advertising or advertising measurement.
 
-When you use a support purchase:
+## Information We Do Not Collect Through The App
 
-- the purchase transaction is processed by Apple through StoreKit and the App Store,
-- Apple may collect payment and transaction information under Apple's own privacy policy,
-- Braver Search does not receive your full payment card details,
-- Braver Search stores limited purchase state locally on your device, such as whether a donation occurred, how many support purchases were recorded, and the last donation product identifier recorded locally.
+Braver Search does not send us or PostHog:
 
-Braver Search may also use StoreKit transaction data locally to determine whether your app purchase date qualifies you as a grandfathered user or a paid-app customer. That determination is used for app behavior and support UI. Braver Search does not send that status to PostHog as part of the app's current analytics events.
+- Search query text, full browsing URLs, referrers, page contents, or Safari browsing history.
+- Contacts, photos, files, microphone or camera recordings, or device location data.
+- Names, email addresses, phone numbers, or mailing addresses from your device.
+- Apple Account credentials, payment card details, or bank information.
+- Advertising identifiers or purchases made outside Braver Search.
 
-## Third Parties
+If you choose to contact us by email or submit a support issue, we receive the information you provide, such as your email address and message, so we can respond. Please avoid including sensitive information or search history in support requests.
 
-Braver Search interacts with the following third parties:
+## Free Trial, Lifetime Access, And Optional Tips
 
-- Brave Search, when the extension redirects a supported Safari search to `https://search.brave.com`
-- PostHog, for anonymous product analytics
-- Apple, for App Store distribution, StoreKit purchases, and review links
-- GitHub, if you choose to open the support link from the extension or app
+Where paid access is offered, you can explicitly start a 14-day free trial or choose a one-time lifetime unlock. The trial does not automatically renew or turn into a paid purchase. Starting it does not authorize a payment or payment hold. Apple may still require account verification under its own rules. Ordinary search redirects pause when the trial expires unless lifetime access is active.
 
-Those third-party services have their own privacy practices and policies.
+Eligible existing users retain free access and may see optional tips. Lifetime purchasers do not need to make additional payments to keep their unlock.
+
+Apple processes StoreKit transactions and restoration through the App Store. Braver Search uses verified transaction information on your device to grant access, calculate trial dates, and respond to refunds or revocations. Limited product identifiers, access states, and purchase outcomes are also sent to PostHog as described above. We do not receive your full payment details or your Apple Account login.
+
+## Third-Party Services
+
+Braver Search interacts with:
+
+- **Brave Search**, to receive redirected searches and return results.
+- **PostHog**, to process the limited product analytics and diagnostics described above.
+- **Apple**, for app distribution, StoreKit transactions, purchase restoration, and App Store review links.
+- **GitHub**, if you open a support link or submit an issue.
+
+These services process information under their own privacy policies. Braver Search is an independent app and is not affiliated with Brave.
 
 ## Data Retention
 
-Local app and extension data remains on your device until it is removed by the app, cleared by the system, or deleted when you remove the app and extension.
+Local app and extension data remains until removed by the app, cleared by the system, or deleted with the app and extension, subject to system storage and backup behavior. Uninstalling the app does not delete Apple's transaction records; eligible purchases can be restored through Apple.
 
-Anonymous analytics data sent to PostHog is retained according to the PostHog project settings used for Braver Search.
+Analytics are retained according to the retention settings of the Braver Search PostHog project. Uninstalling the app does not automatically erase events already sent. Because we do not have Braver Search accounts or a mapping from names or email addresses to installation identifiers, we may be unable to locate your analytics records from your name or email alone. Contact us if you have a data request, and we will explain what we can locate and do.
 
-Because Braver Search does not maintain user accounts, we may not be able to associate anonymous analytics data with a specific person unless you provide enough information for us to identify the record.
+Support correspondence is kept as needed to respond to your request and maintain relevant support records.
 
 ## Your Choices
 
-You can:
+You can disable search redirection, choose not to start a trial or make a purchase, and avoid opening external links. Disabling redirection does not disable analytics from other app interactions.
 
-- disable search redirection in the app or extension,
-- choose not to make any support purchase,
-- avoid using the support, review, or external links,
-- uninstall the app and disable the Safari extension.
-
-If you do not want anonymous analytics to be sent, the practical way to avoid future analytics from Braver Search is to stop using or uninstall the app and extension.
+The app does not currently include an analytics opt-out switch. To prevent future app analytics, stop using and uninstall the app and extension. You can contact us about privacy or data requests using the address below.
 
 ## Children's Privacy
 
-Braver Search is not directed to children under 13, and we do not knowingly collect personal information from children under 13.
+Braver Search is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided personal information to us, please contact us.
 
-## Changes To This Privacy Policy
+## Changes To This Policy
 
-We may update this Privacy Policy from time to time. If we do, we will update the "Last updated" date above.
+We may update this policy when the app or our practices change. We will update the date at the top of this page.
 
 ## Contact
 
-If you have questions about this Privacy Policy, you can contact:
-
-- btbishop93@gmail.com
+For privacy questions or data requests, contact [btbishop93@gmail.com](mailto:btbishop93@gmail.com).
