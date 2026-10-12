@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+<title id="title">bstack guide</title><desc id="desc">A documentation page with navigation, workflow cards, and a skill catalog.</desc>
+<rect width="1200" height="620" fill="#09090b"/>
+<rect x="72" y="58" width="1056" height="504" rx="18" fill="#18181b" stroke="#3f3f46" stroke-width="2"/>
+<rect x="72" y="58" width="1056" height="64" rx="18" fill="#111113"/>
+<path d="M72 122h1056M324 122v440M956 122v440" stroke="#3f3f46" stroke-width="2"/>
+<rect x="106" y="79" width="28" height="28" rx="6" fill="#fafafa"/><text x="113" y="99" font-family="monospace" font-size="18" font-weight="700" fill="#111113">b</text>
+<text x="152" y="99" font-family="monospace" font-size="22" font-weight="700" fill="#fafafa">bstack</text><text x="258" y="98" font-family="monospace" font-size="16" fill="#a1a1aa">/ guide</text>
+<text x="106" y="167" font-family="monospace" font-size="16" fill="#e2a37a">GUIDE</text>
+<g font-family="Arial, sans-serif" font-size="19" fill="#a1a1aa"><text x="106" y="213">Overview</text><text x="106" y="255">Common routes</text><text x="106" y="297">What runs when</text><text x="106" y="339">Skill catalog</text><text x="106" y="381">Context and memory</text><text x="106" y="423">Local workspace</text></g>
+<rect x="105" y="186" width="187" height="34" rx="5" fill="#292321" opacity=".8"/><rect x="105" y="186" width="3" height="34" fill="#e2a37a"/>
+<text x="365" y="177" font-family="monospace" font-size="15" font-weight="700" letter-spacing="2" fill="#e2a37a">PLANNING · ENGINEERING · REVIEW</text>
+<text x="361" y="252" font-family="monospace" font-size="52" font-weight="700" fill="#fafafa">Build with agents.</text>
+<text x="363" y="298" font-family="Arial, sans-serif" font-size="22" fill="#d4d4d8">Start with the work you have.</text>
+<rect x="362" y="337" width="255" height="85" rx="10" fill="#111113" stroke="#52525b"/><rect x="635" y="337" width="255" height="85" rx="10" fill="#111113" stroke="#52525b"/>
+<text x="382" y="373" font-family="monospace" font-size="18" font-weight="700" fill="#fafafa">Find your route →</text><text x="382" y="400" font-family="Arial, sans-serif" font-size="15" fill="#a1a1aa">A few common ways in.</text>
+<text x="655" y="373" font-family="monospace" font-size="18" font-weight="700" fill="#fafafa">Browse skills →</text><text x="655" y="400" font-family="Arial, sans-serif" font-size="15" fill="#a1a1aa">Search the full catalog.</text>
+<rect x="362" y="456" width="528" height="54" rx="7" fill="#111113" stroke="#52525b"/><text x="380" y="490" font-family="monospace" font-size="17" fill="#d4d4d8">npx skills add ... --skill install-bstack</text>
+<text x="983" y="167" font-family="monospace" font-size="14" fill="#a1a1aa">ON THIS PAGE</text><text x="983" y="212" font-family="Arial, sans-serif" font-size="17" fill="#a1a1aa">Overview</text><text x="983" y="250" font-family="Arial, sans-serif" font-size="17" fill="#a1a1aa">Routes</text><text x="983" y="288" font-family="Arial, sans-serif" font-size="17" fill="#a1a1aa">Catalog</text>
+</svg>

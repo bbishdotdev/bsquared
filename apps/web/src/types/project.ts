@@ -11,6 +11,7 @@ export interface ProjectItem {
   description: string;
   dates: string;
   status: ProjectStatus;
+  section?: "tinkering";
   technologies: readonly string[];
   image?: string;
   video?: string;

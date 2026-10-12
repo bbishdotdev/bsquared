@@ -20,21 +20,26 @@
       ]
     },
     {
-      "title": "Cycles MCP",
-      "href": "https://www.npmjs.com/package/cycles-mcp?activeTab=readme",
-      "dates": "2025 - Now",
+      "title": "BStack",
+      "href": "/bstack",
+      "dates": "2026 - Now",
       "status": "live",
-      "description": "Tools like Speckit add too much overhead — it's easy to invest time speccing around incorrect assumptions with no room to course correct. Cycles is a lightweight alternative that turns product requirements into right-sized dev tasks and handles git automation.",
-      "technologies": ["TypeScript", "MCP", "Bun"],
-      "video": "/demos/cycles.mp4",
+      "description": "How I build with agents: planning, engineering, and PR workflows in one local-first stack. It connects PStack and Matt Pocock's skills with my own tooling for decisions, memory, and handoffs.",
+      "technologies": [
+        "Python",
+        "TypeScript",
+        "SQLite",
+        "Agent Skills"
+      ],
+      "image": "/logos/bstack.svg",
       "links": [
         {
-          "type": "Source",
-          "href": "https://github.com/bbishdotdev/cycles-mcp"
+          "type": "Guide",
+          "href": "/bstack"
         },
         {
-          "type": "Registry",
-          "href": "https://www.npmjs.com/package/cycles-mcp?activeTab=readme"
+          "type": "Source",
+          "href": "https://github.com/bbishdotdev/ai-tools/tree/main/bstack"
         }
       ]
     },
@@ -87,30 +92,6 @@
       ]
     },
     {
-      "title": "Riffolio",
-      "href": "https://riffolio.com",
-      "dates": "2025 - Now",
-      "status": "development",
-      "description": "AI lowered the barrier to build, but just because you can doesn't mean you should. So I'm combining blind peer ratings with AI scoring to surface which ideas are actually worth building.",
-      "image": "/logos/riffolio.png",
-      "technologies": [
-        "TypeScript",
-        "TailwindCSS",
-        "Next.js",
-        "Convex",
-        "BetterAuth",
-        "AI SDK",
-        "OpenRouter",
-        "Vercel"
-      ],
-      "links": [
-        {
-          "type": "Website",
-          "href": "https://riffolio.com"
-        }
-      ]
-    },
-    {
       "title": "Poolside",
       "href": "#",
       "dates": "2024 - Now",
@@ -129,7 +110,8 @@
           "type": "Source",
           "href": "https://github.com/bbishdotdev/poolside"
         }
-      ]
+      ],
+      "section": "tinkering"
     },
     {
       "title": "CodeMaverick",
