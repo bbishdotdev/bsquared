@@ -44,6 +44,26 @@
       ]
     },
     {
+      "title": "Code Maverick",
+      "href": "https://codemaverick.dev",
+      "dates": "2026 - Now",
+      "status": "development",
+      "description": "Technical interviews still feel nothing like how engineers actually build. So candidates work on their own machine, in their own editor, with their own agents. The interviewer gets every file and every agent-written line back, live. In closed beta.",
+      "technologies": ["TypeScript", "Next.js", "Convex", "Bun", "Agents"],
+      "video": "/demos/code-maverick.mp4",
+      "mobileVideo": "/demos/code-maverick-mobile.mp4",
+      "links": [
+        {
+          "type": "Website",
+          "href": "https://codemaverick.dev"
+        },
+        {
+          "type": "App",
+          "href": "https://app.codemaverick.dev"
+        }
+      ]
+    },
+    {
       "title": "Jumblebook Notes",
       "href": "https://apps.apple.com/us/app/jumblebook-notes/id6741652060",
       "dates": "2014 - Now",
@@ -112,15 +132,6 @@
         }
       ],
       "section": "tinkering"
-    },
-    {
-      "title": "CodeMaverick",
-      "href": "#",
-      "dates": "Soon... maybe?",
-      "status": "concept",
-      "description": "Technical interviews still feel nothing like how engineers actually build. That seems fixable.",
-      "technologies": [],
-      "links": []
     },
     {
       "title": "BookmarX",

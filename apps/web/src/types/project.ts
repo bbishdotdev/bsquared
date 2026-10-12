@@ -15,6 +15,7 @@ export interface ProjectItem {
   technologies: readonly string[];
   image?: string;
   video?: string;
+  mobileVideo?: string;
   links?: readonly ProjectLinkItem[];
 }
 

@@ -26,6 +26,7 @@ interface ProjectCardProps {
   link?: string;
   image?: string;
   video?: string;
+  mobileVideo?: string;
   links?: readonly {
     icon: React.ReactNode;
     type: string;
@@ -33,6 +34,8 @@ interface ProjectCardProps {
   }[];
   className?: string;
 }
+
+const MOBILE_VIDEO_MEDIA_QUERY = "(max-width: 640px)";
 
 export const ProjectCard = memo(function ProjectCard({
   title,
@@ -44,6 +47,7 @@ export const ProjectCard = memo(function ProjectCard({
   link,
   image,
   video,
+  mobileVideo,
   links,
   className,
 }: ProjectCardProps) {
@@ -60,13 +64,17 @@ export const ProjectCard = memo(function ProjectCard({
       >
         {video ? (
           <video
-            src={video}
             autoPlay
             loop
             muted
             playsInline
             className="pointer-events-none h-40 w-full object-cover object-top"
-          />
+          >
+            {mobileVideo && (
+              <source src={mobileVideo} media={MOBILE_VIDEO_MEDIA_QUERY} />
+            )}
+            <source src={video} />
+          </video>
         ) : (
           <div
             className="relative h-40 w-full flex items-center justify-center"
