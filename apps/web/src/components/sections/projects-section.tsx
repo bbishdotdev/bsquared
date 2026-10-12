@@ -65,6 +65,7 @@ export function ProjectsSection({
                 tags={project.technologies}
                 image={project.image}
                 video={project.video}
+                mobileVideo={project.mobileVideo}
                 links={project.links?.map((link) => ({
                   icon: getLinkIcon(link.type),
                   type: link.type,
@@ -108,6 +109,7 @@ export function ProjectsSection({
                     tags={project.technologies}
                     image={project.image}
                     video={project.video}
+                    mobileVideo={project.mobileVideo}
                     links={project.links?.map((link) => ({
                       icon: getLinkIcon(link.type),
                       type: link.type,
