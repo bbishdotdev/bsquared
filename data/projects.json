@@ -23,7 +23,7 @@
       "title": "BStack",
       "href": "/bstack",
       "dates": "2026 - Now",
-      "status": "development",
+      "status": "live",
       "description": "How I build with agents: planning, engineering, and PR workflows in one local-first stack. It connects PStack and Matt Pocock's skills with my own tooling for decisions, memory, and handoffs.",
       "technologies": [
         "Python",
