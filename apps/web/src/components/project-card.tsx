@@ -144,7 +144,12 @@ export const ProjectCard = memo(function ProjectCard({
         <CardFooter className="px-2 pb-2 pt-1">
           <div className="flex flex-row flex-wrap items-start gap-2">
             {links!.map((link, idx) => (
-              <Link href={link.href} key={idx} target="_blank">
+              <Link
+                href={link.href}
+                key={idx}
+                target={link.href.startsWith("/") ? undefined : "_blank"}
+                rel={link.href.startsWith("/") ? undefined : "noopener noreferrer"}
+              >
                 <Badge
                   variant="outline"
                   className="flex gap-1.5 rounded-md border-border/70 px-2.5 py-1 text-[10px] text-muted-foreground hover:text-foreground"

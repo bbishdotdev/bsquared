@@ -14,11 +14,19 @@ export function ProjectsSection({
   blurFadeDelay,
 }: ProjectsSectionProps) {
   const mainProjects = useMemo(
-    () => projects.filter((p) => p.status === "live" || p.status === "development"),
+    () =>
+      projects.filter(
+        (p) =>
+          (p.status === "live" || p.status === "development") &&
+          p.section !== "tinkering"
+      ),
     [projects]
   );
   const conceptProjects = useMemo(
-    () => projects.filter((p) => p.status === "concept"),
+    () =>
+      projects.filter(
+        (p) => p.status === "concept" || p.section === "tinkering"
+      ),
     [projects]
   );
 
@@ -74,14 +82,13 @@ export function ProjectsSection({
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
                   <div className="inline-block rounded-md bg-muted text-muted-foreground px-3 py-1 text-sm">
-                    Ideas & Concepts
+                    Ideas & projects
                   </div>
                   <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl">
                     Things I&apos;m tinkering on
                   </h2>
                   <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-                    Early-stage ideas and technologies I&apos;m passionate about
-                    exploring.
+                    Ideas, experiments, and projects I&apos;m still shaping.
                   </p>
                 </div>
               </div>
