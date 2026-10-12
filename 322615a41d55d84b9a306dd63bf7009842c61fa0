@@ -1,0 +1,23 @@
+apps/web/src/components/ui/dock.tsx
+  0ddd1438883fe201 72-75,77-78,80-92,94-102,104-106,140,148-149
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.37",
+  "base_commit_sha": "322615a41d55d84b9a306dd63bf7009842c61fa0",
+  "prompts": {
+    "0ddd1438883fe201": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "22b10752-d989-420f-8faa-02741f413c06",
+        "model": "claude-4.5-opus-high-thinking"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>",
+      "messages": [],
+      "total_additions": 39,
+      "total_deletions": 37,
+      "accepted_lines": 34,
+      "overriden_lines": 0
+    }
+  }
+}

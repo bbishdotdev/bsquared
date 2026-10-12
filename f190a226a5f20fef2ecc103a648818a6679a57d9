@@ -1,0 +1,29 @@
+apps/web/src/components/project-card.tsx
+  a3da3f0a3f63b571 1,36,50,148
+apps/web/src/components/terminal/message-list.tsx
+  a3da3f0a3f63b571 3,17-44,80
+apps/web/src/components/terminal/ansi-parser.tsx
+  a3da3f0a3f63b571 3,122-125,129,132,141
+apps/web/src/components/sections/projects-section.tsx
+  a3da3f0a3f63b571 1,16-18,20-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.37",
+  "base_commit_sha": "f190a226a5f20fef2ecc103a648818a6679a57d9",
+  "prompts": {
+    "a3da3f0a3f63b571": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3421923a-eff7-410d-917b-510e9e430dc1",
+        "model": "gpt-5.2-codex-high"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>",
+      "messages": [],
+      "total_additions": 51,
+      "total_deletions": 39,
+      "accepted_lines": 50,
+      "overriden_lines": 0
+    }
+  }
+}

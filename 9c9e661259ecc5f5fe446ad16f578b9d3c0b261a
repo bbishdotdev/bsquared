@@ -1,0 +1,29 @@
+apps/web/src/components/ui/dock.tsx
+  0ddd1438883fe201 15,33,72-87,89-102,137,143-148
+apps/web/src/components/terminal/hardcore-background.tsx
+  0ddd1438883fe201 1-31
+apps/web/src/components/mode-selector.tsx
+  0ddd1438883fe201 8-9,32,39-62
+apps/web/src/components/navbar.tsx
+  0ddd1438883fe201 4,15,33-44,46-73,96-145,156-188,190-206,209
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.37",
+  "base_commit_sha": "9c9e661259ecc5f5fe446ad16f578b9d3c0b261a",
+  "prompts": {
+    "0ddd1438883fe201": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "22b10752-d989-420f-8faa-02741f413c06",
+        "model": "claude-4.5-opus-high-thinking"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>",
+      "messages": [],
+      "total_additions": 1382,
+      "total_deletions": 344,
+      "accepted_lines": 1126,
+      "overriden_lines": 0
+    }
+  }
+}

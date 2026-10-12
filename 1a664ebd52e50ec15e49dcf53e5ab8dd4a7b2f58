@@ -1,0 +1,31 @@
+apps/web/next.config.ts
+  a3da3f0a3f63b571 4-10,13-20
+packages/tui/src/parser.ts
+  a3da3f0a3f63b571 8-14,27,30,32,42,49
+apps/web/src/lib/articles.ts
+  a3da3f0a3f63b571 8-9,52-76,118
+packages/tui/src/dispatcher.ts
+  a3da3f0a3f63b571 16-26,64-66
+packages/tui/src/tui.ts
+  a3da3f0a3f63b571 127-129,131,143,150
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.37",
+  "base_commit_sha": "1a664ebd52e50ec15e49dcf53e5ab8dd4a7b2f58",
+  "prompts": {
+    "a3da3f0a3f63b571": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3421923a-eff7-410d-917b-510e9e430dc1",
+        "model": "gpt-5.2-codex-high"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>",
+      "messages": [],
+      "total_additions": 75,
+      "total_deletions": 20,
+      "accepted_lines": 75,
+      "overriden_lines": 0
+    }
+  }
+}

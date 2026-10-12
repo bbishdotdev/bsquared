@@ -1,0 +1,23 @@
+apps/web/content/writing/ai.mdx
+  fbf7df155d611b9a 37,43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.25",
+  "base_commit_sha": "0af68530510b17dd8a94b44d34adf6f22b0dbe16",
+  "prompts": {
+    "fbf7df155d611b9a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "83b656f3-b6aa-4dff-8e9b-e754cc9bcc3e",
+        "model": "claude-4.5-opus-high-thinking"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 4,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}

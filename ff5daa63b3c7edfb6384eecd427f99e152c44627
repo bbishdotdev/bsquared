@@ -1,0 +1,87 @@
+packages/tui/src/index.ts
+  0a15fa37f9ae9ab4 1-2,6-7,10-31,33-53
+apps/web/src/components/terminal/title-bar.tsx
+  0a15fa37f9ae9ab4 1-40,42-102,104-112
+apps/web/src/components/terminal/message-list.tsx
+  0a15fa37f9ae9ab4 1-30,32-33,35-79
+packages/tui/src/tui.ts
+  0a15fa37f9ae9ab4 4,6-21,24-27,30,41-42,58,63-95,114-120,122,126,129-132,134-144,147-150,180-182
+apps/web/src/lib/tui-data.ts
+  0a15fa37f9ae9ab4 1-63
+packages/tui/src/commands/tldr.ts
+  0a15fa37f9ae9ab4 1-29
+packages/tui/src/format.ts
+  0a15fa37f9ae9ab4 1-31,33-50,52-86,88-102,104-105,107-110,112-113,115-117,119-128,130-139,141-185,187-200
+apps/web/src/components/mode-selector.tsx
+  0a15fa37f9ae9ab4 154
+packages/tui/src/commands/help.ts
+  0a15fa37f9ae9ab4 1-33
+apps/web/src/components/terminal/terminal-window.tsx
+  0a15fa37f9ae9ab4 1-75,77-78,80-88,90-92,94-97,99-104,107-108,111-114,119,125-128,130-133,135-214
+packages/tui/src/commands/clear.ts
+  0a15fa37f9ae9ab4 1-15
+apps/web/src/components/terminal/hardcore-dock.tsx
+  0a15fa37f9ae9ab4 1-63,65-69,71-93,95-119,121-135
+packages/tui/src/types.ts
+  0a15fa37f9ae9ab4 1-7,18-38,51,84-88,106,108
+apps/web/src/app/globals.css
+  0a15fa37f9ae9ab4 72-90
+apps/web/src/components/terminal/welcome.tsx
+  0a15fa37f9ae9ab4 1-119
+apps/web/src/components/terminal/command-autocomplete.tsx
+  0a15fa37f9ae9ab4 1-28,30-78
+apps/web/src/components/terminal/resizable-container.tsx
+  0a15fa37f9ae9ab4 1-48,50-58,60-72,74-106,108-110,112-119,122-127,129-130,132-136,139-152,154-161,163,165-167,169-176,178-184,190-194,196-209,217-374,376-426
+packages/tui/src/commands/links.ts
+  0a15fa37f9ae9ab4 1-35
+packages/tui/src/commands/index.ts
+  0a15fa37f9ae9ab4 1-14
+apps/web/src/components/terminal/footer.tsx
+  0a15fa37f9ae9ab4 1-17
+apps/web/src/components/terminal/index.tsx
+  0a15fa37f9ae9ab4 1-3
+packages/tui/src/commands/skills.ts
+  0a15fa37f9ae9ab4 1-15,17-34,36-60,62-69
+packages/tui/src/commands/about.ts
+  0a15fa37f9ae9ab4 1-30
+apps/web/src/components/terminal/ansi-parser.tsx
+  0a15fa37f9ae9ab4 1-140
+packages/tui/src/dispatcher.ts
+  0a15fa37f9ae9ab4 1-68
+packages/tui/src/commands/projects.ts
+  0a15fa37f9ae9ab4 1-41,43-49,51-88,90-97
+packages/tui/src/parser.ts
+  0a15fa37f9ae9ab4 1-44
+apps/web/src/app/hardcore/page.tsx
+  0a15fa37f9ae9ab4 1-2,4-7,10,13-20,22-23
+apps/web/src/components/terminal/input.tsx
+  0a15fa37f9ae9ab4 1-5,7-35,37,39-62,67-70,73-77,79,81-86,97-98,102-106,122,124-133,136-176
+packages/tui/package.json
+  0a15fa37f9ae9ab4 18-20
+packages/tui/src/commands/resume.ts
+  0a15fa37f9ae9ab4 1-28,30-37,39-53,55-79,81-88
+packages/tui/src/commands/writing.ts
+  0a15fa37f9ae9ab4 1-22,24-35,37-52
+packages/tui/test.ts
+  0a15fa37f9ae9ab4 10-75,79-80,95-111,113-117,119-122,124-125,127,132-133,135,148,150-151,156,160,164-166,168,172
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.25",
+  "base_commit_sha": "ff5daa63b3c7edfb6384eecd427f99e152c44627",
+  "prompts": {
+    "0a15fa37f9ae9ab4": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "beea7177-1431-44e6-9048-86918fc73167",
+        "model": "claude-4.5-opus-high-thinking"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>",
+      "messages": [],
+      "total_additions": 4785,
+      "total_deletions": 2102,
+      "accepted_lines": 2857,
+      "overriden_lines": 61
+    }
+  }
+}

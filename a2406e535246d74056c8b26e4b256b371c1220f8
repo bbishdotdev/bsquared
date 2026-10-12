@@ -1,0 +1,33 @@
+packages/tui/package.json
+  79051fce6c5190ac 8-12,14-16,19
+packages/tui/src/types.ts
+  79051fce6c5190ac 2,4-15,19-23,25,30-36,38,41-42,44,47,49,52,54,61-63,65-74
+packages/tui/src/tui.ts
+  79051fce6c5190ac 1-12,15,17-18,20-25,27-28,30-33,35-59,62-67,69-74,77-78,81-82,85-98
+packages/tui/test.ts
+  79051fce6c5190ac 3-4,6-7,12-13,15-22,25-31,33-44,46,49-50,52-80,83-84
+packages/tui/tsconfig.json
+  79051fce6c5190ac 3,12-13,15
+packages/tui/src/index.ts
+  79051fce6c5190ac 4-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.25",
+  "base_commit_sha": "a2406e535246d74056c8b26e4b256b371c1220f8",
+  "prompts": {
+    "79051fce6c5190ac": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e0b9186a-1a6b-43c4-b8db-c0e4057dee9a",
+        "model": "claude-4.5-opus-high-thinking"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>",
+      "messages": [],
+      "total_additions": 259,
+      "total_deletions": 156,
+      "accepted_lines": 223,
+      "overriden_lines": 0
+    }
+  }
+}

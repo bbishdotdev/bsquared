@@ -1,0 +1,39 @@
+apps/web/src/components/light-rays.tsx
+  a3da3f0a3f63b571 5
+apps/web/src/types/project.ts
+  a3da3f0a3f63b571 1-38
+apps/web/src/app/writing/page.tsx
+  a3da3f0a3f63b571 4
+apps/web/src/constants/animation.ts
+  a3da3f0a3f63b571 1
+apps/web/src/components/sections/projects-section.tsx
+  a3da3f0a3f63b571 4
+apps/web/src/lib/color-utils.ts
+  a3da3f0a3f63b571 1-25
+apps/web/src/components/faulty-terminal.tsx
+  a3da3f0a3f63b571 5
+apps/web/src/app/home/page.tsx
+  a3da3f0a3f63b571 6,8-9
+apps/web/src/components/project-card.tsx
+  a3da3f0a3f63b571 15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.37",
+  "base_commit_sha": "a06c40f37d488e3c9dc0c9c5053af8df06ed182a",
+  "prompts": {
+    "a3da3f0a3f63b571": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3421923a-eff7-410d-917b-510e9e430dc1",
+        "model": "gpt-5.2-codex-high"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>",
+      "messages": [],
+      "total_additions": 72,
+      "total_deletions": 65,
+      "accepted_lines": 72,
+      "overriden_lines": 0
+    }
+  }
+}
