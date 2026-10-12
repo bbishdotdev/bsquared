@@ -1,0 +1,37 @@
+apps/web/public/logos/bstack.svg
+  s_822e08e34bda62::t_f64685944a83e2 1-20
+apps/web/src/app/bstack/layout.tsx
+  s_822e08e34bda62::t_e8ca6c6de4e455 1-12
+apps/web/src/app/bstack/page.tsx
+  s_822e08e34bda62::t_1e2216f7db8c78 1-173
+apps/web/src/app/bstack/skill-catalog.tsx
+  s_822e08e34bda62::t_647d1666d55b35 1-59
+apps/web/src/app/sitemap.ts
+  s_822e08e34bda62::t_0cec0364821d62 20-25
+apps/web/src/components/project-card.tsx
+  s_822e08e34bda62::t_11859552d6d9ca 147-152
+apps/web/src/components/sections/projects-section.tsx
+  s_822e08e34bda62::t_eb9e2c376d4633 17-22,26-29,85,91
+apps/web/src/types/project.ts
+  s_822e08e34bda62::t_dcae8a0959680b 14
+data/bstack-catalog.json
+  s_822e08e34bda62::t_975ca7c723817e 1-923
+data/projects.json
+  s_822e08e34bda62::t_968311becde4ea 23-34,37-38,41-42,113-114
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "94b27e6e0ab80f8fc92654d0d56971e61bc11367",
+  "prompts": {},
+  "sessions": {
+    "s_822e08e34bda62": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0b504-4712-7531-8350-112b403db5b7",
+        "model": "gpt-6-sol"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>"
+    }
+  }
+}
