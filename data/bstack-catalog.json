@@ -1,7 +1,7 @@
 {
-  "version": "0.9.0",
+  "version": "1.0.0",
   "counts": {
-    "skills": 46,
+    "skills": 47,
     "principles": 23,
     "playbooks": 23,
     "internal": 3
@@ -72,6 +72,19 @@
       "why": "Find a useful starting point without reading the whole package.",
       "loading": "Discoverable for guide questions",
       "related": []
+    },
+    {
+      "name": "configure-pr",
+      "kind": "skill",
+      "area": "PR work",
+      "what": "Set or revise this repository's PR review priorities, human-review paths, critical behavior, and linked standards. Use when a developer says what their team's PR process should care about.",
+      "why": "Add a project's own PR priorities without editing shared BStack workflows.",
+      "loading": "Discoverable when setting project PR priorities",
+      "related": [
+        "to-pr",
+        "review-pr",
+        "resolve-pr"
+      ]
     },
     {
       "name": "control-cli",
@@ -370,7 +383,8 @@
       "loading": "Invoke directly; a selected workflow may read it when relevant",
       "related": [
         "review-pr",
-        "resolve-pr"
+        "resolve-pr",
+        "configure-pr"
       ]
     },
     {

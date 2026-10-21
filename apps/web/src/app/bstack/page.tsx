@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import catalog from "../../../../../data/bstack-catalog.json";
 import { SkillCatalog } from "./skill-catalog";
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ const journeys = [
     title: "Work on a PR",
     start: "to-pr, review-pr, or resolve-pr",
     steps: ["Explain the change", "Challenge the review", "Resolve useful feedback"],
-    note: "You can start at review on an existing PR. A sound reply can resolve feedback without changing code.",
+    note: "Start at review for an existing PR. Use configure-pr to create a bstack-pr-policy.md with review priorities and paths requiring human review. A sound reply can resolve feedback without code.",
   },
   {
     title: "Understand code",
@@ -157,8 +158,8 @@ export default function BStackPage() {
             <SectionHeading eyebrow="Setup" title="Install and update" id="install" />
             <p className="mb-4 text-muted-foreground">Install the entry skill through skills.sh, then ask your agent to install its bundled package into the current project.</p>
             <pre className="overflow-x-auto rounded-lg border border-border bg-muted/40 p-4 font-mono text-xs"><code>npx skills add bbishdotdev/ai-tools --skill install-bstack</code></pre>
-            <p className="mt-5 text-muted-foreground">You can also download the <a href="https://github.com/bbishdotdev/ai-tools/releases/latest" className="text-foreground underline underline-offset-4">release ZIP</a> or clone the repo and run the bundled <code>install.py</code>. Setup uses pinned copies of upstream skills; it does not fetch their latest versions.</p>
-            <p className="mt-4 text-muted-foreground">After install or upgrade, start a new agent session so its skill list refreshes. An upgrade keeps your selected hosts and auto-mode preference.</p>
+            <p className="mt-5 text-muted-foreground">You can also download the <a href={`https://github.com/bbishdotdev/ai-tools/releases/tag/v${catalog.version}`} className="text-foreground underline underline-offset-4">v{catalog.version} release ZIP and notes</a> or clone the repo and run the bundled <code>install.py</code>. Setup uses pinned copies of upstream skills; it does not fetch their latest versions.</p>
+            <p className="mt-4 text-muted-foreground">Install in each Git repository where you want skills or auto routing, even if the installer is available globally or in a parent folder. After install or upgrade, start a new agent session so its skill list refreshes. In Claude Code desktop, start a new Code chat rooted in that repository. An upgrade keeps your selected hosts and auto-mode preference.</p>
             <pre className="mt-5 overflow-x-auto rounded-lg border border-border bg-muted/40 p-4 font-mono text-xs leading-6"><code>{`python3 .bstack/package/scripts/bstack.py doctor --project "$PWD"\npython3 .bstack/package/scripts/bstack.py auto status --project "$PWD"\npython3 .bstack/package/scripts/bstack.py auto on --project "$PWD"`}</code></pre>
           </section>
           <footer className="border-t border-border py-7 text-sm text-muted-foreground">Built by <Link href="/home" className="text-foreground underline underline-offset-4">Brenden Bishop</Link>, on work by <a href="https://github.com/cursor/plugins/tree/main/pstack" className="text-foreground underline underline-offset-4">Lauren “poteto” Tan</a> and <a href="https://github.com/mattpocock/skills" className="text-foreground underline underline-offset-4">Matt Pocock</a>.</footer>
