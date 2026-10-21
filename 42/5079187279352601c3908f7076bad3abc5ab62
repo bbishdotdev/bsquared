@@ -1,0 +1,22 @@
+apps/web/src/app/bstack/page.tsx
+  s_822e08e34bda62::t_8ab9e02c6e0b9c 38
+  s_822e08e34bda62::t_0d5ddff12ef6a1 3,161-162
+data/bstack-catalog.json
+  s_822e08e34bda62::t_659bf7658c873f 2,4,76-88,386-387
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "425079187279352601c3908f7076bad3abc5ab62",
+  "prompts": {},
+  "sessions": {
+    "s_822e08e34bda62": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0b504-4712-7531-8350-112b403db5b7",
+        "model": "gpt-6-sol"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>"
+    }
+  }
+}
