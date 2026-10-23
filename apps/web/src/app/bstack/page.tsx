@@ -35,7 +35,7 @@ const journeys = [
     title: "Work on a PR",
     start: "to-pr, review-pr, or resolve-pr",
     steps: ["Explain the change", "Challenge the review", "Resolve useful feedback"],
-    note: "Start at review for an existing PR. Use configure-pr to create a bstack-pr-policy.md with review priorities and paths requiring human review. A sound reply can resolve feedback without code.",
+    note: "Start at review for an existing PR. BStack checks unfamiliar PRs for risky content before its isolated reviewers run. Use configure-pr for project review priorities. A sound reply can resolve feedback without code.",
   },
   {
     title: "Understand code",
@@ -48,7 +48,7 @@ const journeys = [
 const modes = [
   { name: "Direct skill", action: "Invoke exactly what you need", detail: "Call a named skill such as grill-me, prototype, how, or to-pr. It loads only its relevant method and dependencies." },
   { name: "Poteto Mode", action: "Choose an engineering workflow", detail: "Invoke poteto-mode to select a matching PStack playbook and its needed principles and skills." },
-  { name: "Auto mode", action: "Prompt normally", detail: "Opt in with bstack-auto on. Ordinary engineering prompts can enter the same router. It does not silently publish work or make product decisions." },
+  { name: "Auto mode", action: "Prompt normally", detail: "New installs start with this on; upgrades keep your saved choice. Ordinary engineering prompts can enter the same router. Use bstack-auto off for manual routing. It does not authorize publishing or product decisions." },
 ];
 
 function SectionHeading({ eyebrow, title, id }: { eyebrow: string; title: string; id: string }) {
@@ -122,12 +122,13 @@ export default function BStackPage() {
           </section>
           <section id="routing" aria-labelledby="routing-title" className="scroll-mt-28 border-t border-border py-14">
             <SectionHeading eyebrow="Behavior" title="What runs when" id="routing" />
-            <p className="mb-6 text-muted-foreground">Manual invocation is the default. Auto mode changes how an engineering request enters the router; it does not run every phase.</p>
+            <p className="mb-6 text-muted-foreground">Auto routing is on for new installs. You can still invoke a skill directly, and auto mode does not run every phase.</p>
             <div className="divide-y divide-border border-y border-border">
               {modes.map((mode) => <div key={mode.name} className="grid gap-2 py-5 sm:grid-cols-[150px_1fr] sm:gap-5"><span className="font-mono text-xs font-semibold text-primary">{mode.name}</span><div><h3 className="font-mono text-sm font-semibold">{mode.action}</h3><p className="mt-1 text-sm text-muted-foreground">{mode.detail}</p></div></div>)}
             </div>
             <h3 className="mb-3 mt-9 font-mono text-base font-semibold">The connections</h3>
             <p className="text-sm text-muted-foreground"><code>grill-me</code> loads the grilling method. <code>wayfinder</code> chooses grilling, research, or prototype for each question. <code>implement</code> and <code>poteto-mode</code> enter BStack&apos;s engineering router, which picks the relevant PStack playbook and principles. <code>to-spec</code>, <code>to-tickets</code>, implementation, and PR work remain separate jobs unless you ask for them.</p>
+            <p className="mt-4 text-sm text-muted-foreground">Project verification is a separate choice. <code>ask</code> proposes a check when feature work changes behavior, <code>auto</code> maintains the affected verifier, and <code>off</code> leaves it alone unless you ask. New installs use <code>ask</code>.</p>
           </section>
           <section id="catalog" aria-labelledby="catalog-title" className="scroll-mt-28 border-t border-border py-14">
             <SectionHeading eyebrow="Reference" title="Skill catalog" id="catalog" />
@@ -159,8 +160,9 @@ export default function BStackPage() {
             <p className="mb-4 text-muted-foreground">Install the entry skill through skills.sh, then ask your agent to install its bundled package into the current project.</p>
             <pre className="overflow-x-auto rounded-lg border border-border bg-muted/40 p-4 font-mono text-xs"><code>npx skills add bbishdotdev/ai-tools --skill install-bstack</code></pre>
             <p className="mt-5 text-muted-foreground">You can also download the <a href={`https://github.com/bbishdotdev/ai-tools/releases/tag/v${catalog.version}`} className="text-foreground underline underline-offset-4">v{catalog.version} release ZIP and notes</a> or clone the repo and run the bundled <code>install.py</code>. Setup uses pinned copies of upstream skills; it does not fetch their latest versions.</p>
-            <p className="mt-4 text-muted-foreground">Install in each Git repository where you want skills or auto routing, even if the installer is available globally or in a parent folder. After install or upgrade, start a new agent session so its skill list refreshes. In Claude Code desktop, start a new Code chat rooted in that repository. An upgrade keeps your selected hosts and auto-mode preference.</p>
-            <pre className="mt-5 overflow-x-auto rounded-lg border border-border bg-muted/40 p-4 font-mono text-xs leading-6"><code>{`python3 .bstack/package/scripts/bstack.py doctor --project "$PWD"\npython3 .bstack/package/scripts/bstack.py auto status --project "$PWD"\npython3 .bstack/package/scripts/bstack.py auto on --project "$PWD"`}</code></pre>
+            <p className="mt-4 text-muted-foreground">Install in each Git repository where you want skills or auto routing, even if the installer is available globally or in a parent folder. After install or upgrade, start a new agent session so its skill list refreshes. In Claude Code desktop, start a new Code chat rooted in that repository. An upgrade keeps your selected hosts and routing choice.</p>
+            <pre className="mt-5 overflow-x-auto rounded-lg border border-border bg-muted/40 p-4 font-mono text-xs leading-6"><code>{`python3 .bstack/package/scripts/bstack.py doctor --project "$PWD"\npython3 .bstack/package/scripts/bstack.py auto status --project "$PWD"\npython3 .bstack/package/scripts/bstack.py verification status --project "$PWD"`}</code></pre>
+            <p className="mt-4 text-sm text-muted-foreground">For a multi-model workflow, run a live check before you need it. For example, <code>doctor --project "$PWD" --live --workflow review-pr</code> probes the configured review models. BStack supports custom CLI launch commands when your environment wraps Codex, Claude Code, Cursor, or Grok.</p>
           </section>
           <footer className="border-t border-border py-7 text-sm text-muted-foreground">Built by <Link href="/home" className="text-foreground underline underline-offset-4">Brenden Bishop</Link>, on work by <a href="https://github.com/cursor/plugins/tree/main/pstack" className="text-foreground underline underline-offset-4">Lauren “poteto” Tan</a> and <a href="https://github.com/mattpocock/skills" className="text-foreground underline underline-offset-4">Matt Pocock</a>.</footer>
         </main>

@@ -1,9 +1,9 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "counts": {
-    "skills": 47,
+    "skills": 43,
     "principles": 23,
-    "playbooks": 23,
+    "playbooks": 16,
     "internal": 3
   },
   "items": [
@@ -22,15 +22,6 @@
       "area": "Engineering",
       "what": "Spawn N parallel candidates at the same task, pick a base, graft the strongest parts of the losers into it. Use for /arena, 'arena this', 'throw it in the arena', or when one attempt at a non-trivial artifact would lock in the wrong shape.",
       "why": "Compare real alternatives when one attempt would be too easy to accept.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
-      "related": []
-    },
-    {
-      "name": "automate-me",
-      "kind": "skill",
-      "area": "Engineering",
-      "what": "Use for \"automate me\", \"create/update/refresh my -mode skill\", \"turn/capture my preferences or working style into a skill\", or wanting agents to follow how the user works. Drafts or revises a personal -mode skill via create-skill + unslop, optionally pulling fresh evidence from recent transcripts.",
-      "why": "Turn a recurring personal working pattern into reusable agent instructions.",
       "loading": "Invoke directly; a selected workflow may read it when relevant",
       "related": []
     },
@@ -70,7 +61,7 @@
       "area": "Setup and routing",
       "what": "Explain how to use bstack, choose a starting skill, or understand its setup, routing, workspace, and memory. Use when someone asks how bstack works or where to start.",
       "why": "Find a useful starting point without reading the whole package.",
-      "loading": "Discoverable for guide questions",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
       "related": []
     },
     {
@@ -79,7 +70,7 @@
       "area": "PR work",
       "what": "Set or revise this repository's PR review priorities, human-review paths, critical behavior, and linked standards. Use when a developer says what their team's PR process should care about.",
       "why": "Add a project's own PR priorities without editing shared BStack workflows.",
-      "loading": "Discoverable when setting project PR priorities",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
       "related": [
         "to-pr",
         "review-pr",
@@ -108,9 +99,9 @@
       "name": "create-verification-skill",
       "kind": "skill",
       "area": "Engineering",
-      "what": "Generate a project-local verification skill that drives your app the way a user does — any language, framework, or platform. Use for /create-verification-skill, \"make a control skill for this repo\", or when a project has no scripted way to prove UI/CLI/service behavior.",
-      "why": "Give a project a repeatable way to verify user-visible behavior.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
+      "what": "Build a project verifier for a substantial new product feature when no verifier exists, following the project's verification setting. The verifier drives real user behavior and records evidence.",
+      "why": "Give a new feature a repeatable user-facing check when the project verification setting calls for it.",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
       "related": []
     },
     {
@@ -191,7 +182,7 @@
       "area": "Engineering",
       "what": "Use for \"how does X work\", code walkthroughs before changing something, and placement / ownership / layering questions (\"where should this live\", \"which package owns this\", \"is this the right layer\"). Explains subsystem architecture, runtime flow, onboarding mental models. Use why for motivation.",
       "why": "Ground a change in what the code actually does and where it belongs.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
       "related": [
         "why",
         "architect",
@@ -224,17 +215,8 @@
       "name": "maintain-verification-skill",
       "kind": "skill",
       "area": "Engineering",
-      "what": "Periodic pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections. Use for /maintain-verification-skill or \"audit the verify skill\".",
-      "why": "Keep an existing verification skill aligned with the real product.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
-      "related": []
-    },
-    {
-      "name": "make-bot-ui",
-      "kind": "skill",
-      "area": "Engineering",
-      "what": "Use when building a custom UI (page, dashboard, buttons) that should wake a Grok Bot over a webhook, when the user must provide a webhook sender key, or when exposing that UI on Tailscale.",
-      "why": "Connect a purpose-built local UI to a Grok Bot webhook when that host is available.",
+      "what": "Audit a project verification skill against source and live user behavior, then repair only proven drift. Use for an explicit verifier or feature-map maintenance pass.",
+      "why": "Reconcile the whole verifier when requested; routine feature work updates only the affected path.",
       "loading": "Invoke directly; a selected workflow may read it when relevant",
       "related": []
     },
@@ -242,8 +224,8 @@
       "name": "no-comments",
       "kind": "skill",
       "area": "Engineering",
-      "what": "Spawn Comment Sicko, fix accepted findings, and offer encodings for claimed constraints.",
-      "why": "Check whether comments hide code that should explain itself.",
+      "what": "Review scoped code comments and replace them with clearer code or an ADR candidate when they carry a fundamental decision. Use before review or when comments obscure the implementation.",
+      "why": "Make the code explain itself without a Cursor-only named agent.",
       "loading": "Invoke directly; a selected workflow may read it when relevant",
       "related": []
     },
@@ -266,30 +248,12 @@
       "area": "Engineering",
       "what": "Build and iterate on disposable prototypes for design or behavior questions, preserving the chosen reference for a clean implementation handoff.",
       "why": "Make a design or behavior choice with a cheap, disposable example.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
       "related": [
         "wayfinder",
         "handoff",
         "implement"
       ]
-    },
-    {
-      "name": "recall",
-      "kind": "skill",
-      "area": "Continuity",
-      "what": "Reconstruct your recent working context from your own chat history, live state, and the shared record (user reports, prior fixes, incidents), then hand back a tight current-state brief. Use for 'recall my work on X', 'catch me up', 'what have I been working on', 'where did I leave off', before starting or resuming work.",
-      "why": "Recover enough recent context to resume the right work.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
-      "related": []
-    },
-    {
-      "name": "reflect",
-      "kind": "skill",
-      "area": "Engineering",
-      "what": "Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect.",
-      "why": "Find improvements to agent instructions from an actual work session.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
-      "related": []
     },
     {
       "name": "research",
@@ -306,7 +270,7 @@
       "area": "PR work",
       "what": "Assess and resolve feedback on an open PR without blindly accepting suggestions or expanding its purpose. Use for author-side PR follow-up, not an independent review.",
       "why": "Judge review feedback before replying or changing code.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
       "related": []
     },
     {
@@ -315,7 +279,7 @@
       "area": "PR work",
       "what": "Review a pull request with two independent headless models and a fresh adjudicator that challenges their findings. Recheck follow-up changes without repeating settled review, then prepare or publish a concise verdict.",
       "why": "Challenge a PR independently and filter out weak findings.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
       "related": [
         "resolve-pr"
       ]
@@ -380,7 +344,7 @@
       "area": "PR work",
       "what": "Prepare a short visual PR briefing, check open work for overlap, and publish to the authorized destination. Use for an explicit PR request or an authorized PR delivery step.",
       "why": "Give a reviewer a short, useful explanation of an authorized PR.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
       "related": [
         "review-pr",
         "resolve-pr",
@@ -426,7 +390,7 @@
       "area": "Planning",
       "what": "Evaluate incoming bugs, enhancements, or proposed changes for duplication, accepted intent, evidence, and a usable implementation brief.",
       "why": "Avoid duplicate or contradictory work before it enters the queue.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
       "related": []
     },
     {
@@ -476,7 +440,7 @@
       "area": "Engineering",
       "what": "Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or data-backed thresholds. Discovers available MCPs and queries each evidence category (source control, issue tracker, long-form docs, real-time chat, infrastructure observability, error tracking, product analytics warehouse) in parallel, then returns a cited read on decisions and tradeoffs. Use how for runtime behavior.",
       "why": "Find the evidence behind a choice before proposing to reverse it.",
-      "loading": "Invoke directly; a selected workflow may read it when relevant",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
       "related": [
         "how",
         "teach"
@@ -708,33 +672,6 @@
       "related": []
     },
     {
-      "name": "autopilot-full",
-      "kind": "playbook",
-      "area": "Engineering playbooks",
-      "what": "Coordinate independent PR owners through the full approved lifecycle.",
-      "why": "Use for an explicitly autonomous PR queue.",
-      "loading": "Selected by Poteto Mode for a matching task; no direct slash command",
-      "related": []
-    },
-    {
-      "name": "autopilot-stack",
-      "kind": "playbook",
-      "area": "Engineering playbooks",
-      "what": "Build a verified, ordered stack of dependent PRs.",
-      "why": "Use when changes must be reviewed or landed in sequence.",
-      "loading": "Selected by Poteto Mode for a matching task; no direct slash command",
-      "related": []
-    },
-    {
-      "name": "babysit",
-      "kind": "playbook",
-      "area": "Engineering playbooks",
-      "what": "Track an open PR through checks, comments, and conflicts.",
-      "why": "Use when the job is getting a PR merge-ready, not merging it.",
-      "loading": "Selected by Poteto Mode for a matching task; no direct slash command",
-      "related": []
-    },
-    {
       "name": "bug-fix",
       "kind": "playbook",
       "area": "Engineering playbooks",
@@ -780,15 +717,6 @@
       "related": []
     },
     {
-      "name": "multi-phase-plan",
-      "kind": "playbook",
-      "area": "Engineering playbooks",
-      "what": "Produce a checkable plan for phases or stacked changes.",
-      "why": "Use when planning is requested but execution is not.",
-      "loading": "Selected by Poteto Mode for a matching task; no direct slash command",
-      "related": []
-    },
-    {
       "name": "opening-a-pr",
       "kind": "playbook",
       "area": "Engineering playbooks",
@@ -798,15 +726,6 @@
       "related": [
         "to-pr"
       ]
-    },
-    {
-      "name": "orchestrate",
-      "kind": "playbook",
-      "area": "Engineering playbooks",
-      "what": "Coordinate a standing program across many tasks and agents.",
-      "why": "Use for a true multi-day program, not an ordinary feature.",
-      "loading": "Selected by Poteto Mode for a matching task; no direct slash command",
-      "related": []
     },
     {
       "name": "pause-safely",
@@ -865,15 +784,6 @@
       "related": []
     },
     {
-      "name": "shipping",
-      "kind": "playbook",
-      "area": "Engineering playbooks",
-      "what": "Verify a merge-ready PR or stack and land authorized work.",
-      "why": "Use only when merging is in scope.",
-      "loading": "Selected by Poteto Mode for a matching task; no direct slash command",
-      "related": []
-    },
-    {
       "name": "trace-forensics",
       "kind": "playbook",
       "area": "Engineering playbooks",
@@ -892,21 +802,12 @@
       "related": []
     },
     {
-      "name": "worktree-cleanup",
-      "kind": "playbook",
-      "area": "Engineering playbooks",
-      "what": "Inspect and prune stale worktrees or simulators.",
-      "why": "Use when reclaiming local disk safely.",
-      "loading": "Selected by Poteto Mode for a matching task; no direct slash command",
-      "related": []
-    },
-    {
       "name": "bstack-router",
       "kind": "internal",
       "area": "Internal and aliases",
       "what": "Apply BStack's policy over selected PStack and SDLC workflows.",
       "why": "Keep routing and host behavior consistent.",
-      "loading": "Loaded by project instructions or the optional routing hook",
+      "loading": "Loaded by project instructions or the automatic routing hook when enabled",
       "related": [
         "poteto-mode"
       ]
