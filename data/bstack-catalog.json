@@ -1,7 +1,7 @@
 {
-  "version": "2.0.0",
+  "version": "3.0.0",
   "counts": {
-    "skills": 43,
+    "skills": 47,
     "principles": 23,
     "playbooks": 16,
     "internal": 3
@@ -24,6 +24,18 @@
       "why": "Compare real alternatives when one attempt would be too easy to accept.",
       "loading": "Invoke directly; a selected workflow may read it when relevant",
       "related": []
+    },
+    {
+      "name": "automate-me",
+      "kind": "skill",
+      "area": "Engineering",
+      "what": "Turn recurring working preferences in scoped agent sessions into a small, portable skill or project rule. Use when someone asks to capture how they work or update their personal mode.",
+      "why": "Turn repeated working preferences into a small, reusable rule or skill.",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
+      "related": [
+        "reflect",
+        "recall"
+      ]
     },
     {
       "name": "blast-radius",
@@ -256,6 +268,30 @@
       ]
     },
     {
+      "name": "recall",
+      "kind": "skill",
+      "area": "Engineering",
+      "what": "Reconstruct recent work on a named project or topic from scoped agent sessions and current project evidence. Use for catch-me-up and where-did-I-leave-off requests.",
+      "why": "Recover relevant work from project-scoped agent sessions and check what still holds.",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
+      "related": [
+        "reflect",
+        "handoff"
+      ]
+    },
+    {
+      "name": "reflect",
+      "kind": "skill",
+      "area": "Engineering",
+      "what": "Review an agent session for recurring workflow lessons and propose focused improvements to existing skills or checks. Use when the user asks to reflect on how the work went.",
+      "why": "Find recurring workflow lessons without turning one mistake into a permanent rule.",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
+      "related": [
+        "automate-me",
+        "recall"
+      ]
+    },
+    {
       "name": "research",
       "kind": "skill",
       "area": "Engineering",
@@ -445,6 +481,15 @@
         "how",
         "teach"
       ]
+    },
+    {
+      "name": "worktree-cleanup",
+      "kind": "skill",
+      "area": "Engineering",
+      "what": "Audit Git worktrees and reclaim confirmed-unused checkouts without losing local work. Use when asked to clean stale worktrees or recover disk space.",
+      "why": "Find unused checkouts while preserving work and active sessions.",
+      "loading": "Available from ordinary requests; you can also invoke it directly",
+      "related": []
     },
     {
       "name": "principle-attack-the-premise",

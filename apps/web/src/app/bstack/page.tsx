@@ -35,13 +35,19 @@ const journeys = [
     title: "Work on a PR",
     start: "to-pr, review-pr, or resolve-pr",
     steps: ["Explain the change", "Challenge the review", "Resolve useful feedback"],
-    note: "Start at review for an existing PR. BStack checks unfamiliar PRs for risky content before its isolated reviewers run. Use configure-pr for project review priorities. A sound reply can resolve feedback without code.",
+    note: "Start at review for an existing PR. BStack checks for risky instructions before reviewers search the whole saved repository through restricted tools. Feedback explains the problem, impact, and next step, with code links underneath. Use configure-pr for project priorities. A sound reply can resolve feedback without code.",
   },
   {
     title: "Understand code",
     start: "how, why, or teach",
     steps: ["Trace behavior", "Check rationale and ADRs", "Explain what is known"],
     note: "A read-only answer is a complete outcome. Nothing needs to be implemented.",
+  },
+  {
+    title: "Return to ongoing work",
+    start: "recall, reflect, or automate-me",
+    steps: ["Catch up on the project", "Check what is true now", "Continue or improve the workflow"],
+    note: "Recall summarizes relevant sessions. Reflect reviews how the work went. Automate-me proposes a small skill or rule from repeated preferences. Session reads stay scoped to the project; Amp thread export needs you to confirm the selected threads first.",
   },
 ];
 
@@ -70,6 +76,7 @@ export default function BStackPage() {
             <span className="text-muted-foreground">/</span>
             <span className="font-mono font-semibold">bstack</span>
             <span className="hidden text-muted-foreground sm:inline">/ guide</span>
+            <a href={`https://github.com/bbishdotdev/ai-tools/releases/tag/v${catalog.version}`} className="hidden rounded border border-border px-2 py-0.5 font-mono text-[10px] text-muted-foreground hover:text-foreground sm:inline-flex">v{catalog.version}</a>
           </div>
           <div className="flex items-center gap-4 text-xs text-muted-foreground">
             <a href="#catalog" className="hover:text-foreground">Browse skills</a>
@@ -163,6 +170,8 @@ export default function BStackPage() {
             <p className="mt-4 text-muted-foreground">Install in each Git repository where you want skills or auto routing, even if the installer is available globally or in a parent folder. After install or upgrade, start a new agent session so its skill list refreshes. In Claude Code desktop, start a new Code chat rooted in that repository. An upgrade keeps your selected hosts and routing choice.</p>
             <pre className="mt-5 overflow-x-auto rounded-lg border border-border bg-muted/40 p-4 font-mono text-xs leading-6"><code>{`python3 .bstack/package/scripts/bstack.py doctor --project "$PWD"\npython3 .bstack/package/scripts/bstack.py auto status --project "$PWD"\npython3 .bstack/package/scripts/bstack.py verification status --project "$PWD"`}</code></pre>
             <p className="mt-4 text-sm text-muted-foreground">For a multi-model workflow, run a live check before you need it. For example, <code>doctor --project "$PWD" --live --workflow review-pr</code> probes the configured review models. BStack supports custom CLI launch commands when your environment wraps Codex, Claude Code, Cursor, or Grok.</p>
+            <p className="mt-4 text-sm text-muted-foreground">Static PR review needs authenticated GitHub and configured Codex/Claude Code CLIs. The bundled tools let reviewers read unchanged callers without general shell, private-file, or arbitrary web access. These restrictions are not an OS sandbox. Keep an explicit vetted worker if you require OS isolation; running the app or tests needs a separate credential-free worker. Read the <a href={`https://github.com/bbishdotdev/ai-tools/blob/v${catalog.version}/bstack/engineering/review-pr/references/security.md`} className="text-foreground underline underline-offset-4">review security contract</a>.</p>
+            <p className="mt-4 text-sm text-muted-foreground">Amp and Copilot can use the optional project skill bindings. Their BStack hooks and headless review-model adapters are not implemented. See the <a href="https://github.com/bbishdotdev/ai-tools/tree/main/bstack#tool-compatibility" className="text-foreground underline underline-offset-4">tool compatibility matrix</a> for app and CLI limits. The short skills.sh command tracks main; use the release download for a fixed version.</p>
           </section>
           <footer className="border-t border-border py-7 text-sm text-muted-foreground">Built by <Link href="/home" className="text-foreground underline underline-offset-4">Brenden Bishop</Link>, on work by <a href="https://github.com/cursor/plugins/tree/main/pstack" className="text-foreground underline underline-offset-4">Lauren “poteto” Tan</a> and <a href="https://github.com/mattpocock/skills" className="text-foreground underline underline-offset-4">Matt Pocock</a>.</footer>
         </main>
