@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import catalog from "../../../../../data/bstack-catalog.json";
 import { SkillCatalog } from "./skill-catalog";
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 
 const sections = [
   { id: "overview", title: "Overview" },
+  { id: "compatibility", title: "Tool compatibility" },
   { id: "routes", title: "Common routes" },
   { id: "routing", title: "What runs when" },
   { id: "catalog", title: "Skill catalog" },
@@ -111,6 +113,16 @@ export default function BStackPage() {
               <p className="border-t border-border px-4 py-3 text-sm text-muted-foreground">Then ask your agent to install BStack in the current project. <a href="#install" className="text-foreground underline underline-offset-4">Other options →</a></p>
             </div>
           </section>
+          <section id="compatibility" aria-labelledby="compatibility-title" className="scroll-mt-28 border-t border-border py-14">
+            <SectionHeading eyebrow="Tools" title="Tool compatibility" id="compatibility" />
+            <p className="mb-5 text-muted-foreground">Use the same project package across Codex, Claude Code, Cursor, Grok, Amp, GitHub Copilot, and OpenCode CLIs. Each has native skill bindings and hooks. This matrix shows which workflows have passed real tasks in disposable projects.</p>
+            <a href="/bstack/compatibility.svg" className="block overflow-hidden rounded-lg border border-border" aria-label="Open the full tool compatibility matrix">
+              <Image src="/bstack/compatibility.svg" alt="BStack compatibility across skills, automatic routing, PR workflows, and hooks. Six CLIs are supported throughout. Copilot PR workflows and desktop or editor integrations are partial." width={1120} height={838} className="h-auto w-full" unoptimized />
+            </a>
+            <p className="mt-3 text-xs text-muted-foreground"><a href="/bstack/compatibility.svg" className="text-foreground underline underline-offset-4">Open matrix full size</a> · Released with v{catalog.version}</p>
+            <p className="mt-5 text-sm text-muted-foreground">Copilot&apos;s final PR guard check hit its monthly usage limit, so that cell stays partial. Desktop and editor behavior still needs direct validation. CLI results do not prove desktop support or first-run hook trust.</p>
+            <p className="mt-4 text-sm text-muted-foreground">Supported means the integration passed its scenarios. It does not mean every model solves every task. Multi-model PR review currently runs through Codex and Claude Code, whichever tool starts it.</p>
+          </section>
           <section id="routes" aria-labelledby="routes-title" className="scroll-mt-28 border-t border-border py-14">
             <SectionHeading eyebrow="Workflows" title="Common routes" id="routes" />
             <p className="mb-7 text-muted-foreground">These are examples, not mandatory sequences. Pick the part that helps with your current task.</p>
@@ -171,7 +183,7 @@ export default function BStackPage() {
             <pre className="mt-5 overflow-x-auto rounded-lg border border-border bg-muted/40 p-4 font-mono text-xs leading-6"><code>{`python3 .bstack/package/scripts/bstack.py doctor --project "$PWD"\npython3 .bstack/package/scripts/bstack.py auto status --project "$PWD"\npython3 .bstack/package/scripts/bstack.py verification status --project "$PWD"`}</code></pre>
             <p className="mt-4 text-sm text-muted-foreground">For a multi-model workflow, run a live check before you need it. For example, <code>doctor --project "$PWD" --live --workflow review-pr</code> probes the configured review models. BStack supports custom CLI launch commands when your environment wraps Codex, Claude Code, Cursor, or Grok.</p>
             <p className="mt-4 text-sm text-muted-foreground">Static PR review needs authenticated GitHub and configured Codex/Claude Code CLIs. The bundled tools let reviewers read unchanged callers without general shell, private-file, or arbitrary web access. These restrictions are not an OS sandbox. Keep an explicit vetted worker if you require OS isolation; running the app or tests needs a separate credential-free worker. Read the <a href={`https://github.com/bbishdotdev/ai-tools/blob/v${catalog.version}/bstack/engineering/review-pr/references/security.md`} className="text-foreground underline underline-offset-4">review security contract</a>.</p>
-            <p className="mt-4 text-sm text-muted-foreground">Amp and Copilot can use the optional project skill bindings. Their BStack hooks and headless review-model adapters are not implemented. See the <a href="https://github.com/bbishdotdev/ai-tools/tree/main/bstack#tool-compatibility" className="text-foreground underline underline-offset-4">tool compatibility matrix</a> for app and CLI limits. The short skills.sh command tracks main; use the release download for a fixed version.</p>
+            <p className="mt-4 text-sm text-muted-foreground">Select your tools during setup. Amp, Copilot, and OpenCode now have native skill bindings and hooks alongside Codex, Claude Code, Cursor, and Grok. Check <a href="#compatibility" className="text-foreground underline underline-offset-4">tool compatibility</a> for the remaining limits. The short skills.sh command tracks main; use the release download for a fixed version.</p>
           </section>
           <footer className="border-t border-border py-7 text-sm text-muted-foreground">Built by <Link href="/home" className="text-foreground underline underline-offset-4">Brenden Bishop</Link>, on work by <a href="https://github.com/cursor/plugins/tree/main/pstack" className="text-foreground underline underline-offset-4">Lauren “poteto” Tan</a> and <a href="https://github.com/mattpocock/skills" className="text-foreground underline underline-offset-4">Matt Pocock</a>.</footer>
         </main>
