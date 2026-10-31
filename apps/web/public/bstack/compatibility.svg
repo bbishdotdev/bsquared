@@ -7,7 +7,7 @@
 <rect width="1120" height="838" rx="18" fill="#101318"/>
 <g font-family="Inter, ui-sans-serif, system-ui, sans-serif">
 <text x="34" y="48" fill="#f2f5f8" font-size="25" font-weight="700">Tool compatibility</text>
-<text x="34" y="76" fill="#a8b3bf" font-size="14">Proven by behavior scenarios, last recorded 2026-10-29</text>
+<text x="34" y="76" fill="#a8b3bf" font-size="14">Proven by behavior scenarios, last recorded 2026-10-31</text>
 <rect x="24" y="101" width="1072" height="43" rx="8" fill="#1b2027"/>
 <g fill="#c8d1d9" font-size="13" font-weight="700"><text x="37" y="128">Tool</text><text x="342" y="128">Skills</text><text x="547" y="128">Auto mode</text><text x="752" y="128">PR workflows</text><text x="957" y="128">Hooks</text></g>
 <text x="36" y="172" fill="#8998a8" font-size="12" font-weight="700" letter-spacing="2">CLI</text>
@@ -20,8 +20,8 @@
 <g><rect x="24" y="453" width="1072" height="42" rx="6" fill="#171c22"/><text x="38" y="480" fill="#edf1f5" font-size="15" font-weight="550">OpenCode CLI</text><use href="#supported" x="332" y="460"/><use href="#supported" x="537" y="460"/><use href="#supported" x="742" y="460"/><use href="#supported" x="947" y="460"/></g>
 <text x="36" y="536" fill="#8998a8" font-size="12" font-weight="700" letter-spacing="2">DESKTOP / EDITOR</text>
 <g><rect x="24" y="541" width="1072" height="42" rx="6" fill="#101318"/><text x="38" y="568" fill="#edf1f5" font-size="15" font-weight="550">Codex desktop</text><use href="#partial" x="332" y="548"/><use href="#partial" x="537" y="548"/><use href="#partial" x="742" y="548"/><use href="#partial" x="947" y="548"/></g>
-<g><rect x="24" y="587" width="1072" height="42" rx="6" fill="#171c22"/><text x="38" y="614" fill="#edf1f5" font-size="15" font-weight="550">Claude Code desktop</text><use href="#partial" x="332" y="594"/><use href="#partial" x="537" y="594"/><use href="#partial" x="742" y="594"/><use href="#partial" x="947" y="594"/></g>
-<g><rect x="24" y="633" width="1072" height="42" rx="6" fill="#101318"/><text x="38" y="660" fill="#edf1f5" font-size="15" font-weight="550">Cursor desktop</text><use href="#partial" x="332" y="640"/><use href="#partial" x="537" y="640"/><use href="#partial" x="742" y="640"/><use href="#partial" x="947" y="640"/></g>
+<g><rect x="24" y="587" width="1072" height="42" rx="6" fill="#171c22"/><text x="38" y="614" fill="#edf1f5" font-size="15" font-weight="550">Claude Code desktop</text><use href="#supported" x="332" y="594"/><use href="#supported" x="537" y="594"/><use href="#partial" x="742" y="594"/><use href="#partial" x="947" y="594"/></g>
+<g><rect x="24" y="633" width="1072" height="42" rx="6" fill="#101318"/><text x="38" y="660" fill="#edf1f5" font-size="15" font-weight="550">Cursor desktop</text><use href="#supported" x="332" y="640"/><use href="#supported" x="537" y="640"/><use href="#partial" x="742" y="640"/><use href="#partial" x="947" y="640"/></g>
 <g><rect x="24" y="679" width="1072" height="42" rx="6" fill="#171c22"/><text x="38" y="706" fill="#edf1f5" font-size="15" font-weight="550">VS Code with Copilot</text><use href="#partial" x="332" y="686"/><use href="#partial" x="537" y="686"/><use href="#partial" x="742" y="686"/><use href="#partial" x="947" y="686"/></g>
 <g><rect x="24" y="725" width="1072" height="42" rx="6" fill="#101318"/><text x="38" y="752" fill="#edf1f5" font-size="15" font-weight="550">OpenCode desktop</text><use href="#partial" x="332" y="732"/><use href="#partial" x="537" y="732"/><use href="#partial" x="742" y="732"/><use href="#partial" x="947" y="732"/></g>
 <line x1="24" y1="776" x2="1096" y2="776" stroke="#343c46"/>
