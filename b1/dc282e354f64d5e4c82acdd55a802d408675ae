@@ -1,0 +1,22 @@
+apps/web/public/bstack/compatibility.svg
+  s_7ab85060a7ea14::t_9e99a6dd287eed 10,25
+apps/web/src/app/bstack/page.tsx
+  s_7ab85060a7ea14::t_9e99a6dd287eed 122,125
+  s_7ab85060a7ea14::t_8b4e064a8bb6e6 124
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b1dc282e354f64d5e4c82acdd55a802d408675ae",
+  "prompts": {},
+  "sessions": {
+    "s_7ab85060a7ea14": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "795e4f67-e531-43ab-8d12-2635203f3934",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>"
+    }
+  }
+}
