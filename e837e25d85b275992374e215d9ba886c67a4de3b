@@ -1,0 +1,21 @@
+apps/web/src/app/bstack/page.tsx
+  s_123ed7c0166e50::t_ebb054841dd6d9 124,185-187,189
+data/bstack-catalog.json
+  s_123ed7c0166e50::t_777e14143c9e3a 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e837e25d85b275992374e215d9ba886c67a4de3b",
+  "prompts": {},
+  "sessions": {
+    "s_123ed7c0166e50": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1c14f-cf4e-71e3-9d27-d1b898f5e382",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>"
+    }
+  }
+}
