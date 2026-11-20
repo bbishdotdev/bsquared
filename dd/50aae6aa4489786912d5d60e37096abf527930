@@ -1,0 +1,21 @@
+apps/web/src/app/bstack/page.tsx
+  s_8122339cef63aa::t_4c8ac26545f89a 40,187,193,195
+data/bstack-catalog.json
+  s_8122339cef63aa::t_4c8ac26545f89a 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "dd50aae6aa4489786912d5d60e37096abf527930",
+  "prompts": {},
+  "sessions": {
+    "s_8122339cef63aa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bcbb0231-629a-46df-bad7-ff7a695ddb8c",
+        "model": "claude-fable-5-2"
+      },
+      "human_author": "Brenden Bishop <btbishop93@gmail.com>"
+    }
+  }
+}
